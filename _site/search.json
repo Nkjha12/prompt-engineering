@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "Module2.html",
+    "href": "Module2.html",
+    "title": "Module 2: Techniques in Prompting",
+    "section": "",
+    "text": "Zero-shot prompting\nFew-shot prompting\nChain-of-thought prompting\nInstruction-style prompting\nRole prompting or persona-based prompting\n\nEach technique gives the model better instructions, depending on what we want."
+  },
+  {
+    "objectID": "Module2.html#what-will-you-learn-in-this-module",
+    "href": "Module2.html#what-will-you-learn-in-this-module",
+    "title": "Module 2: Techniques in Prompting",
+    "section": "",
+    "text": "In this module, you will learn different ways to write prompts depending on the task. These are called prompting techniques or prompt patterns.\nWe will cover:\n\nZero-shot prompting\nFew-shot prompting\nChain-of-thought prompting\nInstruction-style prompting\nRole prompting or persona-based prompting\n\nEach technique gives the model better instructions, depending on what we want."
+  },
+  {
+    "objectID": "Module2.html#zero-shot-prompting",
+    "href": "Module2.html#zero-shot-prompting",
+    "title": "Module 2: Techniques in Prompting",
+    "section": "Zero-shot Prompting",
+    "text": "Zero-shot Prompting\nIn zero-shot prompting, we just ask the question or give the instruction without giving any examples.\n\nExample:\n\nPrompt: “Translate to Hindi: ‘How are you?’”\nOutput: “Aap kaise hain?”\n\nEven though we did not show any examples, the model understood the task. This is useful when:\n\nYou want a quick result\nYou believe the model already knows how to do the task."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Week 6",
+    "section": "",
+    "text": "Prompt Engineering"
+  },
+  {
+    "objectID": "index.html#what-will-you-learn",
+    "href": "index.html#what-will-you-learn",
+    "title": "Welcome to the Prompt Engineering Certification",
+    "section": "",
+    "text": "In this course, you will learn:\n\nWhat prompt engineering is and why it matters\nDifferent styles of prompting (zero-shot, few-shot, etc.)\nHow to write better prompts for tasks like summarization, translation, and question-answering\nHow to evaluate and improve prompts\nHow to use Python and tools like Hugging Face and OpenAI"
+  },
+  {
+    "objectID": "index.html#prerequisites",
+    "href": "index.html#prerequisites",
+    "title": "Welcome to the Prompt Engineering Certification",
+    "section": "",
+    "text": "Basic Python (just enough to run a few lines of code)\nCuriosity and interest in AI\nNo prior experience with machine learning or LLMs required"
+  },
+  {
+    "objectID": "index.html#course-structure",
+    "href": "index.html#course-structure",
+    "title": "Welcome to the Prompt Engineering Certification",
+    "section": "",
+    "text": "Module\nTopic\n\n\n\n\nModule 1\nIntroduction to Prompt Engineering\n\n\nModule 2\nTechniques in Prompting\n\n\nModule 3\nApplications: Summarization, Classification, QA\n\n\nModule 4\nEvaluation and Refinement of Prompts\n\n\nModule 5\nTools: OpenAI, Hugging Face, LangChain\n\n\nModule 6\nFinal Project and Quiz"
+  },
+  {
+    "objectID": "index.html#how-to-start",
+    "href": "index.html#how-to-start",
+    "title": "Welcome to the Prompt Engineering Certification",
+    "section": "",
+    "text": "Click on Module 1 in the top navigation bar to begin learning."
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "Welcome to the Prompt Engineering Certification",
+    "section": "",
+    "text": "Nitin Kumar Jha\nInstructor & Data Science Mentor\n[Your email or website (optional)]"
+  },
+  {
+    "objectID": "index.html#tip",
+    "href": "index.html#tip",
+    "title": "Welcome to the Prompt Engineering Certification",
+    "section": "",
+    "text": "Use the navigation bar at the top to move between modules. You can always come back here by clicking Home.\nLet’s begin!"
+  },
+  {
+    "objectID": "prompt-env/lib/python3.10/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE.html",
+    "href": "prompt-env/lib/python3.10/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE.html",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "Copyright © 2020, Encode OSS Ltd. All rights reserved.\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\nRedistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\nRedistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\nNeither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+  },
+  {
+    "objectID": "prompt-env/lib/python3.10/site-packages/pyzmq-27.0.0.dist-info/licenses/LICENSE.html",
+    "href": "prompt-env/lib/python3.10/site-packages/pyzmq-27.0.0.dist-info/licenses/LICENSE.html",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "BSD 3-Clause License\nCopyright (c) 2009-2012, Brian Granger, Min Ragan-Kelley\nAll rights reserved.\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\nRedistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\nRedistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\nNeither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+  },
+  {
+    "objectID": "prompt-env/lib/python3.10/site-packages/soupsieve-2.7.dist-info/licenses/LICENSE.html",
+    "href": "prompt-env/lib/python3.10/site-packages/soupsieve-2.7.dist-info/licenses/LICENSE.html",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "MIT License\nCopyright (c) 2018 - 2025 Isaac Muse isaacmuse@gmail.com\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+  },
+  {
+    "objectID": "prompt-env/lib/python3.10/site-packages/idna-3.10.dist-info/LICENSE.html",
+    "href": "prompt-env/lib/python3.10/site-packages/idna-3.10.dist-info/LICENSE.html",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "BSD 3-Clause License\nCopyright (c) 2013-2024, Kim Davies and contributors. All rights reserved.\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\nRedistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\nRedistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\nNeither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+  },
+  {
+    "objectID": "prompt-env/lib/python3.10/site-packages/httpx-0.28.1.dist-info/licenses/LICENSE.html",
+    "href": "prompt-env/lib/python3.10/site-packages/httpx-0.28.1.dist-info/licenses/LICENSE.html",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "Copyright © 2019, Encode OSS Ltd. All rights reserved.\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\nRedistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\nRedistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\nNeither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+  },
+  {
+    "objectID": "Module1.html",
+    "href": "Module1.html",
+    "title": "Module 1: Introduction to Prompt Engineering",
+    "section": "",
+    "text": "In this first module, we are going to learn what prompt engineering means and why it is important when working with big AI language models like ChatGPT, GPT-3, GPT-4, etc."
+  },
+  {
+    "objectID": "Module1.html#welcome-to-prompt-engineering",
+    "href": "Module1.html#welcome-to-prompt-engineering",
+    "title": "Module 1: Introduction to Prompt Engineering",
+    "section": "",
+    "text": "In this first module, we are going to learn what prompt engineering means and why it is important when working with big AI language models like ChatGPT, GPT-3, GPT-4, etc."
+  },
+  {
+    "objectID": "Module1.html#what-is-a-prompt",
+    "href": "Module1.html#what-is-a-prompt",
+    "title": "Module 1: Introduction to Prompt Engineering",
+    "section": "What is a Prompt?",
+    "text": "What is a Prompt?\nA prompt is just a piece of text or a question that you give to an AI language model. The model will try to complete it or give an answer based on that prompt."
+  },
+  {
+    "objectID": "Module1.html#what-is-prompt-engineering",
+    "href": "Module1.html#what-is-prompt-engineering",
+    "title": "Module 1: Introduction to Prompt Engineering",
+    "section": "What is Prompt Engineering?",
+    "text": "What is Prompt Engineering?\nPrompt engineering means writing your prompt in a smart way so that the model gives the best and most accurate output.\nYou can think of it like this:\n\n“If you ask the right question, you will get the right answer.”\n\nSo, prompt engineering is like the art (and science) of talking to AI in a way it understands better.\nIt helps the AI give meaningful, useful, and more correct responses just by changing how we ask. It is especially important for powerful models like GPT-3/4, which can perform a wide range of tasks depending on how they’re prompted\n\nExample\n\nExample 1:\nPrompt: “Translate this sentence into Hindi: I teach machine learning.”\nOutput: “Main machine learning padhata hoon.”\n\n\nExample 2:\nPrompt: “What is the sentiment of this review? ‘The movie was incredibly boring and a complete waste of time.’”\nOutput: “Negative”\n\n\n\n\nGood vs Bad Prompt Example\nBAD: Summarize the following.\nGOOD: Summarize the following scientific article in 2-3 sentences using layman language.\n\n\nWhy Prompt Engineering Matters\n\nImproves output quality and relevance\nReduces need for retraining or fine-tuning\nEmpowers non-technical users to interact with AI effectively"
+  },
+  {
+    "objectID": "Module2.html#prompting-techniques-or-prompt-patterns",
+    "href": "Module2.html#prompting-techniques-or-prompt-patterns",
+    "title": "Module 2: Techniques in Prompting",
+    "section": "",
+    "text": "Zero-shot prompting\nFew-shot prompting\nChain-of-thought prompting\nInstruction-style prompting\nRole prompting or persona-based prompting\n\nEach technique gives the model better instructions, depending on what we want."
+  },
+  {
+    "objectID": "Module2.html#few-shot-prompting",
+    "href": "Module2.html#few-shot-prompting",
+    "title": "Module 2: Techniques in Prompting",
+    "section": "Few-shot Prompting",
+    "text": "Few-shot Prompting\nIn few-shot prompting, we give the model a few examples before asking it to do something new. This helps it understand the pattern better.\n\nExample:\n\nPrompt: English: Hello\nHindi: Namaste\nEnglish: Thank you\nHindi: Dhanyavaad\nEnglish: Good morning\nHindi:\n\n\nOutput: Shubh prabhat\n\nThis method is useful when:\n\nYou want better accuracy\nYou’re not sure if the model knows the task\nYou can give 2–3 examples"
+  },
+  {
+    "objectID": "Module2.html#chain-of-thought-prompting-cot",
+    "href": "Module2.html#chain-of-thought-prompting-cot",
+    "title": "Module 2: Techniques in Prompting",
+    "section": "Chain-of-Thought Prompting (CoT)",
+    "text": "Chain-of-Thought Prompting (CoT)\nThis is a special technique where we ask the model to think step-by-step.\n\nExample:\n\nPrompt:\nI went to the market and bought 10 apples. I gave 2 apples to the neighbor and 2 to the repairman. I then went and bought 5 more apples and ate 1. How many apples did I remain with? Let’s think step by step.\n\n\nOutput:\nFirst, you started with 10 apples. You gave away 2 apples to the neighbor and 2 to the repairman, so you had 6 apples left. Then you bought 5 more apples, so now you had 11 apples. Finally, you ate 1 apple, so you would remain with 10 apples.\n\nChain-of-thought helps in:\n\nMath problems\nLogical reasoning\nMulti-step tasks"
+  },
+  {
+    "objectID": "Module2.html#instruction-style-prompting",
+    "href": "Module2.html#instruction-style-prompting",
+    "title": "Module 2: Techniques in Prompting",
+    "section": "Instruction-style Prompting",
+    "text": "Instruction-style Prompting\nHere, we give clear instructions in a natural language format. This is how ChatGPT and InstructGPT were trained.\n\nExample:\n\nPrompt:\n“Write a short summary of the movie Inception in 2-3 lines using simple English.”\n\n\nOutput:\nInception is a sci-fi movie where people enter dreams. A team tries to plant an idea in someone’s mind through dreams.\n\nInstruction-style prompts are useful for:\n\nSummarization\nContent creation\nRewriting tasks\nQuestions and answers"
+  },
+  {
+    "objectID": "Module2.html#role-or-persona-prompting",
+    "href": "Module2.html#role-or-persona-prompting",
+    "title": "Module 2: Techniques in Prompting",
+    "section": "Role or Persona Prompting",
+    "text": "Role or Persona Prompting\nIn this type, we ask the model to act like someone. This helps set a context or tone.\n\nExample:\n\nPrompt:\n“You are a nutritionist. Explain why breakfast is important to a 10-year-old.”\nOutput:\nBreakfast gives your body energy after sleeping all night. It helps you focus in school and keeps you strong and healthy."
+  }
+]

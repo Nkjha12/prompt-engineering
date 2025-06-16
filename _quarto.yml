@@ -1,0 +1,18 @@
+project:
+  type: website
+
+website:
+  title: "Prompt Engineering"
+  navbar:
+    left:
+      - text: Home
+        file: index.qmd
+      - text: Module 1
+        file: Module1.qmd
+      - text: Module 2
+        file: Module2.qmd
+
+format:
+  html:
+    toc: true
+    theme: cosmo

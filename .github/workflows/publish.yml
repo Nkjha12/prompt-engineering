@@ -8,6 +8,11 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
+    permissions:  # ✅ This is the fix — give permission to write to pages!
+      contents: write
+      pages: write
+      id-token: write
+
     steps:
       - uses: actions/checkout@v3
 

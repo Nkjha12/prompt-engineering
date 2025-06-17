@@ -138,7 +138,7 @@ In this type, we ask the model to act like someone. This helps set a context or 
       font-size: 16px;
       cursor: pointer;
       transition: background-color 0.3s;">
-      ⬅️ Home
+      ⬅️ Module 1
     </button>
   </a>
 
@@ -152,7 +152,7 @@ In this type, we ask the model to act like someone. This helps set a context or 
       font-size: 16px;
       cursor: pointer;
       transition: background-color 0.3s;">
-      Module 2 ➡️
+      Module 3 ➡️
     </button>
   </a>
 

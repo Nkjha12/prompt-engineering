@@ -11,6 +11,8 @@ website:
         file: Module1.qmd
       - text: Module 2
         file: Module2.qmd
+      - text: Module 3
+        file: Module3.qmd
 
 format:
   html:

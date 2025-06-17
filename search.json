@@ -91,6 +91,27 @@
     "text": "Copyright © 2020, Encode OSS Ltd. All rights reserved.\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\nRedistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\nRedistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\nNeither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
   },
   {
+    "objectID": "Module3.html",
+    "href": "Module3.html",
+    "title": "Module 3: Applications of Prompt Engineering",
+    "section": "",
+    "text": "In this module, we will explore how prompt engineering can help us perform real-world tasks using language models. You will see how the same model can be used for many different applications just by changing the prompt.\nWe’ll cover:\n\n✅ Text Summarization\n✅ Text Classification (like Sentiment Analysis)\n✅ Question Answering (QA)\n✅ Translation\n✅ Grammar Correction\n\nEach section has: - a simple explanation - a good prompt example - and a code example using Hugging Face’s GPT-2 pipeline."
+  },
+  {
+    "objectID": "Module3.html#overview",
+    "href": "Module3.html#overview",
+    "title": "Module 3: Applications of Prompt Engineering",
+    "section": "",
+    "text": "In this module, we will explore how prompt engineering can help us perform real-world tasks using language models. You will see how the same model can be used for many different applications just by changing the prompt.\nWe’ll cover:\n\n✅ Text Summarization\n✅ Text Classification (like Sentiment Analysis)\n✅ Question Answering (QA)\n✅ Translation\n✅ Grammar Correction\n\nEach section has: - a simple explanation - a good prompt example - and a code example using Hugging Face’s GPT-2 pipeline."
+  },
+  {
+    "objectID": "Module3.html#text-summarization",
+    "href": "Module3.html#text-summarization",
+    "title": "Module 3: Applications of Prompt Engineering",
+    "section": "1. Text Summarization",
+    "text": "1. Text Summarization\nGoal: Reduce a long paragraph into a short and simple summary.\n\nPrompt Example\nSummarize this paragraph in one line: “Artificial Intelligence is used in many fields such as healthcare, finance, and education to automate processes and improve efficiency.”"
+  },
+  {
     "objectID": "Module1.html",
     "href": "Module1.html",
     "title": "Module 1: Introduction to Prompt Engineering",

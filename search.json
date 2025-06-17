@@ -46,7 +46,7 @@
     "href": "Module2.html#role-or-persona-prompting",
     "title": "Module 2: Techniques in Prompting",
     "section": "Role or Persona Prompting",
-    "text": "Role or Persona Prompting\nIn this type, we ask the model to act like someone. This helps set a context or tone.\n\nExample:\n\nPrompt:\n“You are a nutritionist. Explain why breakfast is important to a 10-year-old.”\nOutput:\nBreakfast gives your body energy after sleeping all night. It helps you focus in school and keeps you strong and healthy."
+    "text": "Role or Persona Prompting\nIn this type, we ask the model to act like someone. This helps set a context or tone.\n\nExample:\n\nPrompt:\n“You are a nutritionist. Explain why breakfast is important to a 10-year-old.”\nOutput:\nBreakfast gives your body energy after sleeping all night. It helps you focus in school and keeps you strong and healthy.\n\n\n  ⬅️ Home  \n  Module 2 ➡️"
   },
   {
     "objectID": "index.html",

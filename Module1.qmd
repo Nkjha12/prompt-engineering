@@ -76,8 +76,10 @@ GOOD: Summarize the following scientific article in 2-3 sentences using layman l
 
 
 <div style="display: flex; justify-content: space-between; margin-top: 40px;">
-  <a href="module2_techniques.html"><button>⬅️ Previous: Prompting Techniques</button></a>
-  <a href="module4_refinement.html"><button>Next: Prompt Refinement ➡️</button></a>
+  <a href="index1.html"><button>⬅️ Previous: Home</button></a>
+  <a href="module2.html"><button>Next: Module 2 ➡️</button></a>
 </div>
+
+<button style="padding: 8px 16px; background-color: #2563eb; color: white; border: none; border-radius: 5px;">
 
 

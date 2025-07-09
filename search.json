@@ -37,7 +37,7 @@
     "href": "Module2.html#few-shot-prompting",
     "title": "Module 2: Techniques in Prompting",
     "section": "Few-shot Prompting",
-    "text": "Few-shot Prompting\nIn few-shot prompting, we give the model a few examples before asking it to do something new. This helps it understand the pattern better.\n\nExample:\n\nPrompt: English: Hello\nHindi: Namaste\nEnglish: Thank you\nHindi: Dhanyavaad\nEnglish: Good morning\nHindi:\n\n\nOutput: Shubh prabhat\n\nThis method is useful when:\n\nYou want better accuracy\nYou’re not sure if the model knows the task\nYou can give 2–3 examples",
+    "text": "Few-shot Prompting\nIn few-shot prompting, we give the model a few examples before asking it to do something new. This helps it understand the pattern better.\n```\n\nExample:\n\nPrompt: English: Hello\nHindi: Namaste\nEnglish: Thank you\nHindi: Dhanyavaad\nEnglish: Good morning\nHindi:\n\n\nOutput: Shubh prabhat\n\nThis method is useful when:\n\nYou want better accuracy\nYou’re not sure if the model knows the task\nYou can give 2–3 examples",
     "crumbs": [
       "Modules",
       "Module 2: Techniques in Prompting"
@@ -99,6 +99,28 @@
     "title": "Prompt Engineering",
     "section": "",
     "text": "BSD 3-Clause License\nCopyright (c) 2009-2012, Brian Granger, Min Ragan-Kelley\nAll rights reserved.\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\nRedistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\nRedistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\nNeither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE."
+  },
+  {
+    "objectID": "Module7.html",
+    "href": "Module7.html",
+    "title": "Module 11: Prompt Templates in LangChain",
+    "section": "",
+    "text": "Learn how to create and use prompt templates to make your LLM applications more flexible and reusable.\n\n\n```python from langchain.prompts import PromptTemplate\nprompt = PromptTemplate( input_variables=[“topic”], template=“Explain {topic} in simple words.” ) print(prompt.format(topic=“Artificial Intelligence”))",
+    "crumbs": [
+      "Modules",
+      "Module 11: Prompt Templates in LangChain"
+    ]
+  },
+  {
+    "objectID": "Module7.html#basic-example",
+    "href": "Module7.html#basic-example",
+    "title": "Module 11: Prompt Templates in LangChain",
+    "section": "",
+    "text": "```python from langchain.prompts import PromptTemplate\nprompt = PromptTemplate( input_variables=[“topic”], template=“Explain {topic} in simple words.” ) print(prompt.format(topic=“Artificial Intelligence”))",
+    "crumbs": [
+      "Modules",
+      "Module 11: Prompt Templates in LangChain"
+    ]
   },
   {
     "objectID": "prompt-env/lib/python3.10/site-packages/httpx-0.28.1.dist-info/licenses/LICENSE.html",

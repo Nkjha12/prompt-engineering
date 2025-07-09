@@ -5,7 +5,7 @@ format:
     toc: true
     toc-depth: 2
     code-fold: true
-jupyter: prompt-env
+jupyter: python3
 ---
 
 ##  prompting techniques or prompt patterns

@@ -1,0 +1,24 @@
+---
+title: "Module 11: Prompt Templates in LangChain"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: true
+jupyter: prompt-env
+---
+
+# 📘 Module 11: Prompt Templates in LangChain
+
+Learn how to create and use prompt templates to make your LLM applications more flexible and reusable.
+
+## 🧠 Basic Example
+
+```python
+from langchain.prompts import PromptTemplate
+
+prompt = PromptTemplate(
+    input_variables=["topic"],
+    template="Explain {topic} in simple words."
+)
+print(prompt.format(topic="Artificial Intelligence"))

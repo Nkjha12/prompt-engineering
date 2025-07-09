@@ -5,7 +5,7 @@ format:
     toc: true
     toc-depth: 2
     code-fold: true
-jupyter: python3
+jupyter: prompt-env
 ---
 
 ##  prompting techniques or prompt patterns
@@ -41,7 +41,9 @@ This is useful when:
 
 ## Few-shot Prompting
 
-In few-shot prompting, we give the model a few examples before asking it to do something new. This helps it understand the pattern better.
+In few-shot prompting, we give the model a few examples before asking it to do something new. This helps it understand the pattern better. 
+
+```
 
 ### Example:
 

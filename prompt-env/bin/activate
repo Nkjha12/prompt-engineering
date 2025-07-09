@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/nitinjha/Desktop/Week6/Prompt-Emgieering/prompt-env"
+VIRTUAL_ENV="/Users/nitinjha/Desktop/Week6/Prompt-Engieering/prompt-env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

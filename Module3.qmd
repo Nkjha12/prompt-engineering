@@ -5,7 +5,7 @@ format:
     toc: true
     toc-depth: 2
     code-fold: true
-jupyter: python3
+jupyter: prompt-env
 ---
 
 ##  Overview

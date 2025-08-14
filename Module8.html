@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 3: Applications of Prompt Engineering – Prompt Engineering</title>
+<title>Module 8: Evaluating Prompt Quality and Output Reliability – Prompt Engineering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -80,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module3.html">Module 3: Applications of Prompt Engineering</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module8.html">Module 8: Evaluating Prompt Quality and Output Reliability</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -134,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Module3.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Module3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Module 3: Applications of Prompt Engineering</span></a>
   </div>
 </li>
@@ -164,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Module8.html" class="sidebar-item-text sidebar-link">
+  <a href="./Module8.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Module 8: Evaluating Prompt Quality and Output Reliability</span></a>
   </div>
 </li>
@@ -210,17 +245,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#text-summarization" id="toc-text-summarization" class="nav-link" data-scroll-target="#text-summarization">1. Text Summarization</a></li>
+  <li><a href="#why-evaluate-prompts" id="toc-why-evaluate-prompts" class="nav-link active" data-scroll-target="#why-evaluate-prompts">Why Evaluate Prompts?</a></li>
+  <li><a href="#what-makes-a-good-prompt" id="toc-what-makes-a-good-prompt" class="nav-link" data-scroll-target="#what-makes-a-good-prompt">What Makes a “Good” Prompt?</a></li>
+  <li><a href="#human-evaluation-criteria" id="toc-human-evaluation-criteria" class="nav-link" data-scroll-target="#human-evaluation-criteria">Human Evaluation Criteria</a></li>
+  <li><a href="#llm-as-a-judge-evaluation" id="toc-llm-as-a-judge-evaluation" class="nav-link" data-scroll-target="#llm-as-a-judge-evaluation">LLM-as-a-Judge Evaluation</a></li>
+  <li><a href="#advantages-of-llm-as-a-judge" id="toc-advantages-of-llm-as-a-judge" class="nav-link" data-scroll-target="#advantages-of-llm-as-a-judge">Advantages of LLM-as-a-Judge</a></li>
+  <li><a href="#ab-testing-of-prompts" id="toc-ab-testing-of-prompts" class="nav-link" data-scroll-target="#ab-testing-of-prompts">A/B Testing of Prompts</a></li>
+  <li><a href="#evaluate-both-using-human-review-or-llm" id="toc-evaluate-both-using-human-review-or-llm" class="nav-link" data-scroll-target="#evaluate-both-using-human-review-or-llm">Evaluate both using human review or LLM</a>
+  <ul class="collapse">
+  <li><a href="#automatic-evaluation-metrics" id="toc-automatic-evaluation-metrics" class="nav-link" data-scroll-target="#automatic-evaluation-metrics">Automatic Evaluation Metrics</a></li>
+  </ul></li>
+  <li><a href="#example-evaluating-summary-prompts" id="toc-example-evaluating-summary-prompts" class="nav-link" data-scroll-target="#example-evaluating-summary-prompts">Example: Evaluating Summary Prompts</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module3.html">Module 3: Applications of Prompt Engineering</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module8.html">Module 8: Evaluating Prompt Quality and Output Reliability</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Module 3: Applications of Prompt Engineering</h1>
+<h1 class="title">Module 8: Evaluating Prompt Quality and Output Reliability</h1>
 </div>
 
 
@@ -237,26 +281,235 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>In this module, we will explore how prompt engineering can help us perform real-world tasks using language models. You will see how the same model can be used for many different applications just by changing the <strong>prompt</strong>.</p>
-<p>We’ll cover:</p>
+<section id="why-evaluate-prompts" class="level2">
+<h2 class="anchored" data-anchor-id="why-evaluate-prompts">Why Evaluate Prompts?</h2>
+<p>Evaluating prompts is fundamental to successful prompt engineering. It helps in:</p>
 <ul>
-<li>✅ Text Summarization</li>
-<li>✅ Text Classification (like Sentiment Analysis)</li>
-<li>✅ Question Answering (QA)</li>
-<li>✅ Translation</li>
-<li>✅ Grammar Correction</li>
+<li><strong>Identifying Effective Prompts:</strong> Pinpointing which prompts consistently generate <strong>accurate, helpful,</strong> or <strong>creative</strong> outputs. This is crucial for maximizing the utility of LLMs across diverse applications.</li>
+<li><strong>Mitigating Undesirable Outputs:</strong> Reducing occurrences of <strong>hallucinations</strong> (LLMs generating false or nonsensical information) and <strong>irrelevant responses</strong> that don’t align with the user’s intent.</li>
+<li><strong>Enhancing Generalizability:</strong> Selecting prompts that perform well not just in specific instances but also <strong>generalize better</strong> across a wider range of examples or different users. This ensures robustness and scalability of LLM applications.</li>
 </ul>
-<p>Each section has: - a simple explanation - a good prompt example - and a code example using Hugging Face’s GPT-2 pipeline.</p>
 <hr>
 </section>
-<section id="text-summarization" class="level2">
-<h2 class="anchored" data-anchor-id="text-summarization">1. Text Summarization</h2>
-<p><strong>Goal</strong>: Reduce a long paragraph into a short and simple summary.</p>
-<section id="prompt-example" class="level3">
-<h3 class="anchored" data-anchor-id="prompt-example">Prompt Example</h3>
-<p>Summarize this paragraph in one line: “Artificial Intelligence is used in many fields such as healthcare, finance, and education to automate processes and improve efficiency.”</p>
+<section id="what-makes-a-good-prompt" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-a-good-prompt">What Makes a “Good” Prompt?</h2>
+<p>A “good” prompt is one that consistently elicits high-quality responses from an LLM. The characteristics of such outputs typically include:</p>
+<ul>
+<li><strong>Relevant</strong> – The output directly addresses and <strong>matches the intent of the user’s query</strong>. It doesn’t deviate from the core subject or provide extraneous information.</li>
+<li><strong>Fluent</strong> – The language used in the output is <strong>grammatically correct, natural-sounding,</strong> and <strong>readable</strong>. It avoids awkward phrasing, typos, or syntactic errors that could hinder understanding.</li>
+<li><strong>Coherent</strong> – The ideas presented in the output flow logically and are <strong>well-connected and structured</strong>. There’s a clear progression of thought, making the response easy to follow.</li>
+<li><strong>Factual</strong> – The output contains <strong>accurate and verifiable information</strong>. This is particularly critical in applications where precision and truthfulness are paramount, such as in factual retrieval or reporting.</li>
+<li><strong>Complete</strong> – The output <strong>fully answers the question or task</strong> posed by the prompt, providing all necessary details without leaving out crucial information.</li>
+</ul>
+<hr>
+</section>
+<section id="human-evaluation-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="human-evaluation-criteria">Human Evaluation Criteria</h2>
+<p>Human evaluation remains the gold standard for assessing prompt quality, especially for nuanced aspects like creativity, subjectivity, or complex reasoning. A <strong>scoring rubric</strong> is a structured way to conduct this manual assessment.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Criteria</th>
+<th style="text-align: left;">Scale (1-5)</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Relevance</strong></td>
+<td style="text-align: left;">1 (poor) – 5 (excellent)</td>
+<td style="text-align: left;">Does the output directly and appropriately match the prompt’s intent? A score of 1 indicates the output is completely off-topic, while 5 means it’s perfectly aligned.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Fluency</strong></td>
+<td style="text-align: left;">1 – 5</td>
+<td style="text-align: left;">Is the language natural, grammatically correct, and free from errors? A score of 1 suggests the output is difficult to read due to poor grammar or awkward phrasing, while 5 indicates impeccable language.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Coherence</strong></td>
+<td style="text-align: left;">1 – 5</td>
+<td style="text-align: left;">Are the ideas well-connected, logically organized, and easy to follow? A score of 1 implies a disjointed or confusing output, whereas 5 signifies a highly structured and logical flow.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Factuality</strong></td>
+<td style="text-align: left;">1 – 5</td>
+<td style="text-align: left;">Is the information accurate and verifiable? A score of 1 means the output contains significant factual errors or hallucinations, while 5 denotes complete accuracy.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Completeness</strong></td>
+<td style="text-align: left;">1 – 5</td>
+<td style="text-align: left;">Does the output fully address all aspects of the request or question? A score of 1 indicates a partial or incomplete response, while 5 means the task is entirely fulfilled.</td>
+</tr>
+</tbody>
+</table>
+<p>By using such a rubric, evaluators can provide consistent and comparable scores, allowing for systematic analysis of different prompts and their outputs.</p>
+<hr>
+</section>
+<section id="llm-as-a-judge-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="llm-as-a-judge-evaluation">LLM-as-a-Judge Evaluation</h2>
+<p>A modern and efficient approach to prompt evaluation involves leveraging another LLM to act as a judge. This method is particularly useful for large-scale evaluations where human review might be impractical.</p>
+<p>The core idea is to provide a powerful LLM with: 1. The original prompt. 2. Two or more responses generated from different prompts or models. 3. Instructions for comparing these responses based on specific criteria (e.g., relevance, coherence, conciseness).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> <span class="st">'''</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">You will be given two responses to the same prompt. Pick the one that is more relevant and coherent.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">Prompt: "Explain the concept of climate change."</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">Response A: "Climate change is the average weather shift over a short time."</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">Response B: "Climate change refers to long-term alterations in temperature and weather patterns, often due to human activity."</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">Which is better and why?</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> openai <span class="im">import</span> OpenAI</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> OpenAI(api_key<span class="op">=</span>os.getenv(<span class="st">"OPENAI_API_KEY"</span>))</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> client.chat.completions.create(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"gpt-3.5-turbo"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    messages<span class="op">=</span>[{<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: prompt}]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.choices[<span class="dv">0</span>].message.content)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># For demonstration purposes, a placeholder response:</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>response_content <span class="op">=</span> <span class="st">"Response B is better because it accurately describes climate change as long-term alterations and mentions human activity, which is a key aspect. Response A incorrectly states it's a short-term shift."</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response_content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="advantages-of-llm-as-a-judge" class="level1">
+<h1>Advantages of LLM-as-a-Judge</h1>
+<ul>
+<li><strong>Scalability</strong>: Can evaluate a vast number of outputs quickly.</li>
+<li><strong>Consistency</strong>: LLMs can be more consistent in their judgments than multiple human evaluators, provided the judging prompt is well-defined.</li>
+<li><strong>Efficiency</strong>: Automates a significant part of the evaluation process.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>The judging LLM itself needs to be robust and unbiased to provide reliable assessments.</li>
+<li>The criteria for judgment must be clearly articulated in the judging prompt.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="ab-testing-of-prompts" class="level1">
+<h1>A/B Testing of Prompts</h1>
+<p>Test multiple prompts for the same task.</p>
+<section id="example-python" class="level3">
+<h3 class="anchored" data-anchor-id="example-python">Example (Python):</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>prompt_1 <span class="op">=</span> <span class="st">"Summarize the following article."</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>prompt_2 <span class="op">=</span> <span class="st">"Give a short and clear summary of this article, limited to 3 sentences."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="evaluate-both-using-human-review-or-llm" class="level1">
+<h1>Evaluate both using human review or LLM</h1>
+<section id="automatic-evaluation-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="automatic-evaluation-metrics">Automatic Evaluation Metrics</h2>
+<blockquote class="blockquote">
+<p>Evaluate both using human review or LLM.</p>
+</blockquote>
+<section id="bleu-score" class="level3">
+<h3 class="anchored" data-anchor-id="bleu-score">BLEU Score</h3>
+<p>Measures n-gram overlap with reference text (used in translation).</p>
+</section>
+<section id="rouge-score" class="level3">
+<h3 class="anchored" data-anchor-id="rouge-score">ROUGE Score</h3>
+<p>Used for summarization — compares recall of overlapping n-grams.</p>
+</section>
+<section id="meteor-score" class="level3">
+<h3 class="anchored" data-anchor-id="meteor-score">METEOR Score</h3>
+<p>Similar to BLEU but considers synonyms and stemming.</p>
+<blockquote class="blockquote">
+<p>These are more useful when reference outputs are available.</p>
+</blockquote>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Use clear and specific instructions.</li>
+<li>Add examples (few-shot prompting).</li>
+<li>Break complex tasks into smaller steps (chain-of-thought).</li>
+<li>Try different phrasings for better performance.</li>
+<li>Avoid ambiguous or vague language.</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="example-evaluating-summary-prompts" class="level1">
+<h1>Example: Evaluating Summary Prompts</h1>
+<section id="python-example" class="level3">
+<h3 class="anchored" data-anchor-id="python-example">Python Example:</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>prompt_1 <span class="op">=</span> <span class="st">"Summarize the following in a paragraph."</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>prompt_2 <span class="op">=</span> <span class="st">"Give a concise, factual summary of this news article in 3 bullet points."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Outputs are inconsistent</td>
+<td>Refine prompt</td>
+</tr>
+<tr class="even">
+<td>Outputs lack domain knowledge</td>
+<td>Fine-tune model</td>
+</tr>
+<tr class="odd">
+<td>Outputs miss key details</td>
+<td>Add constraints</td>
+</tr>
+<tr class="even">
+<td>Outputs hallucinate facts</td>
+<td>Add context or switch model</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="hands-on-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="hands-on-notebook">Hands-On Notebook</h3>
+<p><a href="https://colab.research.google.com/drive/1wKVfiR0_FYOQuksPJ7HvjQcOanH56IIJ?usp=drive_link" target="_blank"> <button style="padding: 10px 20px; background-color: #2e7d32; color: white; border: none; border-radius: 6px; font-size: 16px;"> Open in Google Colab </button> </a></p>
 
 
 </section>

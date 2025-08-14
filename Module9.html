@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 7: Working with Text Completion in OpenAI – Prompt Engineering</title>
+<title>Module 9: Introduction to LangChain – Prompt Engineering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module7.html">Module 7: Working with Text Completion in OpenAI</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module9.html">Module 9: Introduction to LangChain</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -193,7 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Module7.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Module7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Module 7: Working with Text Completion in OpenAI</span></a>
   </div>
 </li>
@@ -205,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Module9.html" class="sidebar-item-text sidebar-link">
+  <a href="./Module9.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Module 9: Introduction to LangChain</span></a>
   </div>
 </li>
@@ -245,25 +245,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#what-is-a-text-completion" id="toc-what-is-a-text-completion" class="nav-link active" data-scroll-target="#what-is-a-text-completion">What is a Text Completion?</a></li>
-  <li><a href="#common-use-cases" id="toc-common-use-cases" class="nav-link" data-scroll-target="#common-use-cases">Common Use Cases</a></li>
-  <li><a href="#basic-setup" id="toc-basic-setup" class="nav-link" data-scroll-target="#basic-setup">Basic Setup</a></li>
-  <li><a href="#making-a-completion-request" id="toc-making-a-completion-request" class="nav-link" data-scroll-target="#making-a-completion-request">Making a Completion Request</a></li>
-  <li><a href="#key-parameters" id="toc-key-parameters" class="nav-link" data-scroll-target="#key-parameters">Key Parameters</a></li>
-  <li><a href="#use-case-grammar-correction" id="toc-use-case-grammar-correction" class="nav-link" data-scroll-target="#use-case-grammar-correction">Use Case: Grammar Correction</a></li>
-  <li><a href="#use-case-email-drafting" id="toc-use-case-email-drafting" class="nav-link" data-scroll-target="#use-case-email-drafting">Use Case: Email Drafting</a></li>
-  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices">Best Practices</a></li>
-  <li><a href="#when-to-use-completion-vs-chatcompletion" id="toc-when-to-use-completion-vs-chatcompletion" class="nav-link" data-scroll-target="#when-to-use-completion-vs-chatcompletion">When to Use Completion vs ChatCompletion?</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#why-do-we-need-langchain" id="toc-why-do-we-need-langchain" class="nav-link active" data-scroll-target="#why-do-we-need-langchain">Why Do We Need LangChain?</a></li>
+  <li><a href="#use-cases-of-langchain" id="toc-use-cases-of-langchain" class="nav-link" data-scroll-target="#use-cases-of-langchain">Use Cases of LangChain</a></li>
+  <li><a href="#core-ideas-behind-langchain" id="toc-core-ideas-behind-langchain" class="nav-link" data-scroll-target="#core-ideas-behind-langchain">Core Ideas Behind LangChain</a></li>
+  <li><a href="#langchain-ecosystem" id="toc-langchain-ecosystem" class="nav-link" data-scroll-target="#langchain-ecosystem">LangChain Ecosystem</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#setting-up-openai-api-key" id="toc-setting-up-openai-api-key" class="nav-link" data-scroll-target="#setting-up-openai-api-key">Setting Up OpenAI API Key</a></li>
+  <li><a href="#langchain-vs-raw-openai-usage" id="toc-langchain-vs-raw-openai-usage" class="nav-link" data-scroll-target="#langchain-vs-raw-openai-usage">LangChain vs Raw OpenAI Usage</a></li>
+  <li><a href="#typical-langchain-app-structure" id="toc-typical-langchain-app-structure" class="nav-link" data-scroll-target="#typical-langchain-app-structure">Typical LangChain App Structure</a>
+  <ul class="collapse">
+  <li><a href="#langchain-in-production" id="toc-langchain-in-production" class="nav-link" data-scroll-target="#langchain-in-production">LangChain in Production</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module7.html">Module 7: Working with Text Completion in OpenAI</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module9.html">Module 9: Introduction to LangChain</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Module 7: Working with Text Completion in OpenAI</h1>
+<h1 class="title">Module 9: Introduction to LangChain</h1>
 </div>
 
 
@@ -280,197 +281,290 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In this module, we’ll explore how to use the <strong>Text Completion API</strong> to generate text from a prompt using models like <code>text-davinci-003</code>.</p>
-<p>This API is useful when you want the model to complete a sentence, paragraph, or idea based on a given start.</p>
+<p>LangChain is an innovative, open-source <strong>framework</strong> meticulously designed to simplify and accelerate the development of applications that harness the power of large language models (LLMs). Think of LLMs as the “brains” of your AI applications, encompassing models like OpenAI’s ChatGPT and GPT-4, Anthropic’s Claude, Google’s Gemini, and many others. LangChain acts as the <strong>orchestration layer</strong>, enabling the flexible and sophisticated integration of LLMs with crucial components such as external memory systems, diverse APIs, specialized tools, intelligent agents, and robust vector stores. It moves beyond simple prompt-and-response, allowing developers to build complex, intelligent systems.</p>
 <hr>
-<!-- ::: {.callout-warning}
-Note that there are five types of callouts, including:
-`note`, `warning`, `important`, `tip`, and `caution`.
-::: -->
-<!-- ::: {.callout-tip}
-## Tip with Title
-
-This is an example of a callout with a title.
-:::
-
-::: {.callout-caution collapse="true"}
-## Expand To Learn About Collapse
-
-This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
-::: -->
-<section id="what-is-a-text-completion" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-text-completion">What is a Text Completion?</h2>
-<p>A <strong>completion</strong> means you’re asking the model to “complete the text you started.”<br>
-For example, if your prompt is:</p>
-<blockquote class="blockquote">
-<p><code>"Once upon a time, in a galaxy far away,"</code></p>
-</blockquote>
-<p>The model will try to continue that story in a logical and coherent way.</p>
+<section id="why-do-we-need-langchain" class="level2">
+<h2 class="anchored" data-anchor-id="why-do-we-need-langchain">Why Do We Need LangChain?</h2>
+<p>Building real-world applications with LLMs presents a unique set of challenges that go beyond merely sending a prompt to an API. Developers often encounter hurdles such as:</p>
+<ul>
+<li><strong>How to manage multi-step reasoning?</strong> Imagine an LLM application that needs to first search for information, then summarize it, and finally answer a user’s question based on that summary. This requires a sequence of actions and decisions, which is complex to manage with raw API calls.</li>
+<li><strong>How to keep conversation history or memory?</strong> LLMs are inherently stateless; they don’t remember past interactions in a conversation. For truly conversational chatbots or agents, maintaining context (what was said before) is paramount.</li>
+<li><strong>How to call external tools or databases?</strong> LLMs are powerful at language understanding and generation but lack real-time access to current events, proprietary data, or the ability to perform calculations precisely. Connecting them to external tools (like search engines, calculators, or databases) is essential for grounded, factual, and dynamic responses.</li>
+<li><strong>How to structure and reuse prompts easily?</strong> As applications grow, managing numerous prompt strings for different tasks, ensuring consistency, and adding dynamic inputs can become cumbersome and error-prone.</li>
+</ul>
+<p>LangChain elegantly addresses these challenges by offering a <strong>modular, extensible framework</strong>. It provides the architectural scaffolding to connect all these disparate components—LLMs, memory, tools, and data—into powerful, coherent, and maintainable <strong>pipelines</strong>.</p>
 <hr>
 </section>
-<section id="common-use-cases" class="level2">
-<h2 class="anchored" data-anchor-id="common-use-cases">Common Use Cases</h2>
+<section id="use-cases-of-langchain" class="level2">
+<h2 class="anchored" data-anchor-id="use-cases-of-langchain">Use Cases of LangChain</h2>
+<p>LangChain’s modularity and comprehensive features make it suitable for building a wide array of sophisticated LLM-powered applications:</p>
 <ul>
-<li>Story writing</li>
-<li>Explanation or reasoning</li>
-<li>Translation</li>
-<li>Grammar correction</li>
-<li>Code generation</li>
+<li><strong>Conversational Chatbots with Memory:</strong> Develop chatbots that remember past interactions, enabling natural and context-aware dialogues. This is crucial for customer service, virtual assistants, and interactive learning platforms.</li>
+<li><strong>Intelligent Agents that Take Actions:</strong> Create autonomous agents that can reason about a task, decide which tools to use, execute those tools (like Browse the web, searching databases, performing calculations), and then respond or take further actions based on the results. This is a significant step towards more independent AI systems.</li>
+<li><strong>RAG (Retrieval-Augmented Generation) Systems:</strong> Build applications that retrieve relevant information from external data sources (e.g., documents, databases) before generating a response. This grounds the LLM’s output in factual, up-to-date, or proprietary data, significantly reducing hallucinations and increasing accuracy.</li>
+<li><strong>Document Q&amp;A and Search Apps:</strong> Power applications that allow users to ask questions about large corpuses of documents and get precise, contextually relevant answers, effectively turning unstructured data into an accessible knowledge base.</li>
+<li><strong>Custom Workflows Powered by LLMs:</strong> Design bespoke multi-step processes where LLMs handle natural language understanding and generation at various stages, orchestrating complex operations.</li>
 </ul>
 <hr>
 </section>
-<section id="basic-setup" class="level2">
-<h2 class="anchored" data-anchor-id="basic-setup">Basic Setup</h2>
-<p>Install the OpenAI package and import the required libraries:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install openai</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>openai.api_key <span class="op">=</span> os.getenv(<span class="st">"OPENAI_API_KEY"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="core-ideas-behind-langchain" class="level2">
+<h2 class="anchored" data-anchor-id="core-ideas-behind-langchain">Core Ideas Behind LangChain</h2>
+<p>LangChain’s philosophy revolves around breaking down complex LLM applications into fundamental, interchangeable <strong>components</strong>. This architectural approach promotes the creation of modular, testable, and scalable systems, allowing developers to build sophisticated applications without reinventing the wheel for common functionalities.</p>
+<section id="prompttemplate" class="level3">
+<h3 class="anchored" data-anchor-id="prompttemplate">1. <strong>PromptTemplate</strong></h3>
+<ul>
+<li><strong>Concept:</strong> A <code>PromptTemplate</code> is a blueprint for generating prompts. Instead of hardcoding prompt strings, you define a template with placeholders (variables) that can be dynamically filled in.</li>
+<li><strong>Purpose:</strong> Helps you define structured prompts with dynamic inputs. This significantly improves the <strong>maintainability</strong> and <strong>readability</strong> of your prompt strings, especially when dealing with multiple inputs or varying scenarios. It ensures consistency and simplifies prompt engineering.</li>
+<li><strong>Analogy:</strong> Think of it like a mail merge template. You define the structure of your letter once, and then you can easily insert different names, addresses, or dates for each recipient.</li>
+</ul>
+</section>
+<section id="llm-wrappers" class="level3">
+<h3 class="anchored" data-anchor-id="llm-wrappers">2. <strong>LLM Wrappers</strong></h3>
+<ul>
+<li><strong>Concept:</strong> LangChain provides a <strong>unified interface</strong> (<code>LLM</code> or <code>ChatModel</code> classes) to interact with various LLMs from different providers.</li>
+<li><strong>Purpose:</strong> You just choose the model (e.g., OpenAI’s GPT-4, Anthropic’s Claude, Google’s Gemini, Hugging Face models), and LangChain handles the underlying API calls, authentication, and request/response formatting complexities. This abstracts away provider-specific details, making it easy to swap models or integrate new ones without rewriting your application logic.</li>
+<li><strong>Analogy:</strong> Imagine a universal remote control for all your smart devices. You don’t need to learn each device’s specific commands; the remote handles the translation.</li>
+</ul>
+</section>
+<section id="chains" class="level3">
+<h3 class="anchored" data-anchor-id="chains">3. <strong>Chains</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Chains are sequences of <strong>calls or logic steps</strong>. They allow you to combine LLMs with other components (like prompt templates, other chains, or tools) in a predefined order to accomplish a more complex task.</li>
+<li><strong>Purpose:</strong> They provide a structured way to execute multi-step operations.</li>
+<li><strong>Examples:</strong>
+<ul>
+<li><code>LLMChain</code>: The simplest chain, combining a <code>PromptTemplate</code> with an <code>LLM</code>. It takes input variables, formats them into a prompt, passes it to the LLM, and returns the LLM’s output.</li>
+<li><code>SimpleSequentialChain</code>: Executes a series of chains in a predefined order, where the output of one chain becomes the input for the next. Ideal for linear workflows.</li>
+<li><code>RouterChain</code>: Allows dynamic routing of input to different sub-chains based on the input’s content or intent. This enables more complex, conditional workflows.</li>
+</ul></li>
+<li><strong>Analogy:</strong> A chain is like an assembly line in a factory. Each station (component) performs a specific task, and the output of one station feeds into the next, creating a finished product.</li>
+</ul>
+</section>
+<section id="memory" class="level3">
+<h3 class="anchored" data-anchor-id="memory">4. <strong>Memory</strong></h3>
+<ul>
+<li><strong>Concept:</strong> Memory components allow LLM applications to <strong>remember previous interactions</strong> within a conversation.</li>
+<li><strong>Purpose:</strong> Built-in memory types track previous conversations, enabling the LLM to maintain context and generate coherent, relevant responses over multiple turns. Without memory, each LLM call is stateless, meaning it has no recollection of what was said moments before.</li>
+<li><strong>Examples:</strong>
+<ul>
+<li><code>ConversationBufferMemory</code>: Stores all previous messages in a buffer and passes them directly to the LLM.</li>
+<li><code>EntityMemory</code>: Focuses on remembering specific entities (people, places, things) and their attributes mentioned during the conversation.</li>
+</ul></li>
+<li><strong>Analogy:</strong> Memory for an LLM is like a human’s short-term memory during a conversation, allowing us to refer back to earlier points and maintain flow.</li>
+</ul>
+</section>
+<section id="agents-tools" class="level3">
+<h3 class="anchored" data-anchor-id="agents-tools">5. <strong>Agents &amp; Tools</strong></h3>
+<ul>
+<li><strong>Concept:</strong> This is where LLMs move from being just text generators to active decision-makers.
+<ul>
+<li><strong>Agents:</strong> Empower LLMs to <strong>reason</strong> about a problem and <strong>decide actions</strong> to take based on the available tools. They can observe the environment, think about what to do next, execute an action, and repeat.</li>
+<li><strong>Tools:</strong> Are functions that agents can use. These can be external APIs, a calculator, a search engine, a custom database query function, or even another LLM.</li>
+</ul></li>
+<li><strong>Purpose:</strong> Agents allow LLMs to go beyond their pre-trained knowledge, interact with the real world (via tools), and perform complex, dynamic tasks requiring external information or computation.</li>
+<li><strong>Analogy:</strong> An agent is like a project manager, and tools are the specialized workers they can delegate tasks to. The project manager (agent) decides who (which tool) does what, when, and how, to achieve the overall goal.</li>
+</ul>
+</section>
+<section id="retrievers-vector-stores" class="level3">
+<h3 class="anchored" data-anchor-id="retrievers-vector-stores">6. <strong>Retrievers &amp; Vector Stores</strong></h3>
+<ul>
+<li><strong>Concept:</strong> These components are central to building <strong>Retrieval-Augmented Generation (RAG)</strong> systems.
+<ul>
+<li><strong>Retrievers:</strong> Are interfaces for fetching relevant documents or data from a <strong>storage location</strong>. They are designed to retrieve information based on a query, often using semantic similarity.</li>
+<li><strong>Vector Stores:</strong> Are specialized databases that store numerical representations (embeddings) of text. They enable <strong>semantic search</strong>, allowing you to find text chunks that are conceptually similar to your query, even if they don’t share exact keywords.</li>
+</ul></li>
+<li><strong>Purpose:</strong> They enable LLMs to access and utilize external, up-to-date, or proprietary information that wasn’t part of their original training data. This is crucial for reducing hallucinations, providing factual answers, and answering questions about specific documents.</li>
+<li><strong>Supports:</strong> LangChain provides integrations with many popular vector databases like Chroma, FAISS, Pinecone, Weaviate, Milvus, and others.</li>
+<li><strong>Analogy:</strong> A retriever and vector store combined are like a highly efficient, semantic library search system. When you ask a question, it quickly finds the most relevant books (documents) in the library (vector store) based on the meaning of your question, not just keywords.</li>
+</ul>
 <hr>
 </section>
-<section id="making-a-completion-request" class="level2">
-<h2 class="anchored" data-anchor-id="making-a-completion-request">Making a Completion Request</h2>
-<p>Here’s a basic example of using the Text Completion endpoint:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> openai.Completion.create(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"text-davinci-003"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span><span class="st">"Write a tweet about climate change."</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    max_tokens<span class="op">=</span><span class="dv">60</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.choices[<span class="dv">0</span>].text.strip())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="langchain-ecosystem" class="level2">
+<h2 class="anchored" data-anchor-id="langchain-ecosystem">LangChain Ecosystem</h2>
+<p>The LangChain ecosystem is strategically modularized to give developers flexibility and reduce dependency bloat. It’s primarily split into a few key packages:</p>
+<ul>
+<li><code>langchain-core</code>: This is the foundational package. It contains the <strong>base classes, fundamental logic, and core interfaces</strong> for all LangChain components. You’ll almost always need this.</li>
+<li><code>langchain-community</code>: This package provides <strong>integrations with a wide array of third-party tools and services</strong>. This includes support for various LLM providers (beyond OpenAI), vector stores (like Chroma), data loaders, utilities for web scraping, and more. It’s separated so you only install the dependencies for the specific community integrations you use.</li>
+<li><code>langchain-openai</code>: This is a specific integration package solely for <strong>OpenAI models and tools</strong>. It includes specialized wrappers and functionalities optimized for interacting with OpenAI’s API, including their chat models, embedding models, and tool-calling capabilities.</li>
+</ul>
+<p>You install them as needed, minimizing the overall footprint of your project’s dependencies.</p>
 <hr>
 </section>
-<section id="key-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="key-parameters">Key Parameters</h2>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>Basic installation:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install langchain openai</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If using <code>.env</code> for API keys:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install python-dotenv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Extras:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install chromadb faiss-cpu tiktoken</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="setting-up-openai-api-key" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-openai-api-key">Setting Up OpenAI API Key</h2>
+<p>Create a <code>.env</code> file:</p>
+<pre><code>OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx</code></pre>
+<p>In your code:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>os.environ[<span class="st">"OPENAI_API_KEY"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explanation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><code>from langchain_openai import OpenAI</code> We import the specific wrapper for OpenAI’s LLMs from the <code>langchain_openai</code> package, reflecting the modular ecosystem.</p></li>
+<li><p><code>llm = OpenAI(temperature=0.7)</code> We create an instance of the OpenAI LLM wrapper. You can pass various parameters here, like <code>temperature</code>, <code>model_name</code>, etc.</p></li>
+<li><p><code>output = llm.invoke("Write a short poem about the moon.")</code> We call the LLM with our prompt. LangChain handles the underlying API request, sending your prompt to OpenAI’s servers, and receiving the generated text.<br>
+The <code>.invoke()</code> method is the standard way to call an LLM (or a chain) for a single input.</p></li>
+<li><p><code>print(output)</code> Prints the generated poem.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="langchain-vs-raw-openai-usage" class="level1">
+<h1>LangChain vs Raw OpenAI Usage</h1>
+<p>Understanding why LangChain is beneficial often comes down to comparing its capabilities against directly using the OpenAI API (or any other LLM provider’s API).</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 53%">
-<col style="width: 46%">
+<col style="width: 10%">
+<col style="width: 41%">
+<col style="width: 48%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Parameter</th>
-<th>Description</th>
+<th><strong>Feature</strong></th>
+<th><strong>Raw OpenAI API</strong></th>
+<th><strong>LangChain</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>prompt</code></td>
-<td>The text you want the model to complete</td>
+<td><strong>Prompt handling</strong></td>
+<td>Manual string concatenation, often hardcoded.</td>
+<td><code>PromptTemplate</code> for structured, reusable, and dynamic prompts.</td>
 </tr>
 <tr class="even">
-<td><code>model</code></td>
-<td>The completion model (e.g., <code>text-davinci-003</code>)</td>
+<td><strong>Memory</strong></td>
+<td>Not built-in; requires custom logic to store/retrieve chat history.</td>
+<td>Built-in <code>ConversationBufferMemory</code>, <code>EntityMemory</code>, etc., simplifying context management.</td>
 </tr>
 <tr class="odd">
-<td><code>max_tokens</code></td>
-<td>Max length of the output</td>
+<td><strong>Chaining</strong></td>
+<td>Manual logic to sequence multiple LLM calls or intermediate steps.</td>
+<td>Built-in <code>Chain</code> types (<code>LLMChain</code>, <code>SequentialChain</code>, <code>RouterChain</code>) for structured workflows.</td>
 </tr>
 <tr class="even">
-<td><code>temperature</code></td>
-<td>Controls randomness (0 = deterministic, 1 = very random)</td>
+<td><strong>Tools/Agents</strong></td>
+<td>Not available; requires extensive custom code to enable LLM to use external tools.</td>
+<td>First-class support for <code>Agents</code> that can reason and utilize <code>Tools</code> (APIs, calculators, etc.).</td>
 </tr>
 <tr class="odd">
-<td><code>top_p</code></td>
-<td>Controls diversity via nucleus sampling</td>
+<td><strong>Retrieval</strong></td>
+<td>Needs custom code for embedding, indexing, and retrieval.</td>
+<td>Built-in <code>Retrievers</code> and Vector Store integrations (Chroma, Pinecone, etc.) for RAG applications.</td>
 </tr>
 <tr class="even">
-<td><code>n</code></td>
-<td>Number of completions to generate</td>
+<td><strong>Model Agnostic</strong></td>
+<td>Provider-specific API calls.</td>
+<td>Unified <code>LLM</code> and <code>ChatModel</code> interfaces across providers (OpenAI, Anthropic, HuggingFace, etc.).</td>
 </tr>
 <tr class="odd">
-<td><code>stop</code></td>
-<td>Stop generation at specific token(s)</td>
+<td><strong>Observability</strong></td>
+<td>Requires custom logging for tracing.</td>
+<td>Integrations with tracing tools like <code>LangSmith</code> for debugging and monitoring.</td>
+</tr>
+<tr class="even">
+<td><strong>Error Handling</strong></td>
+<td>Must implement robust error handling for API failures.</td>
+<td>Provides standardized error handling patterns within the framework.</td>
 </tr>
 </tbody>
 </table>
-<hr>
-<section id="example-with-all-parameters" class="level3">
-<h3 class="anchored" data-anchor-id="example-with-all-parameters">Example with All Parameters:</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> openai.Completion.create(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"text-davinci-003"</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span><span class="st">"Explain the concept of gravity in simple words."</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    temperature<span class="op">=</span><span class="fl">0.7</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    max_tokens<span class="op">=</span><span class="dv">100</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    top_p<span class="op">=</span><span class="fl">0.9</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    n<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    stop<span class="op">=</span>[<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>])</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.choices[<span class="dv">0</span>].text.strip())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<p>In essence, while the raw API gives you fine-grained control, LangChain provides a higher-level abstraction and pre-built components that significantly reduce boilerplate code and development time for complex LLM applications.</p>
 </section>
-</section>
-<section id="use-case-grammar-correction" class="level2">
-<h2 class="anchored" data-anchor-id="use-case-grammar-correction">Use Case: Grammar Correction</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> <span class="st">"Correct this sentence: 'She no went to the market today.'"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> openai.Completion.create(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"text-davinci-003"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span>prompt,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    temperature<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    max_tokens<span class="op">=</span><span class="dv">60</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.choices[<span class="dv">0</span>].text.strip())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-<section id="use-case-email-drafting" class="level2">
-<h2 class="anchored" data-anchor-id="use-case-email-drafting">Use Case: Email Drafting</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> <span class="st">"Write a formal email to a colleague asking for help on a project due next week."</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> openai.Completion.create(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"text-davinci-003"</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    prompt<span class="op">=</span>prompt,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    max_tokens<span class="op">=</span><span class="dv">150</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    temperature<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.choices[<span class="dv">0</span>].text.strip())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-<section id="best-practices" class="level2">
-<h2 class="anchored" data-anchor-id="best-practices">Best Practices</h2>
+<section id="typical-langchain-app-structure" class="level1">
+<h1>Typical LangChain App Structure</h1>
+<p>A well-structured LangChain application typically separates concerns into logical directories, promoting modularity and maintainability.<br>
+While the exact structure can vary, a common layout might look like this:</p>
+<pre><code>my-langchain-app/
+├── .env                         # For storing sensitive API keys and environment variables
+├── main.py                      # The main entry point of your application
+├── prompts/                     # Directory for storing prompt templates
+│   ├── qa_prompt.txt            # Example: A prompt template for a Q&amp;A system
+│   └── summarizer_prompt.yaml   # Example: Another prompt in YAML format
+├── chains/                      # Directory for defining custom chains
+│   ├── summarizer_chain.py      # Example: A chain for document summarization
+│   └── qa_chain.py              # Example: A chain for question answering
+├── memory/                      # Directory for memory configurations (if complex)
+│   └── conversation_buffer.py   # Example: Custom memory management setup
+└── data/                        # Directory for local data or documents
+    ├── docs/                    # Sub-directory for documents to be used in RAG
+    │   ├── document1.txt
+    │   └── document2.pdf
+    └── embeddings/              # Sub-directory for storing pre-computed embeddings (optional)</code></pre>
+<p>This structure makes it easier to <strong>navigate</strong>, <strong>manage</strong>, and <strong>scale</strong> your LangChain projects as they become more complex. |</p>
+<section id="langchain-in-production" class="level2">
+<h2 class="anchored" data-anchor-id="langchain-in-production">LangChain in Production</h2>
+<p>LangChain can be integrated with:</p>
 <ul>
-<li>Be specific in your prompts: vague prompts give vague results.</li>
-<li>Limit token size if you only need short responses.</li>
-<li>Use <code>temperature</code> and <code>top_p</code> to balance creativity and control.</li>
+<li><strong>Streamlit / Gradio</strong> for frontend</li>
+<li><strong>FastAPI / Flask</strong> for APIs</li>
+<li><strong>Docker</strong> for containerization</li>
+<li><strong>Vector DBs</strong> like Pinecone or Chroma</li>
 </ul>
 <hr>
-</section>
-<section id="when-to-use-completion-vs-chatcompletion" class="level2">
-<h2 class="anchored" data-anchor-id="when-to-use-completion-vs-chatcompletion">When to Use Completion vs ChatCompletion?</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Task</th>
-<th>Use This API</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Long-form generation</td>
-<td><code>Completion.create()</code></td>
-</tr>
-<tr class="even">
-<td>Conversational systems</td>
-<td><code>ChatCompletion.create()</code></td>
-</tr>
-<tr class="odd">
-<td>Role-based agents</td>
-<td><code>ChatCompletion.create()</code></td>
-</tr>
-<tr class="even">
-<td>Fill-in-the-blank style</td>
-<td><code>Completion.create()</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Choose LangChain when:
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>Text Completion is ideal for open-ended text generation.</li>
-<li>Use <code>text-davinci-003</code> for best results.</li>
-<li>Tune parameters like <code>temperature</code>, <code>max_tokens</code>, and <code>stop</code> for optimal behavior.</li>
+<li>You’re building a multi-step pipeline that involves sequential or complex reasoning (e.g., research, analysis, then synthesis).</li>
+<li>You want to connect memory, external tools, APIs, databases, or web resources with your LLM.</li>
+<li>You’re working with agents that need to make decisions and take actions autonomously.</li>
+<li>You are developing Retrieval-Augmented Generation (RAG) systems to ground LLM responses in specific data.</li>
+<li>You need model agnosticism and want the flexibility to easily swap between different LLM providers.</li>
+<li>You aim for structured, reusable, and maintainable LLM application code.</li>
 </ul>
-<hr>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Don’t use LangChain if:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>You only need a single, straightforward prompt call to an LLM, without any complex chaining, memory, or tool integration. For very simple, one-off interactions, a direct API call might be sufficient and introduce less overhead.</li>
+<li>You just want to experiment quickly with raw completions or basic playground-style interactions where the overhead of a framework isn’t beneficial.</li>
+</ul>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 3: Applications of Prompt Engineering – Prompt Engineering</title>
+<title>Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging – Prompt Engineering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -80,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module3.html">Module 3: Applications of Prompt Engineering</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module13.html">Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -134,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Module3.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Module3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Module 3: Applications of Prompt Engineering</span></a>
   </div>
 </li>
@@ -194,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Module13.html" class="sidebar-item-text sidebar-link">
+  <a href="./Module13.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging</span></a>
   </div>
 </li>
@@ -211,16 +246,21 @@ ul.task-list li input[type="checkbox"] {
    
   <ul class="collapse">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#text-summarization" id="toc-text-summarization" class="nav-link" data-scroll-target="#text-summarization">1. Text Summarization</a></li>
+  <li><a href="#partial-prompttemplates" id="toc-partial-prompttemplates" class="nav-link" data-scroll-target="#partial-prompttemplates">1. Partial PromptTemplates</a></li>
+  <li><a href="#nesting-prompttemplates" id="toc-nesting-prompttemplates" class="nav-link" data-scroll-target="#nesting-prompttemplates">2. Nesting PromptTemplates</a></li>
+  <li><a href="#using-f-string-like-templates-without-prompttemplate" id="toc-using-f-string-like-templates-without-prompttemplate" class="nav-link" data-scroll-target="#using-f-string-like-templates-without-prompttemplate">3. Using f-string-like Templates (without PromptTemplate)</a></li>
+  <li><a href="#debugging-prompttemplates" id="toc-debugging-prompttemplates" class="nav-link" data-scroll-target="#debugging-prompttemplates">4. Debugging PromptTemplates</a></li>
+  <li><a href="#prompttemplate-with-partial-chains" id="toc-prompttemplate-with-partial-chains" class="nav-link" data-scroll-target="#prompttemplate-with-partial-chains">5. PromptTemplate with Partial &amp; Chains</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module3.html">Module 3: Applications of Prompt Engineering</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module13.html">Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Module 3: Applications of Prompt Engineering</h1>
+<h1 class="title">Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging</h1>
 </div>
 
 
@@ -239,24 +279,169 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>In this module, we will explore how prompt engineering can help us perform real-world tasks using language models. You will see how the same model can be used for many different applications just by changing the <strong>prompt</strong>.</p>
-<p>We’ll cover:</p>
+<p>This module builds upon the basic <code>PromptTemplate</code> usage by exploring advanced concepts like:</p>
 <ul>
-<li>✅ Text Summarization</li>
-<li>✅ Text Classification (like Sentiment Analysis)</li>
-<li>✅ Question Answering (QA)</li>
-<li>✅ Translation</li>
-<li>✅ Grammar Correction</li>
+<li>Partial templates (pre-filling parts of the prompt)</li>
+<li>Nesting templates for modularity</li>
+<li>Debugging prompt formatting issues</li>
 </ul>
-<p>Each section has: - a simple explanation - a good prompt example - and a code example using Hugging Face’s GPT-2 pipeline.</p>
+<p>These are essential when building complex pipelines (e.g., RAG, agents), and they enhance <strong>prompt reuse</strong>, <strong>flexibility</strong>, and <strong>robustness</strong>.</p>
 <hr>
 </section>
-<section id="text-summarization" class="level2">
-<h2 class="anchored" data-anchor-id="text-summarization">1. Text Summarization</h2>
-<p><strong>Goal</strong>: Reduce a long paragraph into a short and simple summary.</p>
-<section id="prompt-example" class="level3">
-<h3 class="anchored" data-anchor-id="prompt-example">Prompt Example</h3>
-<p>Summarize this paragraph in one line: “Artificial Intelligence is used in many fields such as healthcare, finance, and education to automate processes and improve efficiency.”</p>
+<section id="partial-prompttemplates" class="level2">
+<h2 class="anchored" data-anchor-id="partial-prompttemplates">1. Partial PromptTemplates</h2>
+<p>Sometimes a prompt has multiple variables, but you want to <strong>pre-fill some</strong> of them.</p>
+<p>LangChain allows you to do this with <strong><code>partial()</code></strong>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.prompts <span class="im">import</span> PromptTemplate</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a template with two variables</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>base_template <span class="op">=</span> PromptTemplate(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    input_variables<span class="op">=</span>[<span class="st">"product"</span>, <span class="st">"audience"</span>],</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"Give marketing ideas for </span><span class="sc">{product}</span><span class="st"> aimed at </span><span class="sc">{audience}</span><span class="st">."</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Partially fill the 'audience'</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>partial_prompt <span class="op">=</span> base_template.partial(audience<span class="op">=</span><span class="st">"teenagers"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Now you only need to pass 'product'</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>final_prompt <span class="op">=</span> partial_prompt.<span class="bu">format</span>(product<span class="op">=</span><span class="st">"fitness tracker"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(final_prompt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can chain multiple <code>.partial()</code> calls or combine with dynamic inputs at runtime.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="nesting-prompttemplates" class="level2">
+<h2 class="anchored" data-anchor-id="nesting-prompttemplates">2. Nesting PromptTemplates</h2>
+<p>You can <strong>nest prompt templates</strong> inside others to build <strong>composable prompts</strong>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.prompts <span class="im">import</span> PromptTemplate</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define reusable templates</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>instruction_template <span class="op">=</span> PromptTemplate(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    input_variables<span class="op">=</span>[<span class="st">"task"</span>],</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"You are a helpful assistant. Please complete the following task: </span><span class="sc">{task}</span><span class="st">"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>task_template <span class="op">=</span> PromptTemplate(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    input_variables<span class="op">=</span>[<span class="st">"topic"</span>],</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"Write a summary about </span><span class="sc">{topic}</span><span class="st">."</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the task first, then embed it in the instruction</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>final_task <span class="op">=</span> task_template.<span class="bu">format</span>(topic<span class="op">=</span><span class="st">"climate change"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>final_prompt <span class="op">=</span> instruction_template.<span class="bu">format</span>(task<span class="op">=</span>final_task)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(final_prompt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="using-f-string-like-templates-without-prompttemplate" class="level2">
+<h2 class="anchored" data-anchor-id="using-f-string-like-templates-without-prompttemplate">3. Using f-string-like Templates (without PromptTemplate)</h2>
+<p>Sometimes, you might not want to use <code>PromptTemplate</code>, especially for quick prototyping.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>product <span class="op">=</span> <span class="st">"AI chatbot"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>audience <span class="op">=</span> <span class="st">"teachers"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ss">Generate innovative ideas to market a </span><span class="sc">{</span>product<span class="sc">}</span><span class="ss"> for </span><span class="sc">{</span>audience<span class="sc">}</span><span class="ss">.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ss">Make it sound professional.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(prompt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But note: - No validation - No template reuse - Harder to debug</p>
+<p>Use <code>PromptTemplate</code> whenever possible for production-quality prompts.</p>
+<hr>
+</section>
+<section id="debugging-prompttemplates" class="level2">
+<h2 class="anchored" data-anchor-id="debugging-prompttemplates">4. Debugging PromptTemplates</h2>
+<p>When prompts fail to format correctly or raise runtime errors, use:</p>
+<section id="a.-template.format-errors" class="level3">
+<h3 class="anchored" data-anchor-id="a.-template.format-errors">a. <code>template.format()</code> Errors</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.prompts <span class="im">import</span> PromptTemplate</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>template <span class="op">=</span> PromptTemplate(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    input_variables<span class="op">=</span>[<span class="st">"name"</span>],</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"Hello </span><span class="sc">{name}</span><span class="st">, welcome to </span><span class="sc">{company}</span><span class="st">."</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This will raise a KeyError because 'company' is not provided</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># prompt = template.format(name="Nitin")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Solution</strong>: Add all required inputs or use <code>partial()</code>.</p>
+</section>
+<section id="b.-print-intermediate-values" class="level3">
+<h3 class="anchored" data-anchor-id="b.-print-intermediate-values">b. Print intermediate values</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Prompt Variables:"</span>, template.input_variables)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Template:"</span>, template.template)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="c.-validate-inputs" class="level3">
+<h3 class="anchored" data-anchor-id="c.-validate-inputs">c.&nbsp;Validate Inputs</h3>
+<p>Always check variable names in curly braces match what you pass to <code>format()</code> or the chain.</p>
+<hr>
+</section>
+</section>
+<section id="prompttemplate-with-partial-chains" class="level2">
+<h2 class="anchored" data-anchor-id="prompttemplate-with-partial-chains">5. PromptTemplate with Partial &amp; Chains</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.prompts <span class="im">import</span> PromptTemplate</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chains <span class="im">import</span> LLMChain</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai <span class="im">import</span> OpenAI</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> OpenAI()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>base_template <span class="op">=</span> PromptTemplate(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    input_variables<span class="op">=</span>[<span class="st">"tool"</span>, <span class="st">"task"</span>],</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    template<span class="op">=</span><span class="st">"You are using </span><span class="sc">{tool}</span><span class="st"> to </span><span class="sc">{task}</span><span class="st">. Write a one-line summary."</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>partial_prompt <span class="op">=</span> base_template.partial(tool<span class="op">=</span><span class="st">"LangChain"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>chain <span class="op">=</span> LLMChain(llm<span class="op">=</span>llm, prompt<span class="op">=</span>partial_prompt)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> chain.run(task<span class="op">=</span><span class="st">"summarize search results"</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>partial()</code></td>
+<td>Pre-fill some prompt variables</td>
+</tr>
+<tr class="even">
+<td>Nested Templates</td>
+<td>Use one template inside another</td>
+</tr>
+<tr class="odd">
+<td>Debugging Tips</td>
+<td>Use <code>.format()</code> carefully, print templates</td>
+</tr>
+<tr class="even">
+<td>Reuse &amp; Maintain</td>
+<td>Modular templates = maintainable and scalable code</td>
+</tr>
+</tbody>
+</table>
+<p>These techniques make prompt engineering scalable and production-ready, especially in <strong>RAG</strong>, <strong>Agent</strong>, or <strong>multi-component</strong> systems.</p>
+<section id="hands-on-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="hands-on-notebook">Hands-On Notebook</h3>
+<p><a href="https://colab.research.google.com/drive/1pD2K8ya9c6su-wjGI81utQGpFvgkWr8p?usp=sharing" target="_blank"> <button style="padding: 10px 20px; background-color: #2e7d32; color: white; border: none; border-radius: 6px; font-size: 16px;"> Open in Google Colab </button> </a></p>
 
 
 </section>

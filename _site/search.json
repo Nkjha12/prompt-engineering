@@ -201,12 +201,12 @@
   {
     "objectID": "Module7.html",
     "href": "Module7.html",
-    "title": "Module 11: Prompt Templates in LangChain",
+    "title": "Module 7: Working with Text Completion in OpenAI",
     "section": "",
-    "text": "Learn how to create and use prompt templates to make your LLM applications more flexible and reusable.\n\n\n```python from langchain.prompts import PromptTemplate\nprompt = PromptTemplate( input_variables=[“topic”], template=“Explain {topic} in simple words.” ) print(prompt.format(topic=“Artificial Intelligence”))",
+    "text": "In this module, we’ll explore how to use the Text Completion API to generate text from a prompt using models like text-davinci-003.\nThis API is useful when you want the model to complete a sentence, paragraph, or idea based on a given start.",
     "crumbs": [
       "Modules",
-      "Module 11: Prompt Templates in LangChain"
+      "Module 7: Working with Text Completion in OpenAI"
     ]
   },
   {
@@ -214,10 +214,1546 @@
     "href": "Module7.html#basic-example",
     "title": "Module 11: Prompt Templates in LangChain",
     "section": "",
-    "text": "```python from langchain.prompts import PromptTemplate\nprompt = PromptTemplate( input_variables=[“topic”], template=“Explain {topic} in simple words.” ) print(prompt.format(topic=“Artificial Intelligence”))",
+    "text": "from langchain.prompts import PromptTemplate\n\nprompt = PromptTemplate(\n    input_variables=[\"topic\"],\n    template=\"Explain {topic} in simple words.\"\n)\nprint(prompt.format(topic=\"Artificial Intelligence\"))",
     "crumbs": [
       "Modules",
       "Module 11: Prompt Templates in LangChain"
+    ]
+  },
+  {
+    "objectID": "Module4.html#popular-llm-providers",
+    "href": "Module4.html#popular-llm-providers",
+    "title": "Module 4: Introduction to LLM Platforms",
+    "section": "Popular LLM Providers",
+    "text": "Popular LLM Providers\n\n\n\n\n\n\n\n\nPlatform\nFocus\nStrengths\n\n\n\n\nOpenAI\nGeneral-purpose LLMs (GPT-3.5, GPT-4)\nChat, code, summarization\n\n\nAnthropic\nSafer, explainable models (Claude)\nLong context, safety\n\n\nGoogle AI (Gemini)\nIntegrated with Google tools\nStrong in reasoning, multilingual\n\n\nMistral\nOpen-source lightweight models\nEfficient, fast\n\n\nCohere\nNLP + RAG friendly APIs\nFocused on enterprise use\n\n\nHugging Face\nOpen-source model hub\nCommunity, fine-tuning support\n\n\nAzure AI\nEnterprise OpenAI hosting\nScalable, secure",
+    "crumbs": [
+      "Modules",
+      "Module 4: Introduction to LLM Platforms"
+    ]
+  },
+  {
+    "objectID": "Module4.html#why-use-these-platforms",
+    "href": "Module4.html#why-use-these-platforms",
+    "title": "Module 4: Introduction to LLM Platforms",
+    "section": "Why Use These Platforms?",
+    "text": "Why Use These Platforms?\n\n\n\n\n\n\n\nBenefit\nExplanation\n\n\n\n\nIntelligence-as-a-Service\nNo need to train from scratch — just use API\n\n\nPlug-and-play APIs\nEasy integration with apps, websites, and bots\n\n\nMultitask Capabilities\nOne model can do Q&A, summarization, translation, etc.\n\n\nContinuous Updates\nModels improve automatically in the cloud\n\n\n\n\nLLM-related skills are in high demand globally:\nPrompt Engineering\nLangChain / RAG apps\nOpenAI/Gemini APIs\nLLM app integration (chatbots, agents)",
+    "crumbs": [
+      "Modules",
+      "Module 4: Introduction to LLM Platforms"
+    ]
+  },
+  {
+    "objectID": "Module4.html#summary",
+    "href": "Module4.html#summary",
+    "title": "Module 4: Introduction to LLM Platforms",
+    "section": "✅ Summary",
+    "text": "✅ Summary\n\nLLM platforms give access to powerful AI models through easy APIs.\nThey are used in almost every modern industry.\nLearning to work with them opens many career and product-building opportunities.\n\n\n\n  ⬅️ Module 3  \n  Module 5 ➡️",
+    "crumbs": [
+      "Modules",
+      "Module 4: Introduction to LLM Platforms"
+    ]
+  },
+  {
+    "objectID": "Module5.html",
+    "href": "Module5.html",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "",
+    "text": "The OpenAI API allows you to access powerful large language models like GPT-3.5 and GPT-4 via a simple HTTP-based interface.\nYou can use it for:\n\nChatbots\nContent creation\nText summarization\nTranslation\nCode generation\nAudio transcription\nImage generation\nEmbedding generation",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#what-is-the-openai-api",
+    "href": "Module5.html#what-is-the-openai-api",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "",
+    "text": "The OpenAI API allows you to access powerful large language models like GPT-3.5 and GPT-4 via a simple HTTP-based interface.\nYou can use it for:\n\nChatbots\nContent creation\nText summarization\nTranslation\nCode generation\nAudio transcription\nImage generation\nEmbedding generation",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#create-an-openai-account",
+    "href": "Module5.html#create-an-openai-account",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "Create an OpenAI Account",
+    "text": "Create an OpenAI Account\n\nGo to https://platform.openai.com\nSign up using your email, Google, or GitHub.\nNavigate to https://platform.openai.com/account/api-keys\nClick “Create new secret key”\nCopy and store your key securely.\n\n\n\n\n\n\n\nWarning\n\n\n\nYour secret key starts with sk- and should never be shared publicly.",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#install-the-openai-python-package",
+    "href": "Module5.html#install-the-openai-python-package",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "Install the OpenAI Python Package",
+    "text": "Install the OpenAI Python Package\npip install --upgrade openai",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#set-up-your-api-key-in-python",
+    "href": "Module5.html#set-up-your-api-key-in-python",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "Set Up Your API Key in Python",
+    "text": "Set Up Your API Key in Python\nYou can use your API key in two ways:\n\nOption 1: Set directly in code (for testing only)\nimport os\nfrom openai import OpenAI\n\nclient = OpenAI(api_key=\"your-api-key-here\")\n\n\nOption 2: Use environment variables (recommended)\n# In terminal\nexport OPENAI_API_KEY=\"your-api-key-here\"\nimport os\nfrom openai import OpenAI\n\nclient = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#some-functions-in-openai-api",
+    "href": "Module5.html#some-functions-in-openai-api",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "Some Functions in openai API:",
+    "text": "Some Functions in openai API:\n\n1. openai.Completion.create(...)\n\nUse: Generate simple text completions from a prompt.\nModel: text-davinci-003 or similar.\nExample:\n\n\nopenai.Completion.create(\n    model=\"text-davinci-003\",\n    prompt=\"Explain gravity like I am 5 years old.\",\n    max_tokens=100)\n\n\n2. openai.ChatCompletion.create(...)\n\nUse: Create conversations with chat-based models like gpt-3.5-turbo or gpt-4.\nSupports: System, user, assistant roles.\nRecommended for modern LLM applications.\nExample:\n\n\nopenai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n        {\"role\": \"user\", \"content\": \"How does photosynthesis work?\"}\n    ])\n\n\n\n3. openai.Edit.create(...)\n\nUse: Edit or improve existing text based on instructions.\nModel: text-davinci-edit-001\nExample:\n\n\nopenai.Edit.create(\n    model=\"text-davinci-edit-001\",\n    input=\"Ths is an eror.\",\n    instruction=\"Fix the spelling\")\n\n\n\n4. openai.Image.create(...)\n\nUse: Generate images from text prompts.\nModel: DALL·E\nExample:\n\n\nopenai.Image.create(\n    prompt=\"A futuristic city floating in the sky\",\n    n=1,\n    size=\"512x512\")\n\n\n\n5. openai.Embedding.create(...)\n\nUse: Get vector representations of text (useful for semantic search, recommendation, etc.).\nModel: text-embedding-ada-002\nExample:\n\n\nopenai.Embedding.create(\n    input=\"What is artificial intelligence?\",\n    model=\"text-embedding-ada-002\")\n\n\n\n6. openai.Audio.transcribe(...)\n\nUse: Convert audio files into text using OpenAI Whisper model.\nExample:\n\naudio_file = open(\"speech.mp3\", \"rb\")\ntranscript = openai.Audio.transcribe(\"whisper-1\", audio_file)",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#comparison-table",
+    "href": "Module5.html#comparison-table",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "Comparison Table",
+    "text": "Comparison Table\n\n\n\n\n\n\n\n\nUse Case\nFunction\nModel\n\n\n\n\nChatbot\nChatCompletion.create\ngpt-3.5-turbo\n\n\nText generation\nCompletion.create\ntext-davinci-003\n\n\nText editing\nEdit.create\ntext-davinci-edit-001\n\n\nImage generation\nImage.create\ndall-e\n\n\nAudio transcription\nAudio.transcribe\nwhisper-1\n\n\nEmbeddings\nEmbedding.create\ntext-embedding-ada-002",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#summary",
+    "href": "Module5.html#summary",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "Summary",
+    "text": "Summary\n\nUse OpenAI() to create a client with your API key.\nModern usage recommends client.chat.completions.create() for chat interactions.\nYou can also generate images, extract embeddings, and transcribe audio using a consistent client interface.",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html",
+    "href": "Module6.html",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "",
+    "text": "In this hands-on module, we’ll apply the concepts you’ve learned to build and test real prompts using OpenAI’s ChatCompletion API (via the new OpenAI SDK openai&gt;=1.0.0). We will also look at several mini-projects and explore how to integrate them into real-world applications.",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html#prerequisites",
+    "href": "Module6.html#prerequisites",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "",
+    "text": "Before you begin, make sure you: - Have installed the openai Python package - Have your OpenAI API key ready - Have reviewed the previous module on API Overview",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html#setup",
+    "href": "Module6.html#setup",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "Setup",
+    "text": "Setup\n!pip install --upgrade openai\nfrom openai import OpenAI\nimport os\n\nclient = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html#simple-chatbot-interaction",
+    "href": "Module6.html#simple-chatbot-interaction",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "1. Simple ChatBot Interaction",
+    "text": "1. Simple ChatBot Interaction\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n        {\"role\": \"user\", \"content\": \"Who won the FIFA World Cup in 2022?\"}\n    ]\n)\nprint(response.choices[0].message.content)",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html#custom-assistant-role",
+    "href": "Module6.html#custom-assistant-role",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "2. Custom Assistant Role",
+    "text": "2. Custom Assistant Role\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a strict English grammar teacher.\"},\n        {\"role\": \"user\", \"content\": \"Correct this: He don't like the cold.\"}\n    ]\n)\nprint(response.choices[0].message.content)",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html#explore-parameters",
+    "href": "Module6.html#explore-parameters",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "3. Explore Parameters",
+    "text": "3. Explore Parameters\nPlay with:\n\ntemperature: creativity\ntop_p: nucleus sampling\nmax_tokens: response length\nstop: cut-off patterns\nn: number of completions\n\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    temperature=0.9,\n    top_p=0.85,\n    max_tokens=100,\n    messages=[\n        {\"role\": \"user\", \"content\": \"Write a short story about a cat on Mars.\"}\n    ]\n)\nprint(response.choices[0].message.content)",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html#mini-applications",
+    "href": "Module6.html#mini-applications",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "4. Mini-Applications",
+    "text": "4. Mini-Applications\n\na) Summarizer\ndef summarize_text(text):\n    response = client.chat.completions.create(\n        model=\"gpt-3.5-turbo\",\n        messages=[\n            {\"role\": \"system\", \"content\": \"Summarize the following text.\"},\n            {\"role\": \"user\", \"content\": text}\n        ]\n    )\n    return response.choices[0].message.content\n\n\nb) Idea Generator\ndef generate_ideas(topic):\n    response = client.chat.completions.create(\n        model=\"gpt-3.5-turbo\",\n        messages=[\n            {\"role\": \"system\", \"content\": \"You are a creative idea generator.\"},\n            {\"role\": \"user\", \"content\": f\"Give 5 unique business ideas on {topic}.\"}\n        ]\n    )\n    return response.choices[0].message.content",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html#further-exploration-ideas",
+    "href": "Module6.html#further-exploration-ideas",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "5. Further Exploration Ideas",
+    "text": "5. Further Exploration Ideas\n\nQuiz Generator: Generate multiple-choice questions from topics\nRecipe Recommender: Generate recipes from given ingredients\nPersona Bot: Change assistant behavior (e.g. a Shakespearean poet)\nResume Optimizer: Improve resumes using targeted prompts\nStory Continuation: Ask GPT to continue a paragraph",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html#downloadable-notebook",
+    "href": "Module6.html#downloadable-notebook",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "Downloadable Notebook",
+    "text": "Downloadable Notebook\nYou can download and run all the above examples in this notebook:\n👉 Click here to download the notebook\nOr open in Colab:\n👉 Open in Colab",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html#summary",
+    "href": "Module6.html#summary",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "Summary",
+    "text": "Summary\n\nYou’ve seen how to send chat messages and tweak response behavior.\nWe built mini apps using different prompt designs.\nYou can now start prototyping your own AI assistants!\n\n\n\nHands-On Notebook\n  Open in Google Colab",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module7.html#what-is-a-text-completion",
+    "href": "Module7.html#what-is-a-text-completion",
+    "title": "Module 7: Working with Text Completion in OpenAI",
+    "section": "What is a Text Completion?",
+    "text": "What is a Text Completion?\nA completion means you’re asking the model to “complete the text you started.”\nFor example, if your prompt is:\n\n\"Once upon a time, in a galaxy far away,\"\n\nThe model will try to continue that story in a logical and coherent way.",
+    "crumbs": [
+      "Modules",
+      "Module 7: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module7.html#common-use-cases",
+    "href": "Module7.html#common-use-cases",
+    "title": "Module 7: Working with Text Completion in OpenAI",
+    "section": "Common Use Cases",
+    "text": "Common Use Cases\n\nStory writing\nExplanation or reasoning\nTranslation\nGrammar correction\nCode generation",
+    "crumbs": [
+      "Modules",
+      "Module 7: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module7.html#basic-setup",
+    "href": "Module7.html#basic-setup",
+    "title": "Module 7: Working with Text Completion in OpenAI",
+    "section": "Basic Setup",
+    "text": "Basic Setup\nInstall the OpenAI package and import the required libraries:\n!pip install openai\n\nimport openai\nimport os\n\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")",
+    "crumbs": [
+      "Modules",
+      "Module 7: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module7.html#making-a-completion-request",
+    "href": "Module7.html#making-a-completion-request",
+    "title": "Module 7: Working with Text Completion in OpenAI",
+    "section": "Making a Completion Request",
+    "text": "Making a Completion Request\nHere’s a basic example of using the Text Completion endpoint:\n\nresponse = openai.Completion.create(\n    model=\"text-davinci-003\",\n    prompt=\"Write a tweet about climate change.\",\n    max_tokens=60)\nprint(response.choices[0].text.strip())",
+    "crumbs": [
+      "Modules",
+      "Module 7: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module7.html#key-parameters",
+    "href": "Module7.html#key-parameters",
+    "title": "Module 7: Working with Text Completion in OpenAI",
+    "section": "Key Parameters",
+    "text": "Key Parameters\n\n\n\n\n\n\n\nParameter\nDescription\n\n\n\n\nprompt\nThe text you want the model to complete\n\n\nmodel\nThe completion model (e.g., text-davinci-003)\n\n\nmax_tokens\nMax length of the output\n\n\ntemperature\nControls randomness (0 = deterministic, 1 = very random)\n\n\ntop_p\nControls diversity via nucleus sampling\n\n\nn\nNumber of completions to generate\n\n\nstop\nStop generation at specific token(s)\n\n\n\n\n\nExample with All Parameters:\nresponse = openai.Completion.create(\n    model=\"text-davinci-003\",\n    prompt=\"Explain the concept of gravity in simple words.\",\n    temperature=0.7,\n    max_tokens=100,\n    top_p=0.9,\n    n=1,\n    stop=[\"\\n\"])\nprint(response.choices[0].text.strip())",
+    "crumbs": [
+      "Modules",
+      "Module 7: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module7.html#use-case-grammar-correction",
+    "href": "Module7.html#use-case-grammar-correction",
+    "title": "Module 7: Working with Text Completion in OpenAI",
+    "section": "Use Case: Grammar Correction",
+    "text": "Use Case: Grammar Correction\nprompt = \"Correct this sentence: 'She no went to the market today.'\"\nresponse = openai.Completion.create(\n    model=\"text-davinci-003\",\n    prompt=prompt,\n    temperature=0,\n    max_tokens=60)\nprint(response.choices[0].text.strip())",
+    "crumbs": [
+      "Modules",
+      "Module 7: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module7.html#use-case-email-drafting",
+    "href": "Module7.html#use-case-email-drafting",
+    "title": "Module 7: Working with Text Completion in OpenAI",
+    "section": "Use Case: Email Drafting",
+    "text": "Use Case: Email Drafting\nprompt = \"Write a formal email to a colleague asking for help on a project due next week.\"\nresponse = openai.Completion.create(\n    model=\"text-davinci-003\",\n    prompt=prompt,\n    max_tokens=150,\n    temperature=0.6)\nprint(response.choices[0].text.strip())",
+    "crumbs": [
+      "Modules",
+      "Module 7: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module7.html#best-practices",
+    "href": "Module7.html#best-practices",
+    "title": "Module 7: Working with Text Completion in OpenAI",
+    "section": "Best Practices",
+    "text": "Best Practices\n\nBe specific in your prompts: vague prompts give vague results.\nLimit token size if you only need short responses.\nUse temperature and top_p to balance creativity and control.",
+    "crumbs": [
+      "Modules",
+      "Module 7: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module7.html#when-to-use-completion-vs-chatcompletion",
+    "href": "Module7.html#when-to-use-completion-vs-chatcompletion",
+    "title": "Module 7: Working with Text Completion in OpenAI",
+    "section": "When to Use Completion vs ChatCompletion?",
+    "text": "When to Use Completion vs ChatCompletion?\n\n\n\nTask\nUse This API\n\n\n\n\nLong-form generation\nCompletion.create()\n\n\nConversational systems\nChatCompletion.create()\n\n\nRole-based agents\nChatCompletion.create()\n\n\nFill-in-the-blank style\nCompletion.create()",
+    "crumbs": [
+      "Modules",
+      "Module 7: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module7.html#summary",
+    "href": "Module7.html#summary",
+    "title": "Module 7: Working with Text Completion in OpenAI",
+    "section": "Summary",
+    "text": "Summary\n\nText Completion is ideal for open-ended text generation.\nUse text-davinci-003 for best results.\nTune parameters like temperature, max_tokens, and stop for optimal behavior.",
+    "crumbs": [
+      "Modules",
+      "Module 7: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module11.html",
+    "href": "Module11.html",
+    "title": "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "",
+    "text": "LangChain Chains are a powerful way to combine multiple components (like LLMs, prompts, memory, tools) into a pipeline that performs complex reasoning or multi-step tasks.",
+    "crumbs": [
+      "Modules",
+      "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#basic-example",
+    "href": "Module11.html#basic-example",
+    "title": "Module 11: Prompt Templates in LangChain",
+    "section": "",
+    "text": "from langchain.prompts import PromptTemplate\n\nprompt = PromptTemplate(\n    input_variables=[\"topic\"],\n    template=\"Explain {topic} in simple words.\"\n)\nprint(prompt.format(topic=\"Artificial Intelligence\"))"
+  },
+  {
+    "objectID": "Module7.html#code-annotations-hover",
+    "href": "Module7.html#code-annotations-hover",
+    "title": "Module 8: Working with Text Completion in OpenAI",
+    "section": "",
+    "text": "!pip install openai\n\nimport openai\nimport os\n\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")",
+    "crumbs": [
+      "Modules",
+      "Module 8: Working with Text Completion in OpenAI"
+    ]
+  },
+  {
+    "objectID": "Module8.html",
+    "href": "Module8.html",
+    "title": "Module 8: Evaluating Prompt Quality and Output Reliability",
+    "section": "",
+    "text": "Evaluating prompts is fundamental to successful prompt engineering. It helps in:\n\nIdentifying Effective Prompts: Pinpointing which prompts consistently generate accurate, helpful, or creative outputs. This is crucial for maximizing the utility of LLMs across diverse applications.\nMitigating Undesirable Outputs: Reducing occurrences of hallucinations (LLMs generating false or nonsensical information) and irrelevant responses that don’t align with the user’s intent.\nEnhancing Generalizability: Selecting prompts that perform well not just in specific instances but also generalize better across a wider range of examples or different users. This ensures robustness and scalability of LLM applications.",
+    "crumbs": [
+      "Modules",
+      "Module 8: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module8.html#why-evaluate-prompts",
+    "href": "Module8.html#why-evaluate-prompts",
+    "title": "Module 8: Evaluating Prompt Quality and Output Reliability",
+    "section": "",
+    "text": "Evaluating prompts is fundamental to successful prompt engineering. It helps in:\n\nIdentifying Effective Prompts: Pinpointing which prompts consistently generate accurate, helpful, or creative outputs. This is crucial for maximizing the utility of LLMs across diverse applications.\nMitigating Undesirable Outputs: Reducing occurrences of hallucinations (LLMs generating false or nonsensical information) and irrelevant responses that don’t align with the user’s intent.\nEnhancing Generalizability: Selecting prompts that perform well not just in specific instances but also generalize better across a wider range of examples or different users. This ensures robustness and scalability of LLM applications.",
+    "crumbs": [
+      "Modules",
+      "Module 8: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module8.html#what-makes-a-good-prompt",
+    "href": "Module8.html#what-makes-a-good-prompt",
+    "title": "Module 8: Evaluating Prompt Quality and Output Reliability",
+    "section": "What Makes a “Good” Prompt?",
+    "text": "What Makes a “Good” Prompt?\nA “good” prompt is one that consistently elicits high-quality responses from an LLM. The characteristics of such outputs typically include:\n\nRelevant – The output directly addresses and matches the intent of the user’s query. It doesn’t deviate from the core subject or provide extraneous information.\nFluent – The language used in the output is grammatically correct, natural-sounding, and readable. It avoids awkward phrasing, typos, or syntactic errors that could hinder understanding.\nCoherent – The ideas presented in the output flow logically and are well-connected and structured. There’s a clear progression of thought, making the response easy to follow.\nFactual – The output contains accurate and verifiable information. This is particularly critical in applications where precision and truthfulness are paramount, such as in factual retrieval or reporting.\nComplete – The output fully answers the question or task posed by the prompt, providing all necessary details without leaving out crucial information.",
+    "crumbs": [
+      "Modules",
+      "Module 8: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module8.html#human-evaluation-criteria",
+    "href": "Module8.html#human-evaluation-criteria",
+    "title": "Module 8: Evaluating Prompt Quality and Output Reliability",
+    "section": "Human Evaluation Criteria",
+    "text": "Human Evaluation Criteria\nHuman evaluation remains the gold standard for assessing prompt quality, especially for nuanced aspects like creativity, subjectivity, or complex reasoning. A scoring rubric is a structured way to conduct this manual assessment.\n\n\n\n\n\n\n\n\nCriteria\nScale (1-5)\nDescription\n\n\n\n\nRelevance\n1 (poor) – 5 (excellent)\nDoes the output directly and appropriately match the prompt’s intent? A score of 1 indicates the output is completely off-topic, while 5 means it’s perfectly aligned.\n\n\nFluency\n1 – 5\nIs the language natural, grammatically correct, and free from errors? A score of 1 suggests the output is difficult to read due to poor grammar or awkward phrasing, while 5 indicates impeccable language.\n\n\nCoherence\n1 – 5\nAre the ideas well-connected, logically organized, and easy to follow? A score of 1 implies a disjointed or confusing output, whereas 5 signifies a highly structured and logical flow.\n\n\nFactuality\n1 – 5\nIs the information accurate and verifiable? A score of 1 means the output contains significant factual errors or hallucinations, while 5 denotes complete accuracy.\n\n\nCompleteness\n1 – 5\nDoes the output fully address all aspects of the request or question? A score of 1 indicates a partial or incomplete response, while 5 means the task is entirely fulfilled.\n\n\n\nBy using such a rubric, evaluators can provide consistent and comparable scores, allowing for systematic analysis of different prompts and their outputs.",
+    "crumbs": [
+      "Modules",
+      "Module 8: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module8.html#llm-as-a-judge-evaluation",
+    "href": "Module8.html#llm-as-a-judge-evaluation",
+    "title": "Module 8: Evaluating Prompt Quality and Output Reliability",
+    "section": "LLM-as-a-Judge Evaluation",
+    "text": "LLM-as-a-Judge Evaluation\nA modern and efficient approach to prompt evaluation involves leveraging another LLM to act as a judge. This method is particularly useful for large-scale evaluations where human review might be impractical.\nThe core idea is to provide a powerful LLM with: 1. The original prompt. 2. Two or more responses generated from different prompts or models. 3. Instructions for comparing these responses based on specific criteria (e.g., relevance, coherence, conciseness).\nprompt = '''\nYou will be given two responses to the same prompt. Pick the one that is more relevant and coherent.\n\nPrompt: \"Explain the concept of climate change.\"\n\nResponse A: \"Climate change is the average weather shift over a short time.\"\n\nResponse B: \"Climate change refers to long-term alterations in temperature and weather patterns, often due to human activity.\"\n\nWhich is better and why?\n'''\n\nfrom openai import OpenAI\nimport os\n\nclient = OpenAI(api_key=os.getenv(\"OPENAI_API_KEY\"))\n\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[{\"role\": \"user\", \"content\": prompt}]\n)\n\nprint(response.choices[0].message.content)\n\n\n# For demonstration purposes, a placeholder response:\nresponse_content = \"Response B is better because it accurately describes climate change as long-term alterations and mentions human activity, which is a key aspect. Response A incorrectly states it's a short-term shift.\"\n\nprint(response_content)",
+    "crumbs": [
+      "Modules",
+      "Module 8: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module9.html",
+    "href": "Module9.html",
+    "title": "Module 9: Introduction to LangChain",
+    "section": "",
+    "text": "LangChain is an innovative, open-source framework meticulously designed to simplify and accelerate the development of applications that harness the power of large language models (LLMs). Think of LLMs as the “brains” of your AI applications, encompassing models like OpenAI’s ChatGPT and GPT-4, Anthropic’s Claude, Google’s Gemini, and many others. LangChain acts as the orchestration layer, enabling the flexible and sophisticated integration of LLMs with crucial components such as external memory systems, diverse APIs, specialized tools, intelligent agents, and robust vector stores. It moves beyond simple prompt-and-response, allowing developers to build complex, intelligent systems.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module9.html#why-evaluate-prompts",
+    "href": "Module9.html#why-evaluate-prompts",
+    "title": "Module 9: Evaluating Prompt Quality and Output Reliability",
+    "section": "",
+    "text": "Evaluating prompts is fundamental to successful prompt engineering. It helps in:\n\nIdentifying Effective Prompts: Pinpointing which prompts consistently generate accurate, helpful, or creative outputs. This is crucial for maximizing the utility of LLMs across diverse applications.\nMitigating Undesirable Outputs: Reducing occurrences of hallucinations (LLMs generating false or nonsensical information) and irrelevant responses that don’t align with the user’s intent.\nEnhancing Generalizability: Selecting prompts that perform well not just in specific instances but also generalize better across a wider range of examples or different users. This ensures robustness and scalability of LLM applications.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module9.html#what-makes-a-good-prompt",
+    "href": "Module9.html#what-makes-a-good-prompt",
+    "title": "Module 9: Evaluating Prompt Quality and Output Reliability",
+    "section": "What Makes a “Good” Prompt?",
+    "text": "What Makes a “Good” Prompt?\nA “good” prompt is one that consistently elicits high-quality responses from an LLM. The characteristics of such outputs typically include:\n\nRelevant – The output directly addresses and matches the intent of the user’s query. It doesn’t deviate from the core subject or provide extraneous information.\nFluent – The language used in the output is grammatically correct, natural-sounding, and readable. It avoids awkward phrasing, typos, or syntactic errors that could hinder understanding.\nCoherent – The ideas presented in the output flow logically and are well-connected and structured. There’s a clear progression of thought, making the response easy to follow.\nFactual – The output contains accurate and verifiable information. This is particularly critical in applications where precision and truthfulness are paramount, such as in factual retrieval or reporting.\nComplete – The output fully answers the question or task posed by the prompt, providing all necessary details without leaving out crucial information.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module9.html#human-evaluation-criteria",
+    "href": "Module9.html#human-evaluation-criteria",
+    "title": "Module 9: Evaluating Prompt Quality and Output Reliability",
+    "section": "Human Evaluation Criteria",
+    "text": "Human Evaluation Criteria\nHuman evaluation remains the gold standard for assessing prompt quality, especially for nuanced aspects like creativity, subjectivity, or complex reasoning. A scoring rubric is a structured way to conduct this manual assessment.\n\n\n\n\n\n\n\n\nCriteria\nScale (1-5)\nDescription\n\n\n\n\nRelevance\n1 (poor) – 5 (excellent)\nDoes the output directly and appropriately match the prompt’s intent? A score of 1 indicates the output is completely off-topic, while 5 means it’s perfectly aligned.\n\n\nFluency\n1 – 5\nIs the language natural, grammatically correct, and free from errors? A score of 1 suggests the output is difficult to read due to poor grammar or awkward phrasing, while 5 indicates impeccable language.\n\n\nCoherence\n1 – 5\nAre the ideas well-connected, logically organized, and easy to follow? A score of 1 implies a disjointed or confusing output, whereas 5 signifies a highly structured and logical flow.\n\n\nFactuality\n1 – 5\nIs the information accurate and verifiable? A score of 1 means the output contains significant factual errors or hallucinations, while 5 denotes complete accuracy.\n\n\nCompleteness\n1 – 5\nDoes the output fully address all aspects of the request or question? A score of 1 indicates a partial or incomplete response, while 5 means the task is entirely fulfilled.\n\n\n\nBy using such a rubric, evaluators can provide consistent and comparable scores, allowing for systematic analysis of different prompts and their outputs.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module9.html#llm-as-a-judge-evaluation",
+    "href": "Module9.html#llm-as-a-judge-evaluation",
+    "title": "Module 9: Evaluating Prompt Quality and Output Reliability",
+    "section": "LLM-as-a-Judge Evaluation",
+    "text": "LLM-as-a-Judge Evaluation\nA modern and efficient approach to prompt evaluation involves leveraging another LLM to act as a judge. This method is particularly useful for large-scale evaluations where human review might be impractical.\nThe core idea is to provide a powerful LLM with: 1. The original prompt. 2. Two or more responses generated from different prompts or models. 3. Instructions for comparing these responses based on specific criteria (e.g., relevance, coherence, conciseness).\nprompt = '''\nYou will be given two responses to the same prompt. Pick the one that is more relevant and coherent.\n\nPrompt: \"Explain the concept of climate change.\"\n\nResponse A: \"Climate change is the average weather shift over a short time.\"\n\nResponse B: \"Climate change refers to long-term alterations in temperature and weather patterns, often due to human activity.\"\n\nWhich is better and why?\n'''\n\nimport openai # Assuming openai library is installed and configured\n\n# The actual API call would look like this (assuming 'openai' library is configured)\n# response = openai.ChatCompletion.create(\n#     model=\"gpt-3.5-turbo\", # Or a more capable model like GPT-4 for better judging\n#     messages=[{\"role\": \"user\", \"content\": prompt}]\n# )\n\n# For demonstration purposes, a placeholder response:\nresponse_content = \"Response B is better because it accurately describes climate change as long-term alterations and mentions human activity, which is a key aspect. Response A incorrectly states it's a short-term shift.\"\n\nprint(response_content)",
+    "crumbs": [
+      "Modules",
+      "Module 9: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module9.html#considerations",
+    "href": "Module9.html#considerations",
+    "title": "Module 10: Evaluating Prompt Quality and Output Reliability",
+    "section": "Considerations",
+    "text": "Considerations",
+    "crumbs": [
+      "Modules",
+      "Module 10: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module9.html#automatic-evaluation-metrics",
+    "href": "Module9.html#automatic-evaluation-metrics",
+    "title": "Module 9: Evaluating Prompt Quality and Output Reliability",
+    "section": "Automatic Evaluation Metrics",
+    "text": "Automatic Evaluation Metrics\n\nEvaluate both using human review or LLM.\n\n\nBLEU Score\nMeasures n-gram overlap with reference text (used in translation).\n\n\nROUGE Score\nUsed for summarization — compares recall of overlapping n-grams.\n\n\nMETEOR Score\nSimilar to BLEU but considers synonyms and stemming.\n\nThese are more useful when reference outputs are available.\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nUse clear and specific instructions.\nAdd examples (few-shot prompting).\nBreak complex tasks into smaller steps (chain-of-thought).\nTry different phrasings for better performance.\nAvoid ambiguous or vague language.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module11.html#why-do-we-need-langchain",
+    "href": "Module11.html#why-do-we-need-langchain",
+    "title": "Module 11: Introduction to LangChain",
+    "section": "Why Do We Need LangChain?",
+    "text": "Why Do We Need LangChain?\nBuilding real-world applications with LLMs presents a unique set of challenges that go beyond merely sending a prompt to an API. Developers often encounter hurdles such as:\n\nHow to manage multi-step reasoning? Imagine an LLM application that needs to first search for information, then summarize it, and finally answer a user’s question based on that summary. This requires a sequence of actions and decisions, which is complex to manage with raw API calls.\nHow to keep conversation history or memory? LLMs are inherently stateless; they don’t remember past interactions in a conversation. For truly conversational chatbots or agents, maintaining context (what was said before) is paramount.\nHow to call external tools or databases? LLMs are powerful at language understanding and generation but lack real-time access to current events, proprietary data, or the ability to perform calculations precisely. Connecting them to external tools (like search engines, calculators, or databases) is essential for grounded, factual, and dynamic responses.\nHow to structure and reuse prompts easily? As applications grow, managing numerous prompt strings for different tasks, ensuring consistency, and adding dynamic inputs can become cumbersome and error-prone.\n\nLangChain elegantly addresses these challenges by offering a modular, extensible framework. It provides the architectural scaffolding to connect all these disparate components—LLMs, memory, tools, and data—into powerful, coherent, and maintainable pipelines.",
+    "crumbs": [
+      "Modules",
+      "Module 11: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#use-cases-of-langchain",
+    "href": "Module11.html#use-cases-of-langchain",
+    "title": "Module 11: Introduction to LangChain",
+    "section": "Use Cases of LangChain",
+    "text": "Use Cases of LangChain\nLangChain’s modularity and comprehensive features make it suitable for building a wide array of sophisticated LLM-powered applications:\n\nConversational Chatbots with Memory: Develop chatbots that remember past interactions, enabling natural and context-aware dialogues. This is crucial for customer service, virtual assistants, and interactive learning platforms.\nIntelligent Agents that Take Actions: Create autonomous agents that can reason about a task, decide which tools to use, execute those tools (like Browse the web, searching databases, performing calculations), and then respond or take further actions based on the results. This is a significant step towards more independent AI systems.\nRAG (Retrieval-Augmented Generation) Systems: Build applications that retrieve relevant information from external data sources (e.g., documents, databases) before generating a response. This grounds the LLM’s output in factual, up-to-date, or proprietary data, significantly reducing hallucinations and increasing accuracy.\nDocument Q&A and Search Apps: Power applications that allow users to ask questions about large corpuses of documents and get precise, contextually relevant answers, effectively turning unstructured data into an accessible knowledge base.\nCustom Workflows Powered by LLMs: Design bespoke multi-step processes where LLMs handle natural language understanding and generation at various stages, orchestrating complex operations.",
+    "crumbs": [
+      "Modules",
+      "Module 11: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#core-ideas-behind-langchain",
+    "href": "Module11.html#core-ideas-behind-langchain",
+    "title": "Module 11: Introduction to LangChain",
+    "section": "Core Ideas Behind LangChain",
+    "text": "Core Ideas Behind LangChain\nLangChain’s philosophy revolves around breaking down complex LLM applications into fundamental, interchangeable components. This architectural approach promotes the creation of modular, testable, and scalable systems, allowing developers to build sophisticated applications without reinventing the wheel for common functionalities.\n\n1. PromptTemplate\n\nConcept: A PromptTemplate is a blueprint for generating prompts. Instead of hardcoding prompt strings, you define a template with placeholders (variables) that can be dynamically filled in.\nPurpose: Helps you define structured prompts with dynamic inputs. This significantly improves the maintainability and readability of your prompt strings, especially when dealing with multiple inputs or varying scenarios. It ensures consistency and simplifies prompt engineering.\nAnalogy: Think of it like a mail merge template. You define the structure of your letter once, and then you can easily insert different names, addresses, or dates for each recipient.\n\n\n\n2. LLM Wrappers\n\nConcept: LangChain provides a unified interface (LLM or ChatModel classes) to interact with various LLMs from different providers.\nPurpose: You just choose the model (e.g., OpenAI’s GPT-4, Anthropic’s Claude, Google’s Gemini, Hugging Face models), and LangChain handles the underlying API calls, authentication, and request/response formatting complexities. This abstracts away provider-specific details, making it easy to swap models or integrate new ones without rewriting your application logic.\nAnalogy: Imagine a universal remote control for all your smart devices. You don’t need to learn each device’s specific commands; the remote handles the translation.\n\n\n\n3. Chains\n\nConcept: Chains are sequences of calls or logic steps. They allow you to combine LLMs with other components (like prompt templates, other chains, or tools) in a predefined order to accomplish a more complex task.\nPurpose: They provide a structured way to execute multi-step operations.\nExamples:\n\nLLMChain: The simplest chain, combining a PromptTemplate with an LLM. It takes input variables, formats them into a prompt, passes it to the LLM, and returns the LLM’s output.\nSimpleSequentialChain: Executes a series of chains in a predefined order, where the output of one chain becomes the input for the next. Ideal for linear workflows.\nRouterChain: Allows dynamic routing of input to different sub-chains based on the input’s content or intent. This enables more complex, conditional workflows.\n\nAnalogy: A chain is like an assembly line in a factory. Each station (component) performs a specific task, and the output of one station feeds into the next, creating a finished product.\n\n\n\n4. Memory\n\nConcept: Memory components allow LLM applications to remember previous interactions within a conversation.\nPurpose: Built-in memory types track previous conversations, enabling the LLM to maintain context and generate coherent, relevant responses over multiple turns. Without memory, each LLM call is stateless, meaning it has no recollection of what was said moments before.\nExamples:\n\nConversationBufferMemory: Stores all previous messages in a buffer and passes them directly to the LLM.\nEntityMemory: Focuses on remembering specific entities (people, places, things) and their attributes mentioned during the conversation.\n\nAnalogy: Memory for an LLM is like a human’s short-term memory during a conversation, allowing us to refer back to earlier points and maintain flow.\n\n\n\n5. Agents & Tools\n\nConcept: This is where LLMs move from being just text generators to active decision-makers.\n\nAgents: Empower LLMs to reason about a problem and decide actions to take based on the available tools. They can observe the environment, think about what to do next, execute an action, and repeat.\nTools: Are functions that agents can use. These can be external APIs, a calculator, a search engine, a custom database query function, or even another LLM.\n\nPurpose: Agents allow LLMs to go beyond their pre-trained knowledge, interact with the real world (via tools), and perform complex, dynamic tasks requiring external information or computation.\nAnalogy: An agent is like a project manager, and tools are the specialized workers they can delegate tasks to. The project manager (agent) decides who (which tool) does what, when, and how, to achieve the overall goal.\n\n\n\n6. Retrievers & Vector Stores\n\nConcept: These components are central to building Retrieval-Augmented Generation (RAG) systems.\n\nRetrievers: Are interfaces for fetching relevant documents or data from a storage location. They are designed to retrieve information based on a query, often using semantic similarity.\nVector Stores: Are specialized databases that store numerical representations (embeddings) of text. They enable semantic search, allowing you to find text chunks that are conceptually similar to your query, even if they don’t share exact keywords.\n\nPurpose: They enable LLMs to access and utilize external, up-to-date, or proprietary information that wasn’t part of their original training data. This is crucial for reducing hallucinations, providing factual answers, and answering questions about specific documents.\nSupports: LangChain provides integrations with many popular vector databases like Chroma, FAISS, Pinecone, Weaviate, Milvus, and others.\nAnalogy: A retriever and vector store combined are like a highly efficient, semantic library search system. When you ask a question, it quickly finds the most relevant books (documents) in the library (vector store) based on the meaning of your question, not just keywords.",
+    "crumbs": [
+      "Modules",
+      "Module 11: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#langchain-ecosystem",
+    "href": "Module11.html#langchain-ecosystem",
+    "title": "Module 11: Introduction to LangChain",
+    "section": "LangChain Ecosystem",
+    "text": "LangChain Ecosystem\nThe LangChain ecosystem is strategically modularized to give developers flexibility and reduce dependency bloat. It’s primarily split into a few key packages:\n\nlangchain-core: This is the foundational package. It contains the base classes, fundamental logic, and core interfaces for all LangChain components. You’ll almost always need this.\nlangchain-community: This package provides integrations with a wide array of third-party tools and services. This includes support for various LLM providers (beyond OpenAI), vector stores (like Chroma), data loaders, utilities for web scraping, and more. It’s separated so you only install the dependencies for the specific community integrations you use.\nlangchain-openai: This is a specific integration package solely for OpenAI models and tools. It includes specialized wrappers and functionalities optimized for interacting with OpenAI’s API, including their chat models, embedding models, and tool-calling capabilities.\n\nYou install them as needed, minimizing the overall footprint of your project’s dependencies.",
+    "crumbs": [
+      "Modules",
+      "Module 11: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#installation",
+    "href": "Module11.html#installation",
+    "title": "Module 11: Introduction to LangChain",
+    "section": "Installation",
+    "text": "Installation\nBasic installation:\npip install langchain openai\nIf using .env for API keys:\npip install python-dotenv\nExtras:\npip install chromadb faiss-cpu tiktoken",
+    "crumbs": [
+      "Modules",
+      "Module 11: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#setting-up-openai-api-key",
+    "href": "Module11.html#setting-up-openai-api-key",
+    "title": "Module 11: Introduction to LangChain",
+    "section": "Setting Up OpenAI API Key",
+    "text": "Setting Up OpenAI API Key\nCreate a .env file:\nOPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx\nIn your code:\nimport os\nfrom dotenv import load_dotenv\n\nload_dotenv()\nos.environ[\"OPENAI_API_KEY\"]\n\n\n\n\n\n\nExplanation\n\n\n\n\n\n\nfrom langchain_openai import OpenAI We import the specific wrapper for OpenAI’s LLMs from the langchain_openai package, reflecting the modular ecosystem.\nllm = OpenAI(temperature=0.7) We create an instance of the OpenAI LLM wrapper. You can pass various parameters here, like temperature, model_name, etc.\noutput = llm.invoke(\"Write a short poem about the moon.\") We call the LLM with our prompt. LangChain handles the underlying API request, sending your prompt to OpenAI’s servers, and receiving the generated text.\nThe .invoke() method is the standard way to call an LLM (or a chain) for a single input.\nprint(output) Prints the generated poem.",
+    "crumbs": [
+      "Modules",
+      "Module 11: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#first-langchain-program",
+    "href": "Module11.html#first-langchain-program",
+    "title": "Module 11: Introduction to LangChain",
+    "section": "First LangChain Program",
+    "text": "First LangChain Program\nfrom langchain.llms import OpenAI\n\nllm = OpenAI(temperature=0.7)\noutput = llm(\"Write a short poem about the moon.\")\nprint(output)\nThis wraps OpenAI’s completion endpoint. No need to deal with tokens or request structures.",
+    "crumbs": [
+      "Modules",
+      "Module 11: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#langchain-vs-raw-openai-usage",
+    "href": "Module11.html#langchain-vs-raw-openai-usage",
+    "title": "Module 11: Introduction to LangChain",
+    "section": "LangChain vs Raw OpenAI Usage",
+    "text": "LangChain vs Raw OpenAI Usage\n\n\n\nFeature\nRaw OpenAI API\nLangChain\n\n\n\n\nPrompt handling\nManual string\nPromptTemplate\n\n\nMemory\nNot built-in\nConversationBufferMemory, etc.\n\n\nChaining\nManual logic\nBuilt-in Chain types\n\n\nTools/Agents\nNot available\nFirst-class support\n\n\nRetrieval\nNeeds custom code\nBuilt-in support",
+    "crumbs": [
+      "Modules",
+      "Module 11: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#typical-langchain-app-structure",
+    "href": "Module11.html#typical-langchain-app-structure",
+    "title": "Module 11: Introduction to LangChain",
+    "section": "Typical LangChain App Structure",
+    "text": "Typical LangChain App Structure\nmy-langchain-app/\n├── .env\n├── main.py\n├── prompts/\n│   └── qa_prompt.txt\n├── chains/\n│   └── summarizer_chain.py\n├── memory/\n│   └── conversation_buffer.py\n└── data/\n    └── docs/",
+    "crumbs": [
+      "Modules",
+      "Module 11: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#langchain-in-production",
+    "href": "Module11.html#langchain-in-production",
+    "title": "Module 11: Introduction to LangChain",
+    "section": "LangChain in Production",
+    "text": "LangChain in Production\nLangChain can be integrated with:\n\nStreamlit / Gradio for frontend\nFastAPI / Flask for APIs\nDocker for containerization\nVector DBs like Pinecone or Chroma\n\n\n\n\n\n\n\n\nChoose LangChain when:\n\n\n\n\nYou’re building a multi-step pipeline that involves sequential or complex reasoning (e.g., research, analysis, then synthesis).\nYou want to connect memory, external tools, APIs, databases, or web resources with your LLM.\nYou’re working with agents that need to make decisions and take actions autonomously.\nYou are developing Retrieval-Augmented Generation (RAG) systems to ground LLM responses in specific data.\nYou need model agnosticism and want the flexibility to easily swap between different LLM providers.\nYou aim for structured, reusable, and maintainable LLM application code.\n\n\n\n\n\n\n\n\n\nDon’t use LangChain if:\n\n\n\n\nYou only need a single, straightforward prompt call to an LLM, without any complex chaining, memory, or tool integration. For very simple, one-off interactions, a direct API call might be sufficient and introduce less overhead.\nYou just want to experiment quickly with raw completions or basic playground-style interactions where the overhead of a framework isn’t beneficial.",
+    "crumbs": [
+      "Modules",
+      "Module 11: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module12.html",
+    "href": "Module12.html",
+    "title": "Module 12: LangChain Memory – Making LLMs Remember Context",
+    "section": "",
+    "text": "In real-world applications, like chatbots and assistants, we often want the system to remember past conversations. This is where LangChain Memory comes into play.",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module12.html#llms-language-model-wrappers",
+    "href": "Module12.html#llms-language-model-wrappers",
+    "title": "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "1. LLMs – Language Model Wrappers",
+    "text": "1. LLMs – Language Model Wrappers\nAt the heart of any LLM-powered application is, naturally, the Large Language Model itself. LangChain provides a sophisticated yet user-friendly interface to interact with various LLM providers, abstracting away the intricacies of their specific APIs. This means you can seamlessly switch between models from different vendors such as OpenAI, Cohere, Anthropic, Google (via langchain-google-genai), HuggingFace (via langchain-huggingface), and many others, often with minimal code changes.\nLangChain categorizes LLM interfaces into two main types: * LLM: For models that typically accept a string input and return a string completion (e.g., older OpenAI completion models like text-davinci-003). * ChatModel: For models that accept a list of messages (representing a conversation history with roles like “user,” “assistant,” “system”) and return a message, designed for conversational interfaces (e.g., OpenAI’s GPT-3.5-turbo, GPT-4, Anthropic’s Claude). While the example below uses LLM, ChatModel is more common for modern conversational AI.\n\nExample: Using OpenAI’s older Completion Model with LangChain\n# Note: For newer models like gpt-3.5-turbo or gpt-4, you would typically use ChatOpenAI\n# from langchain_openai import ChatOpenAI\n# llm = ChatOpenAI(model_name=\"gpt-3.5-turbo\", temperature=0.7)\n# response = llm.invoke(\"Write a motivational quote.\")\n\n# This example uses the older LLM wrapper for text-davinci-003,\n# which is good for demonstrating the basic LLM interface.\nfrom langchain_openai import OpenAI\n\n# Initialize the OpenAI LLM wrapper.\n# model_name: Specifies which LLM to use. \"text-davinci-003\" is an older completion model.\n# temperature: Controls the creativity of the output. 0.0 means more deterministic, higher means more random/creative.\nllm = OpenAI(model_name=\"text-davinci-003\", temperature=0.7)\n\n# Make a call to the LLM with a simple string prompt.\n# For LLM wrappers, the .invoke() method is used for synchronous calls.\nresponse = llm.invoke(\"Write a motivational quote.\")\nprint(response)\n\n\n\n\n\n\nKey Takeaway\n\n\n\n\n\nThe primary advantage here is abstraction. You don’t need to manually construct HTTP requests, handle API keys in headers, or parse raw JSON responses. LangChain’s LLM (or ChatModel) wrapper handles all these underlying complexities, providing a clean Pythonic interface. This means you can seamlessly switch between models and providers (e.g., from OpenAI to Anthropic or HuggingFace) by simply changing the import and the class instantiation, without altering your core application logic.",
+    "crumbs": [
+      "Modules",
+      "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module12.html#example-creating-and-formatting-a-prompttemplate",
+    "href": "Module12.html#example-creating-and-formatting-a-prompttemplate",
+    "title": "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Example: Creating and Formatting a PromptTemplate",
+    "text": "Example: Creating and Formatting a PromptTemplate\n\nPython\nfrom langchain.prompts import PromptTemplate\n\n# Define the template string with a placeholder using curly braces {}.\n# The variable name \"product\" is identified by LangChain.\ntemplate_string = \"What are some marketing strategies for a {product}?\"\n\n# Create a PromptTemplate instance.\n# input_variables: A list of strings corresponding to the placeholders in your template.\n# template: The actual template string.\ntemplate = PromptTemplate(\n    input_variables=[\"product\"],\n    template=template_string\n)\n\nprompt = template.format(product=\"fitness app\")\nprint(prompt)\n\n\n\n\n\n\nNote\n\n\n\n\n\nPromptTemplate does more than just f-strings. It handles multiple input variables, can manage different types of prompts (e.g., ChatPromptTemplate for message-based LLMs), and ensures your prompts are well-structured and reusable across different parts of your application or even different projects.\n\n\n\n\n\nBenefits of PromptTemplate:\n\nReusable and readable\nParameterized with inputs\nEasier to maintain and debug\nVersion Control Friendly",
+    "crumbs": [
+      "Modules",
+      "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module12.html#why-outputparsers",
+    "href": "Module12.html#why-outputparsers",
+    "title": "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Why OutputParsers?",
+    "text": "Why OutputParsers?\nOutputParsers in LangChain are designed precisely for this purpose.\nThey take the raw text output from an LLM and transform it into a desired data structure.\nThis is crucial for: - Integrating LLM outputs into application logic - Storing results in databases - Passing structured data to external services",
+    "crumbs": [
+      "Modules",
+      "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module12.html#example-extracting-json-from-an-llm-response",
+    "href": "Module12.html#example-extracting-json-from-an-llm-response",
+    "title": "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Example: Extracting JSON from an LLM Response",
+    "text": "Example: Extracting JSON from an LLM Response\nThis example demonstrates how to set up an OutputParser to expect a structured JSON response.\n\nKey Insight:\nYou must tell both the OutputParser how to parse, and the LLM what format to output.\nThe format_instructions generated by the parser are vital for guiding the LLM.\n\nfrom langchain.output_parsers import StructuredOutputParser, ResponseSchema\nfrom langchain_openai import OpenAI # For LLM interaction\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain\nimport json # For pretty printing the output\n\n# 1. Define the desired schema for the structured output.\n# Each ResponseSchema defines a key (name) and a description (to guide the LLM).\nresponse_schemas = [\n    ResponseSchema(name=\"headline\", description=\"The main headline of the news article summary\"),\n    ResponseSchema(name=\"summary\", description=\"A concise 2-sentence summary of the news article\"),\n    ResponseSchema(name=\"keywords\", description=\"A comma-separated list of 3-5 keywords related to the article\")\n]\n\n# 2. Create a StructuredOutputParser from the defined schema.\nparser = StructuredOutputParser.from_response_schemas(response_schemas)\n\n# 3. Get the formatting instructions.\n# These instructions tell the LLM exactly how to format its output\n# so that the parser can successfully read it.\nformat_instructions = parser.get_format_instructions()\n\nprint(\"--- Format instructions to insert in your prompt ---\")\nprint(format_instructions)\nprint(\"\\n\" + \"=\"*50 + \"\\n\")\n\n# Now, let's use this with an LLM and PromptTemplate\n\n# News article to summarize\narticle_text = \"\"\"\nRecent studies have confirmed that climate change is accelerating, with global temperatures continuing to rise. Scientists emphasize the urgent need for reducing greenhouse gas emissions. Renewable energy sources are becoming increasingly viable alternatives to fossil fuels. The latest IPCC report highlights the irreversible impacts already in motion and stresses immediate, ambitious action.\n\"\"\"\n\n# Create a PromptTemplate that includes the format instructions\n# It's crucial that the prompt explicitly asks the LLM to adhere to the format.\nprompt_template_string = \"\"\"\nYou are a news summarizer. Summarize the following article and extract key information in JSON format.\n{format_instructions}\nArticle:\n{article}\n\"\"\"\n\nprompt = PromptTemplate(\n    input_variables=[\"article\"],\n    partial_variables={\"format_instructions\": format_instructions}, # Partial variable for fixed instructions\n    template=prompt_template_string\n)\n\n# Initialize the LLM (using a chat model like gpt-3.5-turbo is recommended for structured output)\nllm = OpenAI(temperature=0) # Set temperature to 0 for more deterministic output\n\n# Create an LLMChain to combine the prompt and LLM\nchain = LLMChain(llm=llm, prompt=prompt)\n\n# Run the chain to get the raw text output from the LLM\nllm_raw_output = chain.run(article=article_text)\nprint(\"--- Raw LLM Output (text string) ---\")\nprint(llm_raw_output)\nprint(\"\\n\" + \"=\"*50 + \"\\n\")\n\n# Use the parser to transform the raw text output into a structured dictionary\ntry:\n    parsed_output = parser.parse(llm_raw_output)\n    print(\"--- Parsed Output (Python Dictionary) ---\")\n    print(json.dumps(parsed_output, indent=2))\nexcept Exception as e:\n    print(f\"Error parsing output: {e}\")\n    print(\"The LLM might not have followed the format instructions precisely.\")",
+    "crumbs": [
+      "Modules",
+      "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module12.html#using-all-three-together",
+    "href": "Module12.html#using-all-three-together",
+    "title": "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Using All Three Together",
+    "text": "Using All Three Together\nfrom langchain.llms import OpenAI\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain\n\n# Step 1: Prompt Template\nprompt = PromptTemplate(\n    input_variables=[\"topic\"],\n    template=\"Explain the concept of {topic} in simple terms.\"\n)\n\n# Step 2: LLM\nllm = OpenAI(temperature=0.5)\n\n# Step 3: Chain\nchain = LLMChain(llm=llm, prompt=prompt)\n\n# Run\nresponse = chain.run(\"blockchain\")\nprint(response)",
+    "crumbs": [
+      "Modules",
+      "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module12.html#summary",
+    "href": "Module12.html#summary",
+    "title": "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Summary",
+    "text": "Summary\n\nLLM: Connect to a language model.\nPromptTemplate: Build clean, reusable prompts.\nOutputParser: Convert raw LLM responses into structured data.",
+    "crumbs": [
+      "Modules",
+      "Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module13.html",
+    "href": "Module13.html",
+    "title": "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging",
+    "section": "",
+    "text": "This module builds upon the basic PromptTemplate usage by exploring advanced concepts like:\n\nPartial templates (pre-filling parts of the prompt)\nNesting templates for modularity\nDebugging prompt formatting issues\n\nThese are essential when building complex pipelines (e.g., RAG, agents), and they enhance prompt reuse, flexibility, and robustness.",
+    "crumbs": [
+      "Modules",
+      "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging"
+    ]
+  },
+  {
+    "objectID": "Module13.html#what-is-a-chain",
+    "href": "Module13.html#what-is-a-chain",
+    "title": "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "What is a Chain?",
+    "text": "What is a Chain?\nA chain links multiple actions together. For example: &gt; Prompt → LLM → Output Parser\nis a simple chain.\nLangChain provides prebuilt chains and lets you create custom ones.",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module13.html#simplesequentialchain",
+    "href": "Module13.html#simplesequentialchain",
+    "title": "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "1. SimpleSequentialChain",
+    "text": "1. SimpleSequentialChain\nThis is the easiest way to chain multiple LLM calls sequentially, where the output of one is passed to the next. (output of one chain becomes the sole input to the next chain.)\n\nExample: Idea → Name → Slogan\nfrom langchain.llms import OpenAI\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain, SimpleSequentialChain\n\n# First chain: generate startup idea\nprompt1 = PromptTemplate.from_template(\"Give me a business idea about {topic}\")\nllm1 = OpenAI(temperature=0.7)\nchain1 = LLMChain(llm=llm1, prompt=prompt1)\n\n# Second chain: write a tagline based on that idea\nprompt2 = PromptTemplate.from_template(\"Write a tagline for: {input}\")\nllm2 = OpenAI(temperature=0.7)\nchain2 = LLMChain(llm=llm2, prompt=prompt2)\n\n# Combine both\noverall_chain = SimpleSequentialChain(chains=[chain1, chain2], verbose=True)\nresult = overall_chain.run(\"healthcare\")\nprint(result)",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module13.html#sequentialchain-named-chains",
+    "href": "Module13.html#sequentialchain-named-chains",
+    "title": "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "2. SequentialChain (Named Chains)",
+    "text": "2. SequentialChain (Named Chains)\nWhen your chains have multiple inputs and outputs, use SequentialChain. SequentialChain offers more flexibility by allowing:\nMultiple initial inputs.\n\nMultiple outputs at each step (intermediate outputs).\nExplicit control over which outputs are passed as inputs to subsequent steps.\nThis is crucial for more complex workflows where you need to carry multiple pieces of information through different stages of a process.\n\n\nExample:\nfrom langchain_openai import OpenAI\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain, SequentialChain\nimport os\nfrom dotenv import load_dotenv\n\nload_dotenv()\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nllm = OpenAI(temperature=0.7)\n\n# Chain 1: Translate English to French\ntranslation_prompt = PromptTemplate(\n    input_variables=[\"english_text\"],\n    template=\"Translate the following English text to French:\\n\\n{english_text}\\n\\nFrench Translation:\"\n)\ntranslation_chain = LLMChain(\n    llm=llm,\n    prompt=translation_prompt,\n    output_key=\"french_text\" # Define an output_key for the result of this chain\n)\n\n# Chain 2: Summarize the French text (from Chain 1's output)\nsummary_prompt = PromptTemplate(\n    input_variables=[\"french_text\"], # Input variable matches output_key from translation_chain\n    template=\"Summarize the following French text concisely in French:\\n\\n{french_text}\\n\\nSummary:\"\n)\nsummary_chain = LLMChain(\n    llm=llm,\n    prompt=summary_prompt,\n    output_key=\"french_summary\" # Define an output_key for the result of this chain\n)\n\n\noverall_chain_sequential = SequentialChain(\n    chains=[translation_chain, summary_chain],\n    input_variables=[\"english_text\"],\n    output_variables=[\"french_text\", \"french_summary\"], # We want both the translation and the summary\n    verbose=True\n)\n\noriginal_english_text = \"Artificial intelligence is rapidly advancing, transforming industries and daily life.\"\n\nprint(\"Running SequentialChain...\\n\")\nresponse = overall_chain_sequential.invoke({\"english_text\": original_english_text}) # Use invoke with a dictionary input\n\nprint(\"\\n--- Original English Text ---\")\nprint(original_english_text)\nprint(\"\\n--- French Translation ---\")\nprint(response[\"french_text\"])\nprint(\"\\n--- French Summary ---\")\nprint(response[\"french_summary\"])",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module13.html#routerchain",
+    "href": "Module13.html#routerchain",
+    "title": "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "3. RouterChain",
+    "text": "3. RouterChain\nRouterChain lets you dynamically choose which chain to use based on input.\nThis is useful when: - You want to route different queries to different models or prompts. - You are building multi-skill agents.\n\nConceptual Diagram:\nInput → Router → Chain A\n              → Chain B\n              → Chain C\nLangChain uses a LLM classifier under the hood to decide the route.\n\n\nExample: Different prompts for different domains\nfrom langchain.llms import OpenAI\nfrom langchain.chains import LLMChain, MultiPromptChain\nfrom langchain.prompts import PromptTemplate\n\n# Define different prompt templates\nmath_prompt = PromptTemplate(\n    template=\"You are a math expert. Answer this question:\\n{input}\",\n    input_variables=[\"input\"]\n)\nhistory_prompt = PromptTemplate(\n    template=\"You are a historian. Provide insights:\\n{input}\",\n    input_variables=[\"input\"]\n)\n\n# Wrap them in LLMChains\nllm = OpenAI(temperature=0)\nmath_chain = LLMChain(llm=llm, prompt=math_prompt)\nhistory_chain = LLMChain(llm=llm, prompt=history_prompt)\n\n# Dictionary of prompt chains\ndestination_chains = {\n    \"math\": math_chain,\n    \"history\": history_chain\n}\n\n# Router prompt\nrouter_template = \"\"\"\\\nGiven a question, classify it into one of the following domains: math or history.\n\nQuestion: {input}\nDomain:\"\"\"\n\nrouter_prompt = PromptTemplate(\n    template=router_template,\n    input_variables=[\"input\"]\n)\n\n# RouterChain\nrouter_chain = LLMChain(llm=llm, prompt=router_prompt)\n\n# Final MultiPromptChain\nchain = MultiPromptChain(\n    router_chain=router_chain,\n    destination_chains=destination_chains,\n    default_chain=math_chain,  # fallback\n    verbose=True\n)\n\nresult = chain.run(\"Who was the first President of India?\")\nprint(result)",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module13.html#custom-chains",
+    "href": "Module13.html#custom-chains",
+    "title": "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "4. Custom Chains",
+    "text": "4. Custom Chains\nYou can also build your own chain classes by subclassing Chain and defining: - input_keys - output_keys - _call() method\nUseful for full control over data flow.\n\nExample\nYou can build a chain from scratch by subclassing Chain and implementing the _call() method.\nfrom langchain.chains.base import Chain\nfrom typing import Dict, List\n\nclass AddExclamationChain(Chain):\n    @property\n    def input_keys(self) -&gt; List[str]:\n        return [\"text\"]\n\n    @property\n    def output_keys(self) -&gt; List[str]:\n        return [\"modified_text\"]\n\n    def _call(self, inputs: Dict[str, str]) -&gt; Dict[str, str]:\n        text = inputs[\"text\"]\n        modified = text + \"!!!\"\n        return {\"modified_text\": modified}\n\n# Test it\nchain = AddExclamationChain()\noutput = chain.run(\"This is amazing\")\nprint(output)  # Output: This is amazing!!!",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module13.html#summary-table",
+    "href": "Module13.html#summary-table",
+    "title": "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "Summary Table",
+    "text": "Summary Table\n\n\n\n\n\n\n\nChain Type\nUse Case\n\n\n\n\nSimpleSequential\nOne-step → next → next logic, like writing pipelines\n\n\nSequentialChain\nNamed inputs/outputs, slightly more complex flows\n\n\nRouterChain\nDecision-based routing to different sub-chains\n\n\nCustomChain\nFor advanced users who need full control",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module14.html",
+    "href": "Module14.html",
+    "title": "Module 14: LangChain Memory – Making LLMs Remember Context",
+    "section": "",
+    "text": "In real-world applications, like chatbots and assistants, we often want the system to remember past conversations. This is where LangChain Memory comes into play.",
+    "crumbs": [
+      "Modules",
+      "Module 14: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module14.html#what-is-memory",
+    "href": "Module14.html#what-is-memory",
+    "title": "Module 14: LangChain Memory – Making LLMs Remember Context",
+    "section": "What is Memory?",
+    "text": "What is Memory?\nBy default, LLMs are stateless. This means:\n\nThey don’t remember anything from earlier user inputs.\nEach call to the LLM is treated like a blank slate.\n\nMemory allows us to maintain context between multiple inputs.",
+    "crumbs": [
+      "Modules",
+      "Module 14: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module14.html#types-of-memory-in-langchain",
+    "href": "Module14.html#types-of-memory-in-langchain",
+    "title": "Module 14: LangChain Memory – Making LLMs Remember Context",
+    "section": "Types of Memory in LangChain",
+    "text": "Types of Memory in LangChain\nLangChain provides several built-in memory classes for different use-cases.\n\n1. ConversationBufferMemory\nStores the entire conversation in memory as a buffer (long text history). Best for simple dialogs.\nfrom langchain.memory import ConversationBufferMemory\n\nmemory = ConversationBufferMemory()\n\n\n2. ConversationBufferWindowMemory\nSame as buffer memory but only keeps the last k messages.\nfrom langchain.memory import ConversationBufferWindowMemory\n\nmemory = ConversationBufferWindowMemory(k=3)\n\n\n3. ConversationSummaryMemory\nSummarizes the conversation so far to save tokens.\nfrom langchain.chat_models import ChatOpenAI\nfrom langchain.memory import ConversationSummaryMemory\n\nllm = ChatOpenAI()\nmemory = ConversationSummaryMemory(llm=llm)\n\n\n4. EntityMemory\nTracks information about entities (like names, places) throughout the conversation.",
+    "crumbs": [
+      "Modules",
+      "Module 14: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module14.html#adding-memory-to-chains",
+    "href": "Module14.html#adding-memory-to-chains",
+    "title": "Module 14: LangChain Memory – Making LLMs Remember Context",
+    "section": "Adding Memory to Chains",
+    "text": "Adding Memory to Chains\nYou can add memory to any chain. Most commonly used with ConversationChain.\nfrom langchain.chains import ConversationChain\nfrom langchain.chat_models import ChatOpenAI\nfrom langchain.memory import ConversationBufferMemory\n\nllm = ChatOpenAI()\nmemory = ConversationBufferMemory()\nconversation = ConversationChain(llm=llm, memory=memory)\n\nresponse = conversation.run(\"Hello, my name is Nitin.\")\nprint(response)\n\nresponse = conversation.run(\"What is my name?\")\nprint(response)  # Should recall 'Nitin'",
+    "crumbs": [
+      "Modules",
+      "Module 14: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module14.html#customizing-memory",
+    "href": "Module14.html#customizing-memory",
+    "title": "Module 14: LangChain Memory – Making LLMs Remember Context",
+    "section": "Customizing Memory",
+    "text": "Customizing Memory\nYou can customize memory parameters:\n\nk in buffer window memory (controls how many turns to remember)\nLLM model for summarization in summary memory\nPrefix/suffix prompts for memory formatting",
+    "crumbs": [
+      "Modules",
+      "Module 14: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module14.html#full-stateful-chat-example",
+    "href": "Module14.html#full-stateful-chat-example",
+    "title": "Module 14: LangChain Memory – Making LLMs Remember Context",
+    "section": "Full Stateful Chat Example",
+    "text": "Full Stateful Chat Example\nfrom langchain.chains import ConversationChain\nfrom langchain.chat_models import ChatOpenAI\nfrom langchain.memory import ConversationBufferWindowMemory\n\nllm = ChatOpenAI()\nmemory = ConversationBufferWindowMemory(k=2)\n\nconversation = ConversationChain(\n    llm=llm,\n    memory=memory,\n    verbose=True\n)\n\nconversation.run(\"Hi, I'm Anjali.\")\nconversation.run(\"I live in Delhi.\")\nconversation.run(\"Where do I live?\")\n\n\n\n\n\n\n\nImportant\n\n\n\n\n\n\nSituation\nRecommended Memory\n\n\n\n\nSimple chatbot\nConversationBufferMemory\n\n\nLong conversation\nConversationSummaryMemory\n\n\nEntity-aware dialog\nEntityMemory\n\n\nLimited token budget\nSummary or Window Memory\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nMemory is essential when building applications that require context awareness, like chatbots, customer support agents, or tutors.",
+    "crumbs": [
+      "Modules",
+      "Module 14: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module14.html#section",
+    "href": "Module14.html#section",
+    "title": "Module 14: LangChain Memory – Making LLMs Remember Context",
+    "section": "",
+    "text": "Note\n\n\n\nMemory is essential when building applications that require context awareness, like chatbots, customer support agents, or tutors.",
+    "crumbs": [
+      "Modules",
+      "Module 14: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module11.html#llms-language-model-wrappers",
+    "href": "Module11.html#llms-language-model-wrappers",
+    "title": "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "1. LLMs – Language Model Wrappers",
+    "text": "1. LLMs – Language Model Wrappers\nAt the heart of any LLM-powered application is, naturally, the Large Language Model itself. LangChain provides a sophisticated yet user-friendly interface to interact with various LLM providers, abstracting away the intricacies of their specific APIs. This means you can seamlessly switch between models from different vendors such as OpenAI, Cohere, Anthropic, Google (via langchain-google-genai), HuggingFace (via langchain-huggingface), and many others, often with minimal code changes.\nLangChain categorizes LLM interfaces into two main types: * LLM: For models that typically accept a string input and return a string completion (e.g., older OpenAI completion models like text-davinci-003). * ChatModel: For models that accept a list of messages (representing a conversation history with roles like “user,” “assistant,” “system”) and return a message, designed for conversational interfaces (e.g., OpenAI’s GPT-3.5-turbo, GPT-4, Anthropic’s Claude). While the example below uses LLM, ChatModel is more common for modern conversational AI.\n\nExample: Using OpenAI’s older Completion Model with LangChain\n# Note: For newer models like gpt-3.5-turbo or gpt-4, you would typically use ChatOpenAI\n# from langchain_openai import ChatOpenAI\n# llm = ChatOpenAI(model_name=\"gpt-3.5-turbo\", temperature=0.7)\n# response = llm.invoke(\"Write a motivational quote.\")\n\n# This example uses the older LLM wrapper for text-davinci-003,\n# which is good for demonstrating the basic LLM interface.\nfrom langchain_openai import OpenAI\n\n# Initialize the OpenAI LLM wrapper.\n# model_name: Specifies which LLM to use. \"text-davinci-003\" is an older completion model.\n# temperature: Controls the creativity of the output. 0.0 means more deterministic, higher means more random/creative.\nllm = OpenAI(model_name=\"text-davinci-003\", temperature=0.7)\n\n# Make a call to the LLM with a simple string prompt.\n# For LLM wrappers, the .invoke() method is used for synchronous calls.\nresponse = llm.invoke(\"Write a motivational quote.\")\nprint(response)\n\n\n\n\n\n\nKey Takeaway\n\n\n\n\n\nThe primary advantage here is abstraction. You don’t need to manually construct HTTP requests, handle API keys in headers, or parse raw JSON responses. LangChain’s LLM (or ChatModel) wrapper handles all these underlying complexities, providing a clean Pythonic interface. This means you can seamlessly switch between models and providers (e.g., from OpenAI to Anthropic or HuggingFace) by simply changing the import and the class instantiation, without altering your core application logic.",
+    "crumbs": [
+      "Modules",
+      "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module11.html#example-creating-and-formatting-a-prompttemplate",
+    "href": "Module11.html#example-creating-and-formatting-a-prompttemplate",
+    "title": "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Example: Creating and Formatting a PromptTemplate",
+    "text": "Example: Creating and Formatting a PromptTemplate\n\nPython\nfrom langchain.prompts import PromptTemplate\n\n# Define the template string with a placeholder using curly braces {}.\n# The variable name \"product\" is identified by LangChain.\ntemplate_string = \"What are some marketing strategies for a {product}?\"\n\n# Create a PromptTemplate instance.\n# input_variables: A list of strings corresponding to the placeholders in your template.\n# template: The actual template string.\ntemplate = PromptTemplate(\n    input_variables=[\"product\"],\n    template=template_string\n)\n\nprompt = template.format(product=\"fitness app\")\nprint(prompt)\n\n\n\n\n\n\nNote\n\n\n\n\n\nPromptTemplate does more than just f-strings. It handles multiple input variables, can manage different types of prompts (e.g., ChatPromptTemplate for message-based LLMs), and ensures your prompts are well-structured and reusable across different parts of your application or even different projects.\n\n\n\n\n\nBenefits of PromptTemplate:\n\nReusable and readable\nParameterized with inputs\nEasier to maintain and debug\nVersion Control Friendly",
+    "crumbs": [
+      "Modules",
+      "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module11.html#why-outputparsers",
+    "href": "Module11.html#why-outputparsers",
+    "title": "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Why OutputParsers?",
+    "text": "Why OutputParsers?\nOutputParsers in LangChain are designed precisely for this purpose.\nThey take the raw text output from an LLM and transform it into a desired data structure.\nThis is crucial for: - Integrating LLM outputs into application logic - Storing results in databases - Passing structured data to external services",
+    "crumbs": [
+      "Modules",
+      "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module11.html#example-extracting-json-from-an-llm-response",
+    "href": "Module11.html#example-extracting-json-from-an-llm-response",
+    "title": "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Example: Extracting JSON from an LLM Response",
+    "text": "Example: Extracting JSON from an LLM Response\nThis example demonstrates how to set up an OutputParser to expect a structured JSON response.\n\nKey Insight:\nYou must tell both the OutputParser how to parse, and the LLM what format to output.\nThe format_instructions generated by the parser are vital for guiding the LLM.\n\nfrom langchain.output_parsers import StructuredOutputParser, ResponseSchema\nfrom langchain_openai import OpenAI # For LLM interaction\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain\nimport json # For pretty printing the output\n\n# 1. Define the desired schema for the structured output.\n# Each ResponseSchema defines a key (name) and a description (to guide the LLM).\nresponse_schemas = [\n    ResponseSchema(name=\"headline\", description=\"The main headline of the news article summary\"),\n    ResponseSchema(name=\"summary\", description=\"A concise 2-sentence summary of the news article\"),\n    ResponseSchema(name=\"keywords\", description=\"A comma-separated list of 3-5 keywords related to the article\")\n]\n\n# 2. Create a StructuredOutputParser from the defined schema.\nparser = StructuredOutputParser.from_response_schemas(response_schemas)\n\n# 3. Get the formatting instructions.\n# These instructions tell the LLM exactly how to format its output\n# so that the parser can successfully read it.\nformat_instructions = parser.get_format_instructions()\n\nprint(\"--- Format instructions to insert in your prompt ---\")\nprint(format_instructions)\nprint(\"\\n\" + \"=\"*50 + \"\\n\")\n\n# Now, let's use this with an LLM and PromptTemplate\n\n# News article to summarize\narticle_text = \"\"\"\nRecent studies have confirmed that climate change is accelerating, with global temperatures continuing to rise. Scientists emphasize the urgent need for reducing greenhouse gas emissions. Renewable energy sources are becoming increasingly viable alternatives to fossil fuels. The latest IPCC report highlights the irreversible impacts already in motion and stresses immediate, ambitious action.\n\"\"\"\n\n# Create a PromptTemplate that includes the format instructions\n# It's crucial that the prompt explicitly asks the LLM to adhere to the format.\nprompt_template_string = \"\"\"\nYou are a news summarizer. Summarize the following article and extract key information in JSON format.\n{format_instructions}\nArticle:\n{article}\n\"\"\"\n\nprompt = PromptTemplate(\n    input_variables=[\"article\"],\n    partial_variables={\"format_instructions\": format_instructions}, # Partial variable for fixed instructions\n    template=prompt_template_string\n)\n\n# Initialize the LLM (using a chat model like gpt-3.5-turbo is recommended for structured output)\nllm = OpenAI(temperature=0) # Set temperature to 0 for more deterministic output\n\n# Create an LLMChain to combine the prompt and LLM\nchain = LLMChain(llm=llm, prompt=prompt)\n\n# Run the chain to get the raw text output from the LLM\nllm_raw_output = chain.run(article=article_text)\nprint(\"--- Raw LLM Output (text string) ---\")\nprint(llm_raw_output)\nprint(\"\\n\" + \"=\"*50 + \"\\n\")\n\n# Use the parser to transform the raw text output into a structured dictionary\ntry:\n    parsed_output = parser.parse(llm_raw_output)\n    print(\"--- Parsed Output (Python Dictionary) ---\")\n    print(json.dumps(parsed_output, indent=2))\nexcept Exception as e:\n    print(f\"Error parsing output: {e}\")\n    print(\"The LLM might not have followed the format instructions precisely.\")",
+    "crumbs": [
+      "Modules",
+      "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module11.html#using-all-three-together",
+    "href": "Module11.html#using-all-three-together",
+    "title": "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Using All Three Together",
+    "text": "Using All Three Together\nfrom langchain.llms import OpenAI\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain\n\n# Step 1: Prompt Template\nprompt = PromptTemplate(\n    input_variables=[\"topic\"],\n    template=\"Explain the concept of {topic} in simple terms.\"\n)\n\n# Step 2: LLM\nllm = OpenAI(temperature=0.5)\n\n# Step 3: Chain\nchain = LLMChain(llm=llm, prompt=prompt)\n\n# Run\nresponse = chain.run(\"blockchain\")\nprint(response)",
+    "crumbs": [
+      "Modules",
+      "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module11.html#summary",
+    "href": "Module11.html#summary",
+    "title": "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Summary",
+    "text": "Summary\n\nLLM: Connect to a language model.\nPromptTemplate: Build clean, reusable prompts.\nOutputParser: Convert raw LLM responses into structured data.",
+    "crumbs": [
+      "Modules",
+      "Module 11: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module12.html#what-is-a-chain",
+    "href": "Module12.html#what-is-a-chain",
+    "title": "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "What is a Chain?",
+    "text": "What is a Chain?\nA chain links multiple actions together. For example: &gt; Prompt → LLM → Output Parser\nis a simple chain.\nLangChain provides prebuilt chains and lets you create custom ones.",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module12.html#simplesequentialchain",
+    "href": "Module12.html#simplesequentialchain",
+    "title": "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "1. SimpleSequentialChain",
+    "text": "1. SimpleSequentialChain\nThis is the easiest way to chain multiple LLM calls sequentially, where the output of one is passed to the next. (output of one chain becomes the sole input to the next chain.)\n\nExample: Idea → Name → Slogan\nfrom langchain.llms import OpenAI\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain, SimpleSequentialChain\n\n# First chain: generate startup idea\nprompt1 = PromptTemplate.from_template(\"Give me a business idea about {topic}\")\nllm1 = OpenAI(temperature=0.7)\nchain1 = LLMChain(llm=llm1, prompt=prompt1)\n\n# Second chain: write a tagline based on that idea\nprompt2 = PromptTemplate.from_template(\"Write a tagline for: {input}\")\nllm2 = OpenAI(temperature=0.7)\nchain2 = LLMChain(llm=llm2, prompt=prompt2)\n\n# Combine both\noverall_chain = SimpleSequentialChain(chains=[chain1, chain2], verbose=True)\nresult = overall_chain.run(\"healthcare\")\nprint(result)",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module12.html#sequentialchain-named-chains",
+    "href": "Module12.html#sequentialchain-named-chains",
+    "title": "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "2. SequentialChain (Named Chains)",
+    "text": "2. SequentialChain (Named Chains)\nWhen your chains have multiple inputs and outputs, use SequentialChain. SequentialChain offers more flexibility by allowing:\nMultiple initial inputs.\n\nMultiple outputs at each step (intermediate outputs).\nExplicit control over which outputs are passed as inputs to subsequent steps.\nThis is crucial for more complex workflows where you need to carry multiple pieces of information through different stages of a process.\n\n\nExample:\nfrom langchain_openai import OpenAI\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain, SequentialChain\nimport os\nfrom dotenv import load_dotenv\n\nload_dotenv()\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nllm = OpenAI(temperature=0.7)\n\n# Chain 1: Translate English to French\ntranslation_prompt = PromptTemplate(\n    input_variables=[\"english_text\"],\n    template=\"Translate the following English text to French:\\n\\n{english_text}\\n\\nFrench Translation:\"\n)\ntranslation_chain = LLMChain(\n    llm=llm,\n    prompt=translation_prompt,\n    output_key=\"french_text\" # Define an output_key for the result of this chain\n)\n\n# Chain 2: Summarize the French text (from Chain 1's output)\nsummary_prompt = PromptTemplate(\n    input_variables=[\"french_text\"], # Input variable matches output_key from translation_chain\n    template=\"Summarize the following French text concisely in French:\\n\\n{french_text}\\n\\nSummary:\"\n)\nsummary_chain = LLMChain(\n    llm=llm,\n    prompt=summary_prompt,\n    output_key=\"french_summary\" # Define an output_key for the result of this chain\n)\n\n\noverall_chain_sequential = SequentialChain(\n    chains=[translation_chain, summary_chain],\n    input_variables=[\"english_text\"],\n    output_variables=[\"french_text\", \"french_summary\"], # We want both the translation and the summary\n    verbose=True\n)\n\noriginal_english_text = \"Artificial intelligence is rapidly advancing, transforming industries and daily life.\"\n\nprint(\"Running SequentialChain...\\n\")\nresponse = overall_chain_sequential.invoke({\"english_text\": original_english_text}) # Use invoke with a dictionary input\n\nprint(\"\\n--- Original English Text ---\")\nprint(original_english_text)\nprint(\"\\n--- French Translation ---\")\nprint(response[\"french_text\"])\nprint(\"\\n--- French Summary ---\")\nprint(response[\"french_summary\"])",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module12.html#routerchain",
+    "href": "Module12.html#routerchain",
+    "title": "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "3. RouterChain",
+    "text": "3. RouterChain\nRouterChain lets you dynamically choose which chain to use based on input.\nThis is useful when: - You want to route different queries to different models or prompts. - You are building multi-skill agents.\n\nConceptual Diagram:\nInput → Router → Chain A\n              → Chain B\n              → Chain C\nLangChain uses a LLM classifier under the hood to decide the route.\n\n\nExample: Different prompts for different domains\nfrom langchain.llms import OpenAI\nfrom langchain.chains import LLMChain, MultiPromptChain\nfrom langchain.prompts import PromptTemplate\n\n# Define different prompt templates\nmath_prompt = PromptTemplate(\n    template=\"You are a math expert. Answer this question:\\n{input}\",\n    input_variables=[\"input\"]\n)\nhistory_prompt = PromptTemplate(\n    template=\"You are a historian. Provide insights:\\n{input}\",\n    input_variables=[\"input\"]\n)\n\n# Wrap them in LLMChains\nllm = OpenAI(temperature=0)\nmath_chain = LLMChain(llm=llm, prompt=math_prompt)\nhistory_chain = LLMChain(llm=llm, prompt=history_prompt)\n\n# Dictionary of prompt chains\ndestination_chains = {\n    \"math\": math_chain,\n    \"history\": history_chain\n}\n\n# Router prompt\nrouter_template = \"\"\"\\\nGiven a question, classify it into one of the following domains: math or history.\n\nQuestion: {input}\nDomain:\"\"\"\n\nrouter_prompt = PromptTemplate(\n    template=router_template,\n    input_variables=[\"input\"]\n)\n\n# RouterChain\nrouter_chain = LLMChain(llm=llm, prompt=router_prompt)\n\n# Final MultiPromptChain\nchain = MultiPromptChain(\n    router_chain=router_chain,\n    destination_chains=destination_chains,\n    default_chain=math_chain,  # fallback\n    verbose=True\n)\n\nresult = chain.run(\"Who was the first President of India?\")\nprint(result)",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module12.html#custom-chains",
+    "href": "Module12.html#custom-chains",
+    "title": "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "4. Custom Chains",
+    "text": "4. Custom Chains\nYou can also build your own chain classes by subclassing Chain and defining: - input_keys - output_keys - _call() method\nUseful for full control over data flow.\n\nExample\nYou can build a chain from scratch by subclassing Chain and implementing the _call() method.\nfrom langchain.chains.base import Chain\nfrom typing import Dict, List\n\nclass AddExclamationChain(Chain):\n    @property\n    def input_keys(self) -&gt; List[str]:\n        return [\"text\"]\n\n    @property\n    def output_keys(self) -&gt; List[str]:\n        return [\"modified_text\"]\n\n    def _call(self, inputs: Dict[str, str]) -&gt; Dict[str, str]:\n        text = inputs[\"text\"]\n        modified = text + \"!!!\"\n        return {\"modified_text\": modified}\n\n# Test it\nchain = AddExclamationChain()\noutput = chain.run(\"This is amazing\")\nprint(output)  # Output: This is amazing!!!",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module12.html#summary-table",
+    "href": "Module12.html#summary-table",
+    "title": "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "Summary Table",
+    "text": "Summary Table\n\n\n\n\n\n\n\nChain Type\nUse Case\n\n\n\n\nSimpleSequential\nOne-step → next → next logic, like writing pipelines\n\n\nSequentialChain\nNamed inputs/outputs, slightly more complex flows\n\n\nRouterChain\nDecision-based routing to different sub-chains\n\n\nCustomChain\nFor advanced users who need full control",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module13.html#what-is-memory",
+    "href": "Module13.html#what-is-memory",
+    "title": "Module 13: LangChain Memory – Making LLMs Remember Context",
+    "section": "What is Memory?",
+    "text": "What is Memory?\nBy default, LLMs are stateless. This means:\n\nThey don’t remember anything from earlier user inputs.\nEach call to the LLM is treated like a blank slate.\n\nMemory allows us to maintain context between multiple inputs.",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module13.html#types-of-memory-in-langchain",
+    "href": "Module13.html#types-of-memory-in-langchain",
+    "title": "Module 13: LangChain Memory – Making LLMs Remember Context",
+    "section": "Types of Memory in LangChain",
+    "text": "Types of Memory in LangChain\nLangChain provides several built-in memory classes for different use-cases.\n\n1. ConversationBufferMemory\nStores the entire conversation in memory as a buffer (long text history). Best for simple dialogs.\nfrom langchain.memory import ConversationBufferMemory\n\nmemory = ConversationBufferMemory()\n\n\n2. ConversationBufferWindowMemory\nSame as buffer memory but only keeps the last k messages.\nfrom langchain.memory import ConversationBufferWindowMemory\n\nmemory = ConversationBufferWindowMemory(k=3)\n\n\n3. ConversationSummaryMemory\nSummarizes the conversation so far to save tokens.\nfrom langchain.chat_models import ChatOpenAI\nfrom langchain.memory import ConversationSummaryMemory\n\nllm = ChatOpenAI()\nmemory = ConversationSummaryMemory(llm=llm)\n\n\n4. EntityMemory\nTracks information about entities (like names, places) throughout the conversation.",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module13.html#adding-memory-to-chains",
+    "href": "Module13.html#adding-memory-to-chains",
+    "title": "Module 13: LangChain Memory – Making LLMs Remember Context",
+    "section": "Adding Memory to Chains",
+    "text": "Adding Memory to Chains\nYou can add memory to any chain. Most commonly used with ConversationChain.\nfrom langchain.chains import ConversationChain\nfrom langchain.chat_models import ChatOpenAI\nfrom langchain.memory import ConversationBufferMemory\n\nllm = ChatOpenAI()\nmemory = ConversationBufferMemory()\nconversation = ConversationChain(llm=llm, memory=memory)\n\nresponse = conversation.run(\"Hello, my name is Nitin.\")\nprint(response)\n\nresponse = conversation.run(\"What is my name?\")\nprint(response)  # Should recall 'Nitin'",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module13.html#customizing-memory",
+    "href": "Module13.html#customizing-memory",
+    "title": "Module 13: LangChain Memory – Making LLMs Remember Context",
+    "section": "Customizing Memory",
+    "text": "Customizing Memory\nYou can customize memory parameters:\n\nk in buffer window memory (controls how many turns to remember)\nLLM model for summarization in summary memory\nPrefix/suffix prompts for memory formatting",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module13.html#full-stateful-chat-example",
+    "href": "Module13.html#full-stateful-chat-example",
+    "title": "Module 13: LangChain Memory – Making LLMs Remember Context",
+    "section": "Full Stateful Chat Example",
+    "text": "Full Stateful Chat Example\nfrom langchain.chains import ConversationChain\nfrom langchain.chat_models import ChatOpenAI\nfrom langchain.memory import ConversationBufferWindowMemory\n\nllm = ChatOpenAI()\nmemory = ConversationBufferWindowMemory(k=2)\n\nconversation = ConversationChain(\n    llm=llm,\n    memory=memory,\n    verbose=True\n)\n\nconversation.run(\"Hi, I'm Anjali.\")\nconversation.run(\"I live in Delhi.\")\nconversation.run(\"Where do I live?\")\n\n\n\n\n\n\n\nImportant\n\n\n\n\n\n\nSituation\nRecommended Memory\n\n\n\n\nSimple chatbot\nConversationBufferMemory\n\n\nLong conversation\nConversationSummaryMemory\n\n\nEntity-aware dialog\nEntityMemory\n\n\nLimited token budget\nSummary or Window Memory\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nMemory is essential when building applications that require context awareness, like chatbots, customer support agents, or tutors.",
+    "crumbs": [
+      "Modules",
+      "Module 13: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module10.html",
+    "href": "Module10.html",
+    "title": "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "",
+    "text": "This module dives into three foundational building blocks within the LangChain framework: LLMs (Language Model wrappers), PromptTemplates, and OutputParsers. A solid understanding and mastery of these components are crucial for constructing robust, structured, and highly reusable language model applications and pipelines. They form the bedrock upon which more complex LangChain constructs (like Chains and Agents) are built.",
+    "crumbs": [
+      "Modules",
+      "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module10.html#why-do-we-need-langchain",
+    "href": "Module10.html#why-do-we-need-langchain",
+    "title": "Module 10: Introduction to LangChain",
+    "section": "Why Do We Need LangChain?",
+    "text": "Why Do We Need LangChain?\nBuilding real-world applications with LLMs presents a unique set of challenges that go beyond merely sending a prompt to an API. Developers often encounter hurdles such as:\n\nHow to manage multi-step reasoning? Imagine an LLM application that needs to first search for information, then summarize it, and finally answer a user’s question based on that summary. This requires a sequence of actions and decisions, which is complex to manage with raw API calls.\nHow to keep conversation history or memory? LLMs are inherently stateless; they don’t remember past interactions in a conversation. For truly conversational chatbots or agents, maintaining context (what was said before) is paramount.\nHow to call external tools or databases? LLMs are powerful at language understanding and generation but lack real-time access to current events, proprietary data, or the ability to perform calculations precisely. Connecting them to external tools (like search engines, calculators, or databases) is essential for grounded, factual, and dynamic responses.\nHow to structure and reuse prompts easily? As applications grow, managing numerous prompt strings for different tasks, ensuring consistency, and adding dynamic inputs can become cumbersome and error-prone.\n\nLangChain elegantly addresses these challenges by offering a modular, extensible framework. It provides the architectural scaffolding to connect all these disparate components—LLMs, memory, tools, and data—into powerful, coherent, and maintainable pipelines.",
+    "crumbs": [
+      "Modules",
+      "Module 10: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module10.html#use-cases-of-langchain",
+    "href": "Module10.html#use-cases-of-langchain",
+    "title": "Module 10: Introduction to LangChain",
+    "section": "Use Cases of LangChain",
+    "text": "Use Cases of LangChain\nLangChain’s modularity and comprehensive features make it suitable for building a wide array of sophisticated LLM-powered applications:\n\nConversational Chatbots with Memory: Develop chatbots that remember past interactions, enabling natural and context-aware dialogues. This is crucial for customer service, virtual assistants, and interactive learning platforms.\nIntelligent Agents that Take Actions: Create autonomous agents that can reason about a task, decide which tools to use, execute those tools (like Browse the web, searching databases, performing calculations), and then respond or take further actions based on the results. This is a significant step towards more independent AI systems.\nRAG (Retrieval-Augmented Generation) Systems: Build applications that retrieve relevant information from external data sources (e.g., documents, databases) before generating a response. This grounds the LLM’s output in factual, up-to-date, or proprietary data, significantly reducing hallucinations and increasing accuracy.\nDocument Q&A and Search Apps: Power applications that allow users to ask questions about large corpuses of documents and get precise, contextually relevant answers, effectively turning unstructured data into an accessible knowledge base.\nCustom Workflows Powered by LLMs: Design bespoke multi-step processes where LLMs handle natural language understanding and generation at various stages, orchestrating complex operations.",
+    "crumbs": [
+      "Modules",
+      "Module 10: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module10.html#core-ideas-behind-langchain",
+    "href": "Module10.html#core-ideas-behind-langchain",
+    "title": "Module 10: Introduction to LangChain",
+    "section": "Core Ideas Behind LangChain",
+    "text": "Core Ideas Behind LangChain\nLangChain’s philosophy revolves around breaking down complex LLM applications into fundamental, interchangeable components. This architectural approach promotes the creation of modular, testable, and scalable systems, allowing developers to build sophisticated applications without reinventing the wheel for common functionalities.\n\n1. PromptTemplate\n\nConcept: A PromptTemplate is a blueprint for generating prompts. Instead of hardcoding prompt strings, you define a template with placeholders (variables) that can be dynamically filled in.\nPurpose: Helps you define structured prompts with dynamic inputs. This significantly improves the maintainability and readability of your prompt strings, especially when dealing with multiple inputs or varying scenarios. It ensures consistency and simplifies prompt engineering.\nAnalogy: Think of it like a mail merge template. You define the structure of your letter once, and then you can easily insert different names, addresses, or dates for each recipient.\n\n\n\n2. LLM Wrappers\n\nConcept: LangChain provides a unified interface (LLM or ChatModel classes) to interact with various LLMs from different providers.\nPurpose: You just choose the model (e.g., OpenAI’s GPT-4, Anthropic’s Claude, Google’s Gemini, Hugging Face models), and LangChain handles the underlying API calls, authentication, and request/response formatting complexities. This abstracts away provider-specific details, making it easy to swap models or integrate new ones without rewriting your application logic.\nAnalogy: Imagine a universal remote control for all your smart devices. You don’t need to learn each device’s specific commands; the remote handles the translation.\n\n\n\n3. Chains\n\nConcept: Chains are sequences of calls or logic steps. They allow you to combine LLMs with other components (like prompt templates, other chains, or tools) in a predefined order to accomplish a more complex task.\nPurpose: They provide a structured way to execute multi-step operations.\nExamples:\n\nLLMChain: The simplest chain, combining a PromptTemplate with an LLM. It takes input variables, formats them into a prompt, passes it to the LLM, and returns the LLM’s output.\nSimpleSequentialChain: Executes a series of chains in a predefined order, where the output of one chain becomes the input for the next. Ideal for linear workflows.\nRouterChain: Allows dynamic routing of input to different sub-chains based on the input’s content or intent. This enables more complex, conditional workflows.\n\nAnalogy: A chain is like an assembly line in a factory. Each station (component) performs a specific task, and the output of one station feeds into the next, creating a finished product.\n\n\n\n4. Memory\n\nConcept: Memory components allow LLM applications to remember previous interactions within a conversation.\nPurpose: Built-in memory types track previous conversations, enabling the LLM to maintain context and generate coherent, relevant responses over multiple turns. Without memory, each LLM call is stateless, meaning it has no recollection of what was said moments before.\nExamples:\n\nConversationBufferMemory: Stores all previous messages in a buffer and passes them directly to the LLM.\nEntityMemory: Focuses on remembering specific entities (people, places, things) and their attributes mentioned during the conversation.\n\nAnalogy: Memory for an LLM is like a human’s short-term memory during a conversation, allowing us to refer back to earlier points and maintain flow.\n\n\n\n5. Agents & Tools\n\nConcept: This is where LLMs move from being just text generators to active decision-makers.\n\nAgents: Empower LLMs to reason about a problem and decide actions to take based on the available tools. They can observe the environment, think about what to do next, execute an action, and repeat.\nTools: Are functions that agents can use. These can be external APIs, a calculator, a search engine, a custom database query function, or even another LLM.\n\nPurpose: Agents allow LLMs to go beyond their pre-trained knowledge, interact with the real world (via tools), and perform complex, dynamic tasks requiring external information or computation.\nAnalogy: An agent is like a project manager, and tools are the specialized workers they can delegate tasks to. The project manager (agent) decides who (which tool) does what, when, and how, to achieve the overall goal.\n\n\n\n6. Retrievers & Vector Stores\n\nConcept: These components are central to building Retrieval-Augmented Generation (RAG) systems.\n\nRetrievers: Are interfaces for fetching relevant documents or data from a storage location. They are designed to retrieve information based on a query, often using semantic similarity.\nVector Stores: Are specialized databases that store numerical representations (embeddings) of text. They enable semantic search, allowing you to find text chunks that are conceptually similar to your query, even if they don’t share exact keywords.\n\nPurpose: They enable LLMs to access and utilize external, up-to-date, or proprietary information that wasn’t part of their original training data. This is crucial for reducing hallucinations, providing factual answers, and answering questions about specific documents.\nSupports: LangChain provides integrations with many popular vector databases like Chroma, FAISS, Pinecone, Weaviate, Milvus, and others.\nAnalogy: A retriever and vector store combined are like a highly efficient, semantic library search system. When you ask a question, it quickly finds the most relevant books (documents) in the library (vector store) based on the meaning of your question, not just keywords.",
+    "crumbs": [
+      "Modules",
+      "Module 10: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module10.html#langchain-ecosystem",
+    "href": "Module10.html#langchain-ecosystem",
+    "title": "Module 10: Introduction to LangChain",
+    "section": "LangChain Ecosystem",
+    "text": "LangChain Ecosystem\nThe LangChain ecosystem is strategically modularized to give developers flexibility and reduce dependency bloat. It’s primarily split into a few key packages:\n\nlangchain-core: This is the foundational package. It contains the base classes, fundamental logic, and core interfaces for all LangChain components. You’ll almost always need this.\nlangchain-community: This package provides integrations with a wide array of third-party tools and services. This includes support for various LLM providers (beyond OpenAI), vector stores (like Chroma), data loaders, utilities for web scraping, and more. It’s separated so you only install the dependencies for the specific community integrations you use.\nlangchain-openai: This is a specific integration package solely for OpenAI models and tools. It includes specialized wrappers and functionalities optimized for interacting with OpenAI’s API, including their chat models, embedding models, and tool-calling capabilities.\n\nYou install them as needed, minimizing the overall footprint of your project’s dependencies.",
+    "crumbs": [
+      "Modules",
+      "Module 10: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module10.html#installation",
+    "href": "Module10.html#installation",
+    "title": "Module 10: Introduction to LangChain",
+    "section": "Installation",
+    "text": "Installation\nBasic installation:\npip install langchain openai\nIf using .env for API keys:\npip install python-dotenv\nExtras:\npip install chromadb faiss-cpu tiktoken",
+    "crumbs": [
+      "Modules",
+      "Module 10: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module10.html#setting-up-openai-api-key",
+    "href": "Module10.html#setting-up-openai-api-key",
+    "title": "Module 10: Introduction to LangChain",
+    "section": "Setting Up OpenAI API Key",
+    "text": "Setting Up OpenAI API Key\nCreate a .env file:\nOPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx\nIn your code:\nimport os\nfrom dotenv import load_dotenv\n\nload_dotenv()\nos.environ[\"OPENAI_API_KEY\"]\n\n\n\n\n\n\nExplanation\n\n\n\n\n\n\nfrom langchain_openai import OpenAI We import the specific wrapper for OpenAI’s LLMs from the langchain_openai package, reflecting the modular ecosystem.\nllm = OpenAI(temperature=0.7) We create an instance of the OpenAI LLM wrapper. You can pass various parameters here, like temperature, model_name, etc.\noutput = llm.invoke(\"Write a short poem about the moon.\") We call the LLM with our prompt. LangChain handles the underlying API request, sending your prompt to OpenAI’s servers, and receiving the generated text.\nThe .invoke() method is the standard way to call an LLM (or a chain) for a single input.\nprint(output) Prints the generated poem.",
+    "crumbs": [
+      "Modules",
+      "Module 10: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module10.html#langchain-in-production",
+    "href": "Module10.html#langchain-in-production",
+    "title": "Module 10: Introduction to LangChain",
+    "section": "LangChain in Production",
+    "text": "LangChain in Production\nLangChain can be integrated with:\n\nStreamlit / Gradio for frontend\nFastAPI / Flask for APIs\nDocker for containerization\nVector DBs like Pinecone or Chroma\n\n\n\n\n\n\n\n\nChoose LangChain when:\n\n\n\n\nYou’re building a multi-step pipeline that involves sequential or complex reasoning (e.g., research, analysis, then synthesis).\nYou want to connect memory, external tools, APIs, databases, or web resources with your LLM.\nYou’re working with agents that need to make decisions and take actions autonomously.\nYou are developing Retrieval-Augmented Generation (RAG) systems to ground LLM responses in specific data.\nYou need model agnosticism and want the flexibility to easily swap between different LLM providers.\nYou aim for structured, reusable, and maintainable LLM application code.\n\n\n\n\n\n\n\n\n\nDon’t use LangChain if:\n\n\n\n\nYou only need a single, straightforward prompt call to an LLM, without any complex chaining, memory, or tool integration. For very simple, one-off interactions, a direct API call might be sufficient and introduce less overhead.\nYou just want to experiment quickly with raw completions or basic playground-style interactions where the overhead of a framework isn’t beneficial.",
+    "crumbs": [
+      "Modules",
+      "Module 10: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module8.html#automatic-evaluation-metrics",
+    "href": "Module8.html#automatic-evaluation-metrics",
+    "title": "Module 8: Evaluating Prompt Quality and Output Reliability",
+    "section": "Automatic Evaluation Metrics",
+    "text": "Automatic Evaluation Metrics\n\nEvaluate both using human review or LLM.\n\n\nBLEU Score\nMeasures n-gram overlap with reference text (used in translation).\n\n\nROUGE Score\nUsed for summarization — compares recall of overlapping n-grams.\n\n\nMETEOR Score\nSimilar to BLEU but considers synonyms and stemming.\n\nThese are more useful when reference outputs are available.\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nUse clear and specific instructions.\nAdd examples (few-shot prompting).\nBreak complex tasks into smaller steps (chain-of-thought).\nTry different phrasings for better performance.\nAvoid ambiguous or vague language.",
+    "crumbs": [
+      "Modules",
+      "Module 8: Evaluating Prompt Quality and Output Reliability"
+    ]
+  },
+  {
+    "objectID": "Module9.html#why-do-we-need-langchain",
+    "href": "Module9.html#why-do-we-need-langchain",
+    "title": "Module 9: Introduction to LangChain",
+    "section": "Why Do We Need LangChain?",
+    "text": "Why Do We Need LangChain?\nBuilding real-world applications with LLMs presents a unique set of challenges that go beyond merely sending a prompt to an API. Developers often encounter hurdles such as:\n\nHow to manage multi-step reasoning? Imagine an LLM application that needs to first search for information, then summarize it, and finally answer a user’s question based on that summary. This requires a sequence of actions and decisions, which is complex to manage with raw API calls.\nHow to keep conversation history or memory? LLMs are inherently stateless; they don’t remember past interactions in a conversation. For truly conversational chatbots or agents, maintaining context (what was said before) is paramount.\nHow to call external tools or databases? LLMs are powerful at language understanding and generation but lack real-time access to current events, proprietary data, or the ability to perform calculations precisely. Connecting them to external tools (like search engines, calculators, or databases) is essential for grounded, factual, and dynamic responses.\nHow to structure and reuse prompts easily? As applications grow, managing numerous prompt strings for different tasks, ensuring consistency, and adding dynamic inputs can become cumbersome and error-prone.\n\nLangChain elegantly addresses these challenges by offering a modular, extensible framework. It provides the architectural scaffolding to connect all these disparate components—LLMs, memory, tools, and data—into powerful, coherent, and maintainable pipelines.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module9.html#use-cases-of-langchain",
+    "href": "Module9.html#use-cases-of-langchain",
+    "title": "Module 9: Introduction to LangChain",
+    "section": "Use Cases of LangChain",
+    "text": "Use Cases of LangChain\nLangChain’s modularity and comprehensive features make it suitable for building a wide array of sophisticated LLM-powered applications:\n\nConversational Chatbots with Memory: Develop chatbots that remember past interactions, enabling natural and context-aware dialogues. This is crucial for customer service, virtual assistants, and interactive learning platforms.\nIntelligent Agents that Take Actions: Create autonomous agents that can reason about a task, decide which tools to use, execute those tools (like Browse the web, searching databases, performing calculations), and then respond or take further actions based on the results. This is a significant step towards more independent AI systems.\nRAG (Retrieval-Augmented Generation) Systems: Build applications that retrieve relevant information from external data sources (e.g., documents, databases) before generating a response. This grounds the LLM’s output in factual, up-to-date, or proprietary data, significantly reducing hallucinations and increasing accuracy.\nDocument Q&A and Search Apps: Power applications that allow users to ask questions about large corpuses of documents and get precise, contextually relevant answers, effectively turning unstructured data into an accessible knowledge base.\nCustom Workflows Powered by LLMs: Design bespoke multi-step processes where LLMs handle natural language understanding and generation at various stages, orchestrating complex operations.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module9.html#core-ideas-behind-langchain",
+    "href": "Module9.html#core-ideas-behind-langchain",
+    "title": "Module 9: Introduction to LangChain",
+    "section": "Core Ideas Behind LangChain",
+    "text": "Core Ideas Behind LangChain\nLangChain’s philosophy revolves around breaking down complex LLM applications into fundamental, interchangeable components. This architectural approach promotes the creation of modular, testable, and scalable systems, allowing developers to build sophisticated applications without reinventing the wheel for common functionalities.\n\n1. PromptTemplate\n\nConcept: A PromptTemplate is a blueprint for generating prompts. Instead of hardcoding prompt strings, you define a template with placeholders (variables) that can be dynamically filled in.\nPurpose: Helps you define structured prompts with dynamic inputs. This significantly improves the maintainability and readability of your prompt strings, especially when dealing with multiple inputs or varying scenarios. It ensures consistency and simplifies prompt engineering.\nAnalogy: Think of it like a mail merge template. You define the structure of your letter once, and then you can easily insert different names, addresses, or dates for each recipient.\n\n\n\n2. LLM Wrappers\n\nConcept: LangChain provides a unified interface (LLM or ChatModel classes) to interact with various LLMs from different providers.\nPurpose: You just choose the model (e.g., OpenAI’s GPT-4, Anthropic’s Claude, Google’s Gemini, Hugging Face models), and LangChain handles the underlying API calls, authentication, and request/response formatting complexities. This abstracts away provider-specific details, making it easy to swap models or integrate new ones without rewriting your application logic.\nAnalogy: Imagine a universal remote control for all your smart devices. You don’t need to learn each device’s specific commands; the remote handles the translation.\n\n\n\n3. Chains\n\nConcept: Chains are sequences of calls or logic steps. They allow you to combine LLMs with other components (like prompt templates, other chains, or tools) in a predefined order to accomplish a more complex task.\nPurpose: They provide a structured way to execute multi-step operations.\nExamples:\n\nLLMChain: The simplest chain, combining a PromptTemplate with an LLM. It takes input variables, formats them into a prompt, passes it to the LLM, and returns the LLM’s output.\nSimpleSequentialChain: Executes a series of chains in a predefined order, where the output of one chain becomes the input for the next. Ideal for linear workflows.\nRouterChain: Allows dynamic routing of input to different sub-chains based on the input’s content or intent. This enables more complex, conditional workflows.\n\nAnalogy: A chain is like an assembly line in a factory. Each station (component) performs a specific task, and the output of one station feeds into the next, creating a finished product.\n\n\n\n4. Memory\n\nConcept: Memory components allow LLM applications to remember previous interactions within a conversation.\nPurpose: Built-in memory types track previous conversations, enabling the LLM to maintain context and generate coherent, relevant responses over multiple turns. Without memory, each LLM call is stateless, meaning it has no recollection of what was said moments before.\nExamples:\n\nConversationBufferMemory: Stores all previous messages in a buffer and passes them directly to the LLM.\nEntityMemory: Focuses on remembering specific entities (people, places, things) and their attributes mentioned during the conversation.\n\nAnalogy: Memory for an LLM is like a human’s short-term memory during a conversation, allowing us to refer back to earlier points and maintain flow.\n\n\n\n5. Agents & Tools\n\nConcept: This is where LLMs move from being just text generators to active decision-makers.\n\nAgents: Empower LLMs to reason about a problem and decide actions to take based on the available tools. They can observe the environment, think about what to do next, execute an action, and repeat.\nTools: Are functions that agents can use. These can be external APIs, a calculator, a search engine, a custom database query function, or even another LLM.\n\nPurpose: Agents allow LLMs to go beyond their pre-trained knowledge, interact with the real world (via tools), and perform complex, dynamic tasks requiring external information or computation.\nAnalogy: An agent is like a project manager, and tools are the specialized workers they can delegate tasks to. The project manager (agent) decides who (which tool) does what, when, and how, to achieve the overall goal.\n\n\n\n6. Retrievers & Vector Stores\n\nConcept: These components are central to building Retrieval-Augmented Generation (RAG) systems.\n\nRetrievers: Are interfaces for fetching relevant documents or data from a storage location. They are designed to retrieve information based on a query, often using semantic similarity.\nVector Stores: Are specialized databases that store numerical representations (embeddings) of text. They enable semantic search, allowing you to find text chunks that are conceptually similar to your query, even if they don’t share exact keywords.\n\nPurpose: They enable LLMs to access and utilize external, up-to-date, or proprietary information that wasn’t part of their original training data. This is crucial for reducing hallucinations, providing factual answers, and answering questions about specific documents.\nSupports: LangChain provides integrations with many popular vector databases like Chroma, FAISS, Pinecone, Weaviate, Milvus, and others.\nAnalogy: A retriever and vector store combined are like a highly efficient, semantic library search system. When you ask a question, it quickly finds the most relevant books (documents) in the library (vector store) based on the meaning of your question, not just keywords.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module9.html#langchain-ecosystem",
+    "href": "Module9.html#langchain-ecosystem",
+    "title": "Module 9: Introduction to LangChain",
+    "section": "LangChain Ecosystem",
+    "text": "LangChain Ecosystem\nThe LangChain ecosystem is strategically modularized to give developers flexibility and reduce dependency bloat. It’s primarily split into a few key packages:\n\nlangchain-core: This is the foundational package. It contains the base classes, fundamental logic, and core interfaces for all LangChain components. You’ll almost always need this.\nlangchain-community: This package provides integrations with a wide array of third-party tools and services. This includes support for various LLM providers (beyond OpenAI), vector stores (like Chroma), data loaders, utilities for web scraping, and more. It’s separated so you only install the dependencies for the specific community integrations you use.\nlangchain-openai: This is a specific integration package solely for OpenAI models and tools. It includes specialized wrappers and functionalities optimized for interacting with OpenAI’s API, including their chat models, embedding models, and tool-calling capabilities.\n\nYou install them as needed, minimizing the overall footprint of your project’s dependencies.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module9.html#installation",
+    "href": "Module9.html#installation",
+    "title": "Module 9: Introduction to LangChain",
+    "section": "Installation",
+    "text": "Installation\nBasic installation:\npip install langchain openai\nIf using .env for API keys:\npip install python-dotenv\nExtras:\npip install chromadb faiss-cpu tiktoken",
+    "crumbs": [
+      "Modules",
+      "Module 9: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module9.html#setting-up-openai-api-key",
+    "href": "Module9.html#setting-up-openai-api-key",
+    "title": "Module 9: Introduction to LangChain",
+    "section": "Setting Up OpenAI API Key",
+    "text": "Setting Up OpenAI API Key\nCreate a .env file:\nOPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx\nIn your code:\nimport os\nfrom dotenv import load_dotenv\n\nload_dotenv()\nos.environ[\"OPENAI_API_KEY\"]\n\n\n\n\n\n\nExplanation\n\n\n\n\n\n\nfrom langchain_openai import OpenAI We import the specific wrapper for OpenAI’s LLMs from the langchain_openai package, reflecting the modular ecosystem.\nllm = OpenAI(temperature=0.7) We create an instance of the OpenAI LLM wrapper. You can pass various parameters here, like temperature, model_name, etc.\noutput = llm.invoke(\"Write a short poem about the moon.\") We call the LLM with our prompt. LangChain handles the underlying API request, sending your prompt to OpenAI’s servers, and receiving the generated text.\nThe .invoke() method is the standard way to call an LLM (or a chain) for a single input.\nprint(output) Prints the generated poem.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module9.html#langchain-in-production",
+    "href": "Module9.html#langchain-in-production",
+    "title": "Module 9: Introduction to LangChain",
+    "section": "LangChain in Production",
+    "text": "LangChain in Production\nLangChain can be integrated with:\n\nStreamlit / Gradio for frontend\nFastAPI / Flask for APIs\nDocker for containerization\nVector DBs like Pinecone or Chroma\n\n\n\n\n\n\n\n\nChoose LangChain when:\n\n\n\n\nYou’re building a multi-step pipeline that involves sequential or complex reasoning (e.g., research, analysis, then synthesis).\nYou want to connect memory, external tools, APIs, databases, or web resources with your LLM.\nYou’re working with agents that need to make decisions and take actions autonomously.\nYou are developing Retrieval-Augmented Generation (RAG) systems to ground LLM responses in specific data.\nYou need model agnosticism and want the flexibility to easily swap between different LLM providers.\nYou aim for structured, reusable, and maintainable LLM application code.\n\n\n\n\n\n\n\n\n\nDon’t use LangChain if:\n\n\n\n\nYou only need a single, straightforward prompt call to an LLM, without any complex chaining, memory, or tool integration. For very simple, one-off interactions, a direct API call might be sufficient and introduce less overhead.\nYou just want to experiment quickly with raw completions or basic playground-style interactions where the overhead of a framework isn’t beneficial.",
+    "crumbs": [
+      "Modules",
+      "Module 9: Introduction to LangChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#what-is-a-chain",
+    "href": "Module11.html#what-is-a-chain",
+    "title": "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "What is a Chain?",
+    "text": "What is a Chain?\nA chain links multiple actions together. For example: &gt; Prompt → LLM → Output Parser\nis a simple chain.\nLangChain provides prebuilt chains and lets you create custom ones.",
+    "crumbs": [
+      "Modules",
+      "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#simplesequentialchain",
+    "href": "Module11.html#simplesequentialchain",
+    "title": "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "1. SimpleSequentialChain",
+    "text": "1. SimpleSequentialChain\nThis is the easiest way to chain multiple LLM calls sequentially, where the output of one is passed to the next. (output of one chain becomes the sole input to the next chain.)\n\nExample: Idea → Name → Slogan\nfrom langchain.llms import OpenAI\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain, SimpleSequentialChain\n\n# First chain: generate startup idea\nprompt1 = PromptTemplate.from_template(\"Give me a business idea about {topic}\")\nllm1 = OpenAI(temperature=0.7)\nchain1 = LLMChain(llm=llm1, prompt=prompt1)\n\n# Second chain: write a tagline based on that idea\nprompt2 = PromptTemplate.from_template(\"Write a tagline for: {input}\")\nllm2 = OpenAI(temperature=0.7)\nchain2 = LLMChain(llm=llm2, prompt=prompt2)\n\n# Combine both\noverall_chain = SimpleSequentialChain(chains=[chain1, chain2], verbose=True)\nresult = overall_chain.run(\"healthcare\")\nprint(result)",
+    "crumbs": [
+      "Modules",
+      "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#sequentialchain-named-chains",
+    "href": "Module11.html#sequentialchain-named-chains",
+    "title": "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "2. SequentialChain (Named Chains)",
+    "text": "2. SequentialChain (Named Chains)\nWhen your chains have multiple inputs and outputs, use SequentialChain. SequentialChain offers more flexibility by allowing:\nMultiple initial inputs.\n\nMultiple outputs at each step (intermediate outputs).\nExplicit control over which outputs are passed as inputs to subsequent steps.\nThis is crucial for more complex workflows where you need to carry multiple pieces of information through different stages of a process.\n\n\nExample:\nfrom langchain_openai import OpenAI\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain, SequentialChain\nimport os\nfrom dotenv import load_dotenv\n\nload_dotenv()\nos.environ[\"OPENAI_API_KEY\"] = os.getenv(\"OPENAI_API_KEY\")\n\nllm = OpenAI(temperature=0.7)\n\n# Chain 1: Translate English to French\ntranslation_prompt = PromptTemplate(\n    input_variables=[\"english_text\"],\n    template=\"Translate the following English text to French:\\n\\n{english_text}\\n\\nFrench Translation:\"\n)\ntranslation_chain = LLMChain(\n    llm=llm,\n    prompt=translation_prompt,\n    output_key=\"french_text\" # Define an output_key for the result of this chain\n)\n\n# Chain 2: Summarize the French text (from Chain 1's output)\nsummary_prompt = PromptTemplate(\n    input_variables=[\"french_text\"], # Input variable matches output_key from translation_chain\n    template=\"Summarize the following French text concisely in French:\\n\\n{french_text}\\n\\nSummary:\"\n)\nsummary_chain = LLMChain(\n    llm=llm,\n    prompt=summary_prompt,\n    output_key=\"french_summary\" # Define an output_key for the result of this chain\n)\n\n\noverall_chain_sequential = SequentialChain(\n    chains=[translation_chain, summary_chain],\n    input_variables=[\"english_text\"],\n    output_variables=[\"french_text\", \"french_summary\"], # We want both the translation and the summary\n    verbose=True\n)\n\noriginal_english_text = \"Artificial intelligence is rapidly advancing, transforming industries and daily life.\"\n\nprint(\"Running SequentialChain...\\n\")\nresponse = overall_chain_sequential.invoke({\"english_text\": original_english_text}) # Use invoke with a dictionary input\n\nprint(\"\\n--- Original English Text ---\")\nprint(original_english_text)\nprint(\"\\n--- French Translation ---\")\nprint(response[\"french_text\"])\nprint(\"\\n--- French Summary ---\")\nprint(response[\"french_summary\"])",
+    "crumbs": [
+      "Modules",
+      "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#routerchain",
+    "href": "Module11.html#routerchain",
+    "title": "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "3. RouterChain",
+    "text": "3. RouterChain\nRouterChain lets you dynamically choose which chain to use based on input.\nThis is useful when: - You want to route different queries to different models or prompts. - You are building multi-skill agents.\n\nConceptual Diagram:\nInput → Router → Chain A\n              → Chain B\n              → Chain C\nLangChain uses a LLM classifier under the hood to decide the route.\n\n\nExample: Different prompts for different domains\nfrom langchain.llms import OpenAI\nfrom langchain.chains import LLMChain, MultiPromptChain\nfrom langchain.prompts import PromptTemplate\n\n# Define different prompt templates\nmath_prompt = PromptTemplate(\n    template=\"You are a math expert. Answer this question:\\n{input}\",\n    input_variables=[\"input\"]\n)\nhistory_prompt = PromptTemplate(\n    template=\"You are a historian. Provide insights:\\n{input}\",\n    input_variables=[\"input\"]\n)\n\n# Wrap them in LLMChains\nllm = OpenAI(temperature=0)\nmath_chain = LLMChain(llm=llm, prompt=math_prompt)\nhistory_chain = LLMChain(llm=llm, prompt=history_prompt)\n\n# Dictionary of prompt chains\ndestination_chains = {\n    \"math\": math_chain,\n    \"history\": history_chain\n}\n\n# Router prompt\nrouter_template = \"\"\"\\\nGiven a question, classify it into one of the following domains: math or history.\n\nQuestion: {input}\nDomain:\"\"\"\n\nrouter_prompt = PromptTemplate(\n    template=router_template,\n    input_variables=[\"input\"]\n)\n\n# RouterChain\nrouter_chain = LLMChain(llm=llm, prompt=router_prompt)\n\n# Final MultiPromptChain\nchain = MultiPromptChain(\n    router_chain=router_chain,\n    destination_chains=destination_chains,\n    default_chain=math_chain,  # fallback\n    verbose=True\n)\n\nresult = chain.run(\"Who was the first President of India?\")\nprint(result)",
+    "crumbs": [
+      "Modules",
+      "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#custom-chains",
+    "href": "Module11.html#custom-chains",
+    "title": "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "4. Custom Chains",
+    "text": "4. Custom Chains\nYou can also build your own chain classes by subclassing Chain and defining: - input_keys - output_keys - _call() method\nUseful for full control over data flow.\n\nExample\nYou can build a chain from scratch by subclassing Chain and implementing the _call() method.\nfrom langchain.chains.base import Chain\nfrom typing import Dict, List\n\nclass AddExclamationChain(Chain):\n    @property\n    def input_keys(self) -&gt; List[str]:\n        return [\"text\"]\n\n    @property\n    def output_keys(self) -&gt; List[str]:\n        return [\"modified_text\"]\n\n    def _call(self, inputs: Dict[str, str]) -&gt; Dict[str, str]:\n        text = inputs[\"text\"]\n        modified = text + \"!!!\"\n        return {\"modified_text\": modified}\n\n# Test it\nchain = AddExclamationChain()\noutput = chain.run(\"This is amazing\")\nprint(output)  # Output: This is amazing!!!",
+    "crumbs": [
+      "Modules",
+      "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module11.html#summary-table",
+    "href": "Module11.html#summary-table",
+    "title": "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain",
+    "section": "Summary Table",
+    "text": "Summary Table\n\n\n\n\n\n\n\nChain Type\nUse Case\n\n\n\n\nSimpleSequential\nOne-step → next → next logic, like writing pipelines\n\n\nSequentialChain\nNamed inputs/outputs, slightly more complex flows\n\n\nRouterChain\nDecision-based routing to different sub-chains\n\n\nCustomChain\nFor advanced users who need full control",
+    "crumbs": [
+      "Modules",
+      "Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain"
+    ]
+  },
+  {
+    "objectID": "Module12.html#what-is-memory",
+    "href": "Module12.html#what-is-memory",
+    "title": "Module 12: LangChain Memory – Making LLMs Remember Context",
+    "section": "What is Memory?",
+    "text": "What is Memory?\nBy default, LLMs are stateless. This means:\n\nThey don’t remember anything from earlier user inputs.\nEach call to the LLM is treated like a blank slate.\n\nMemory allows us to maintain context between multiple inputs.",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module12.html#types-of-memory-in-langchain",
+    "href": "Module12.html#types-of-memory-in-langchain",
+    "title": "Module 12: LangChain Memory – Making LLMs Remember Context",
+    "section": "Types of Memory in LangChain",
+    "text": "Types of Memory in LangChain\nLangChain provides several built-in memory classes for different use-cases.\n\n1. ConversationBufferMemory\nStores the entire conversation in memory as a buffer (long text history). Best for simple dialogs.\nfrom langchain.memory import ConversationBufferMemory\n\nmemory = ConversationBufferMemory()\n\n\n2. ConversationBufferWindowMemory\nSame as buffer memory but only keeps the last k messages.\nfrom langchain.memory import ConversationBufferWindowMemory\n\nmemory = ConversationBufferWindowMemory(k=3)\n\n\n3. ConversationSummaryMemory\nSummarizes the conversation so far to save tokens.\nfrom langchain.chat_models import ChatOpenAI\nfrom langchain.memory import ConversationSummaryMemory\n\nllm = ChatOpenAI()\nmemory = ConversationSummaryMemory(llm=llm)\n\n\n4. EntityMemory\nTracks information about entities (like names, places) throughout the conversation.",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module12.html#adding-memory-to-chains",
+    "href": "Module12.html#adding-memory-to-chains",
+    "title": "Module 12: LangChain Memory – Making LLMs Remember Context",
+    "section": "Adding Memory to Chains",
+    "text": "Adding Memory to Chains\nYou can add memory to any chain. Most commonly used with ConversationChain.\nfrom langchain.chains import ConversationChain\nfrom langchain.chat_models import ChatOpenAI\nfrom langchain.memory import ConversationBufferMemory\n\nllm = ChatOpenAI()\nmemory = ConversationBufferMemory()\nconversation = ConversationChain(llm=llm, memory=memory)\n\nresponse = conversation.run(\"Hello, my name is Nitin.\")\nprint(response)\n\nresponse = conversation.run(\"What is my name?\")\nprint(response)  # Should recall 'Nitin'",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module12.html#customizing-memory",
+    "href": "Module12.html#customizing-memory",
+    "title": "Module 12: LangChain Memory – Making LLMs Remember Context",
+    "section": "Customizing Memory",
+    "text": "Customizing Memory\nYou can customize memory parameters:\n\nk in buffer window memory (controls how many turns to remember)\nLLM model for summarization in summary memory\nPrefix/suffix prompts for memory formatting",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module12.html#full-stateful-chat-example",
+    "href": "Module12.html#full-stateful-chat-example",
+    "title": "Module 12: LangChain Memory – Making LLMs Remember Context",
+    "section": "Full Stateful Chat Example",
+    "text": "Full Stateful Chat Example\nfrom langchain.chains import ConversationChain\nfrom langchain.chat_models import ChatOpenAI\nfrom langchain.memory import ConversationBufferWindowMemory\n\nllm = ChatOpenAI()\nmemory = ConversationBufferWindowMemory(k=2)\n\nconversation = ConversationChain(\n    llm=llm,\n    memory=memory,\n    verbose=True\n)\n\nconversation.run(\"Hi, I'm Anjali.\")\nconversation.run(\"I live in Delhi.\")\nconversation.run(\"Where do I live?\")\n\n\n\n\n\n\n\nImportant\n\n\n\n\n\n\nSituation\nRecommended Memory\n\n\n\n\nSimple chatbot\nConversationBufferMemory\n\n\nLong conversation\nConversationSummaryMemory\n\n\nEntity-aware dialog\nEntityMemory\n\n\nLimited token budget\nSummary or Window Memory\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nMemory is essential when building applications that require context awareness, like chatbots, customer support agents, or tutors.",
+    "crumbs": [
+      "Modules",
+      "Module 12: LangChain Memory – Making LLMs Remember Context"
+    ]
+  },
+  {
+    "objectID": "Module10.html#llms-language-model-wrappers",
+    "href": "Module10.html#llms-language-model-wrappers",
+    "title": "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "1. LLMs – Language Model Wrappers",
+    "text": "1. LLMs – Language Model Wrappers\nAt the heart of any LLM-powered application is, naturally, the Large Language Model itself. LangChain provides a sophisticated yet user-friendly interface to interact with various LLM providers, abstracting away the intricacies of their specific APIs. This means you can seamlessly switch between models from different vendors such as OpenAI, Cohere, Anthropic, Google (via langchain-google-genai), HuggingFace (via langchain-huggingface), and many others, often with minimal code changes.\nLangChain categorizes LLM interfaces into two main types: * LLM: For models that typically accept a string input and return a string completion (e.g., older OpenAI completion models like text-davinci-003). * ChatModel: For models that accept a list of messages (representing a conversation history with roles like “user,” “assistant,” “system”) and return a message, designed for conversational interfaces (e.g., OpenAI’s GPT-3.5-turbo, GPT-4, Anthropic’s Claude). While the example below uses LLM, ChatModel is more common for modern conversational AI.\n\nExample: Using OpenAI’s older Completion Model with LangChain\n# Note: For newer models like gpt-3.5-turbo or gpt-4, you would typically use ChatOpenAI\n# from langchain_openai import ChatOpenAI\n# llm = ChatOpenAI(model_name=\"gpt-3.5-turbo\", temperature=0.7)\n# response = llm.invoke(\"Write a motivational quote.\")\n\n# This example uses the older LLM wrapper for text-davinci-003,\n# which is good for demonstrating the basic LLM interface.\nfrom langchain_openai import OpenAI\n\n# Initialize the OpenAI LLM wrapper.\n# model_name: Specifies which LLM to use. \"text-davinci-003\" is an older completion model.\n# temperature: Controls the creativity of the output. 0.0 means more deterministic, higher means more random/creative.\nllm = OpenAI(model_name=\"text-davinci-003\", temperature=0.7)\n\n# Make a call to the LLM with a simple string prompt.\n# For LLM wrappers, the .invoke() method is used for synchronous calls.\nresponse = llm.invoke(\"Write a motivational quote.\")\nprint(response)\n\n\n\n\n\n\nKey Takeaway\n\n\n\n\n\nThe primary advantage here is abstraction. You don’t need to manually construct HTTP requests, handle API keys in headers, or parse raw JSON responses. LangChain’s LLM (or ChatModel) wrapper handles all these underlying complexities, providing a clean Pythonic interface. This means you can seamlessly switch between models and providers (e.g., from OpenAI to Anthropic or HuggingFace) by simply changing the import and the class instantiation, without altering your core application logic.",
+    "crumbs": [
+      "Modules",
+      "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module10.html#example-creating-and-formatting-a-prompttemplate",
+    "href": "Module10.html#example-creating-and-formatting-a-prompttemplate",
+    "title": "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Example: Creating and Formatting a PromptTemplate",
+    "text": "Example: Creating and Formatting a PromptTemplate\n\nPython\nfrom langchain.prompts import PromptTemplate\n\n# Define the template string with a placeholder using curly braces {}.\n# The variable name \"product\" is identified by LangChain.\ntemplate_string = \"What are some marketing strategies for a {product}?\"\n\n# Create a PromptTemplate instance.\n# input_variables: A list of strings corresponding to the placeholders in your template.\n# template: The actual template string.\ntemplate = PromptTemplate(\n    input_variables=[\"product\"],\n    template=template_string\n)\n\nprompt = template.format(product=\"fitness app\")\nprint(prompt)\n\n\n\n\n\n\nNote\n\n\n\n\n\nPromptTemplate does more than just f-strings. It handles multiple input variables, can manage different types of prompts (e.g., ChatPromptTemplate for message-based LLMs), and ensures your prompts are well-structured and reusable across different parts of your application or even different projects.\n\n\n\n\n\nBenefits of PromptTemplate:\n\nReusable and readable\nParameterized with inputs\nEasier to maintain and debug\nVersion Control Friendly",
+    "crumbs": [
+      "Modules",
+      "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module10.html#why-outputparsers",
+    "href": "Module10.html#why-outputparsers",
+    "title": "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Why OutputParsers?",
+    "text": "Why OutputParsers?\nOutputParsers in LangChain are designed precisely for this purpose.\nThey take the raw text output from an LLM and transform it into a desired data structure.\nThis is crucial for: - Integrating LLM outputs into application logic - Storing results in databases - Passing structured data to external services",
+    "crumbs": [
+      "Modules",
+      "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module10.html#example-extracting-json-from-an-llm-response",
+    "href": "Module10.html#example-extracting-json-from-an-llm-response",
+    "title": "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Example: Extracting JSON from an LLM Response",
+    "text": "Example: Extracting JSON from an LLM Response\nThis example demonstrates how to set up an OutputParser to expect a structured JSON response.\n\nKey Insight:\nYou must tell both the OutputParser how to parse, and the LLM what format to output.\nThe format_instructions generated by the parser are vital for guiding the LLM.\n\nfrom langchain.output_parsers import StructuredOutputParser, ResponseSchema\nfrom langchain_openai import OpenAI # For LLM interaction\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain\nimport json # For pretty printing the output\n\n# 1. Define the desired schema for the structured output.\n# Each ResponseSchema defines a key (name) and a description (to guide the LLM).\nresponse_schemas = [\n    ResponseSchema(name=\"headline\", description=\"The main headline of the news article summary\"),\n    ResponseSchema(name=\"summary\", description=\"A concise 2-sentence summary of the news article\"),\n    ResponseSchema(name=\"keywords\", description=\"A comma-separated list of 3-5 keywords related to the article\")\n]\n\n# 2. Create a StructuredOutputParser from the defined schema.\nparser = StructuredOutputParser.from_response_schemas(response_schemas)\n\n# 3. Get the formatting instructions.\n# These instructions tell the LLM exactly how to format its output\n# so that the parser can successfully read it.\nformat_instructions = parser.get_format_instructions()\n\nprint(\"--- Format instructions to insert in your prompt ---\")\nprint(format_instructions)\nprint(\"\\n\" + \"=\"*50 + \"\\n\")\n\n# Now, let's use this with an LLM and PromptTemplate\n\n# News article to summarize\narticle_text = \"\"\"\nRecent studies have confirmed that climate change is accelerating, with global temperatures continuing to rise. Scientists emphasize the urgent need for reducing greenhouse gas emissions. Renewable energy sources are becoming increasingly viable alternatives to fossil fuels. The latest IPCC report highlights the irreversible impacts already in motion and stresses immediate, ambitious action.\n\"\"\"\n\n# Create a PromptTemplate that includes the format instructions\n# It's crucial that the prompt explicitly asks the LLM to adhere to the format.\nprompt_template_string = \"\"\"\nYou are a news summarizer. Summarize the following article and extract key information in JSON format.\n{format_instructions}\nArticle:\n{article}\n\"\"\"\n\nprompt = PromptTemplate(\n    input_variables=[\"article\"],\n    partial_variables={\"format_instructions\": format_instructions}, # Partial variable for fixed instructions\n    template=prompt_template_string\n)\n\n# Initialize the LLM (using a chat model like gpt-3.5-turbo is recommended for structured output)\nllm = OpenAI(temperature=0) # Set temperature to 0 for more deterministic output\n\n# Create an LLMChain to combine the prompt and LLM\nchain = LLMChain(llm=llm, prompt=prompt)\n\n# Run the chain to get the raw text output from the LLM\nllm_raw_output = chain.run(article=article_text)\nprint(\"--- Raw LLM Output (text string) ---\")\nprint(llm_raw_output)\nprint(\"\\n\" + \"=\"*50 + \"\\n\")\n\n# Use the parser to transform the raw text output into a structured dictionary\ntry:\n    parsed_output = parser.parse(llm_raw_output)\n    print(\"--- Parsed Output (Python Dictionary) ---\")\n    print(json.dumps(parsed_output, indent=2))\nexcept Exception as e:\n    print(f\"Error parsing output: {e}\")\n    print(\"The LLM might not have followed the format instructions precisely.\")",
+    "crumbs": [
+      "Modules",
+      "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module10.html#using-all-three-together",
+    "href": "Module10.html#using-all-three-together",
+    "title": "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Using All Three Together",
+    "text": "Using All Three Together\nfrom langchain.llms import OpenAI\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain\n\n# Step 1: Prompt Template\nprompt = PromptTemplate(\n    input_variables=[\"topic\"],\n    template=\"Explain the concept of {topic} in simple terms.\"\n)\n\n# Step 2: LLM\nllm = OpenAI(temperature=0.5)\n\n# Step 3: Chain\nchain = LLMChain(llm=llm, prompt=prompt)\n\n# Run\nresponse = chain.run(\"blockchain\")\nprint(response)",
+    "crumbs": [
+      "Modules",
+      "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module10.html#summary",
+    "href": "Module10.html#summary",
+    "title": "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers",
+    "section": "Summary",
+    "text": "Summary\n\nLLM: Connect to a language model.\nPromptTemplate: Build clean, reusable prompts.\nOutputParser: Convert raw LLM responses into structured data.",
+    "crumbs": [
+      "Modules",
+      "Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers"
+    ]
+  },
+  {
+    "objectID": "Module13.html#overview",
+    "href": "Module13.html#overview",
+    "title": "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging",
+    "section": "",
+    "text": "This module builds upon the basic PromptTemplate usage by exploring advanced concepts like:\n\nPartial templates (pre-filling parts of the prompt)\nNesting templates for modularity\nDebugging prompt formatting issues\n\nThese are essential when building complex pipelines (e.g., RAG, agents), and they enhance prompt reuse, flexibility, and robustness.",
+    "crumbs": [
+      "Modules",
+      "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging"
+    ]
+  },
+  {
+    "objectID": "Module13.html#partial-prompttemplates",
+    "href": "Module13.html#partial-prompttemplates",
+    "title": "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging",
+    "section": "1. Partial PromptTemplates",
+    "text": "1. Partial PromptTemplates\nSometimes a prompt has multiple variables, but you want to pre-fill some of them.\nLangChain allows you to do this with partial().\nfrom langchain.prompts import PromptTemplate\n\n# Define a template with two variables\nbase_template = PromptTemplate(\n    input_variables=[\"product\", \"audience\"],\n    template=\"Give marketing ideas for {product} aimed at {audience}.\"\n)\n\n# Partially fill the 'audience'\npartial_prompt = base_template.partial(audience=\"teenagers\")\n\n# Now you only need to pass 'product'\nfinal_prompt = partial_prompt.format(product=\"fitness tracker\")\nprint(final_prompt)\n\n\n\n\n\n\nNote\n\n\n\nYou can chain multiple .partial() calls or combine with dynamic inputs at runtime.",
+    "crumbs": [
+      "Modules",
+      "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging"
+    ]
+  },
+  {
+    "objectID": "Module13.html#nesting-prompttemplates",
+    "href": "Module13.html#nesting-prompttemplates",
+    "title": "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging",
+    "section": "2. Nesting PromptTemplates",
+    "text": "2. Nesting PromptTemplates\nYou can nest prompt templates inside others to build composable prompts.\nfrom langchain.prompts import PromptTemplate\n\n# Define reusable templates\ninstruction_template = PromptTemplate(\n    input_variables=[\"task\"],\n    template=\"You are a helpful assistant. Please complete the following task: {task}\"\n)\n\ntask_template = PromptTemplate(\n    input_variables=[\"topic\"],\n    template=\"Write a summary about {topic}.\"\n)\n\n# Generate the task first, then embed it in the instruction\nfinal_task = task_template.format(topic=\"climate change\")\nfinal_prompt = instruction_template.format(task=final_task)\nprint(final_prompt)",
+    "crumbs": [
+      "Modules",
+      "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging"
+    ]
+  },
+  {
+    "objectID": "Module13.html#using-f-string-like-templates-without-prompttemplate",
+    "href": "Module13.html#using-f-string-like-templates-without-prompttemplate",
+    "title": "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging",
+    "section": "3. Using f-string-like Templates (without PromptTemplate)",
+    "text": "3. Using f-string-like Templates (without PromptTemplate)\nSometimes, you might not want to use PromptTemplate, especially for quick prototyping.\nproduct = \"AI chatbot\"\naudience = \"teachers\"\n\nprompt = f\"\"\"\nGenerate innovative ideas to market a {product} for {audience}.\nMake it sound professional.\n\"\"\"\n\nprint(prompt)\nBut note: - No validation - No template reuse - Harder to debug\nUse PromptTemplate whenever possible for production-quality prompts.",
+    "crumbs": [
+      "Modules",
+      "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging"
+    ]
+  },
+  {
+    "objectID": "Module13.html#debugging-prompttemplates",
+    "href": "Module13.html#debugging-prompttemplates",
+    "title": "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging",
+    "section": "4. Debugging PromptTemplates",
+    "text": "4. Debugging PromptTemplates\nWhen prompts fail to format correctly or raise runtime errors, use:\n\na. template.format() Errors\nfrom langchain.prompts import PromptTemplate\n\ntemplate = PromptTemplate(\n    input_variables=[\"name\"],\n    template=\"Hello {name}, welcome to {company}.\"\n)\n\n# This will raise a KeyError because 'company' is not provided\n# prompt = template.format(name=\"Nitin\")\nSolution: Add all required inputs or use partial().\n\n\nb. Print intermediate values\nprint(\"Prompt Variables:\", template.input_variables)\nprint(\"Template:\", template.template)\n\n\nc. Validate Inputs\nAlways check variable names in curly braces match what you pass to format() or the chain.",
+    "crumbs": [
+      "Modules",
+      "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging"
+    ]
+  },
+  {
+    "objectID": "Module13.html#prompttemplate-with-partial-chains",
+    "href": "Module13.html#prompttemplate-with-partial-chains",
+    "title": "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging",
+    "section": "5. PromptTemplate with Partial & Chains",
+    "text": "5. PromptTemplate with Partial & Chains\nfrom langchain.prompts import PromptTemplate\nfrom langchain.chains import LLMChain\nfrom langchain_openai import OpenAI\n\nllm = OpenAI()\n\nbase_template = PromptTemplate(\n    input_variables=[\"tool\", \"task\"],\n    template=\"You are using {tool} to {task}. Write a one-line summary.\"\n)\n\npartial_prompt = base_template.partial(tool=\"LangChain\")\nchain = LLMChain(llm=llm, prompt=partial_prompt)\n\nresponse = chain.run(task=\"summarize search results\")\nprint(response)",
+    "crumbs": [
+      "Modules",
+      "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging"
+    ]
+  },
+  {
+    "objectID": "Module13.html#summary",
+    "href": "Module13.html#summary",
+    "title": "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging",
+    "section": "Summary",
+    "text": "Summary\n\n\n\n\n\n\n\nFeature\nDescription\n\n\n\n\npartial()\nPre-fill some prompt variables\n\n\nNested Templates\nUse one template inside another\n\n\nDebugging Tips\nUse .format() carefully, print templates\n\n\nReuse & Maintain\nModular templates = maintainable and scalable code\n\n\n\nThese techniques make prompt engineering scalable and production-ready, especially in RAG, Agent, or multi-component systems.\n\nHands-On Notebook\n  Open in Google Colab",
+    "crumbs": [
+      "Modules",
+      "Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging"
+    ]
+  },
+  {
+    "objectID": "Module5.html#setting-up-your-api-key",
+    "href": "Module5.html#setting-up-your-api-key",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "Setting Up Your API Key",
+    "text": "Setting Up Your API Key\n\nOption 1: Set in code (for quick testing)\nimport openai\n\nopenai.api_key = \"your-api-key-here\"\n\n\nOption 2: Use environment variable (recommended)\n# In terminal\nexport OPENAI_API_KEY=\"your-api-key-here\"\nimport openai\nimport os\n\nopenai.api_key = os.getenv(\"OPENAI_API_KEY\")",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#main-api-function-chatcompletion.create...",
+    "href": "Module5.html#main-api-function-chatcompletion.create...",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "Main API Function: ChatCompletion.create(...)",
+    "text": "Main API Function: ChatCompletion.create(...)\nThis is the most commonly used function now. It supports system, user, and assistant roles.\nresponse = openai.ChatCompletion.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n        {\"role\": \"user\", \"content\": \"What is the capital of France?\"}\n    ]\n)\n\nprint(response[\"choices\"][0][\"message\"][\"content\"])",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#other-useful-apis",
+    "href": "Module5.html#other-useful-apis",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "Other Useful APIs",
+    "text": "Other Useful APIs\n\n1. openai.Image.create(...) — Image Generation (DALL·E)\nresponse = openai.Image.create(\n    prompt=\"A medieval castle on top of a mountain, fantasy style\",\n    n=1,\n    size=\"512x512\"\n)\n\nimage_url = response['data'][0]['url']\nprint(image_url)\n\n\n\n2. openai.Audio.transcribe(...) — Transcription (Whisper)\naudio_file = open(\"sample_audio.mp3\", \"rb\")\n\ntranscript = openai.Audio.transcribe(\n    model=\"whisper-1\",\n    file=audio_file\n)\n\nprint(transcript[\"text\"])\n\n\n\n3. openai.Embedding.create(...) — Embeddings\nembedding_response = openai.Embedding.create(\n    input=\"What is machine learning?\",\n    model=\"text-embedding-ada-002\"\n)\n\nprint(embedding_response[\"data\"][0][\"embedding\"])",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#api-overview-table",
+    "href": "Module5.html#api-overview-table",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "API Overview Table",
+    "text": "API Overview Table\n\n\n\n\n\n\n\n\nTask\nFunction\nModel\n\n\n\n\nChatbot\nChatCompletion.create\ngpt-3.5-turbo or gpt-4\n\n\nImage generation\nImage.create\nDALL·E\n\n\nAudio transcription\nAudio.transcribe\nWhisper\n\n\nText embeddings\nEmbedding.create\ntext-embedding-ada-002",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module5.html#available-functionalities-in-openai1.0.0",
+    "href": "Module5.html#available-functionalities-in-openai1.0.0",
+    "title": "Module 5: Getting Started with OpenAI API",
+    "section": "Available Functionalities in openai>=1.0.0",
+    "text": "Available Functionalities in openai&gt;=1.0.0\n\n1. Chat Completion\nresponse = client.chat.completions.create(\n    model=\"gpt-3.5-turbo\",\n    messages=[\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n        {\"role\": \"user\", \"content\": \"Explain photosynthesis in simple words.\"}\n    ]\n)\nprint(response.choices[0].message.content)\n\n\n\n2. Image Generation\nresponse = client.images.generate(\n    model=\"dall-e-3\",\n    prompt=\"A futuristic city floating in the sky\",\n    size=\"1024x1024\",\n    quality=\"standard\",\n    n=1\n)\nimage_url = response.data[0].url\nprint(image_url)\n\n\n\n3. Embeddings\nresponse = client.embeddings.create(\n    input=\"Machine learning is fun.\",\n    model=\"text-embedding-ada-002\"\n)\nprint(response.data[0].embedding)\n\n\n\n4. Audio Transcription (Whisper)\nwith open(\"speech.mp3\", \"rb\") as audio_file:\n    transcript = client.audio.transcriptions.create(\n        model=\"whisper-1\",\n        file=audio_file\n    )\nprint(transcript.text)",
+    "crumbs": [
+      "Modules",
+      "Module 5: Getting Started with OpenAI API"
+    ]
+  },
+  {
+    "objectID": "Module6.html#next-up-prompt-response-tuning-temperature-top_p-stop-n-etc.",
+    "href": "Module6.html#next-up-prompt-response-tuning-temperature-top_p-stop-n-etc.",
+    "title": "Module 6: Hands-on with OpenAI API",
+    "section": "⏭️ Next Up: Prompt Response Tuning (temperature, top_p, stop, n, etc.)",
+    "text": "⏭️ Next Up: Prompt Response Tuning (temperature, top_p, stop, n, etc.)",
+    "crumbs": [
+      "Modules",
+      "Module 6: Hands-on with OpenAI API"
     ]
   }
 ]

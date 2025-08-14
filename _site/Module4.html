@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 3: Applications of Prompt Engineering – Prompt Engineering</title>
+<title>Module 4: Introduction to LLM Platforms – Prompt Engineering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module3.html">Module 3: Applications of Prompt Engineering</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module4.html">Module 4: Introduction to LLM Platforms</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -134,26 +134,68 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Module3.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Module3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Module 3: Applications of Prompt Engineering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Module4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 5: Introduction to LLM Platforms</span></a>
+  <a href="./Module4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Module 4: Introduction to LLM Platforms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Module5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 6: Getting Started with OpenAI API</span></a>
+ <span class="menu-text">Module 5: Getting Started with OpenAI API</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 6: Hands-on with OpenAI API</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Module7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 11: Prompt Templates in LangChain</span></a>
+ <span class="menu-text">Module 7: Working with Text Completion in OpenAI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 8: Evaluating Prompt Quality and Output Reliability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 9: Introduction to LangChain</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 10: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 11: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 12: LangChain Memory – Making LLMs Remember Context</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 13: PromptTemplates in Depth – Partial Templates, Nesting, Debugging</span></a>
   </div>
 </li>
       </ul>
@@ -168,17 +210,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#text-summarization" id="toc-text-summarization" class="nav-link" data-scroll-target="#text-summarization">1. Text Summarization</a></li>
+  <li><a href="#what-are-llm-platforms" id="toc-what-are-llm-platforms" class="nav-link active" data-scroll-target="#what-are-llm-platforms">What are LLM Platforms?</a>
+  <ul class="collapse">
+  <li><a href="#popular-llm-providers" id="toc-popular-llm-providers" class="nav-link" data-scroll-target="#popular-llm-providers">Popular LLM Providers</a></li>
+  <li><a href="#why-use-these-platforms" id="toc-why-use-these-platforms" class="nav-link" data-scroll-target="#why-use-these-platforms">Why Use These Platforms?</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">✅ Summary</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module3.html">Module 3: Applications of Prompt Engineering</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module4.html">Module 4: Introduction to LLM Platforms</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Module 3: Applications of Prompt Engineering</h1>
+<h1 class="title">Module 4: Introduction to LLM Platforms</h1>
 </div>
 
 
@@ -195,26 +241,139 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>In this module, we will explore how prompt engineering can help us perform real-world tasks using language models. You will see how the same model can be used for many different applications just by changing the <strong>prompt</strong>.</p>
-<p>We’ll cover:</p>
+<hr>
+<section id="what-are-llm-platforms" class="level1">
+<h1>What are LLM Platforms?</h1>
+<p>LLM platforms provide access to powerful AI models that understand and generate human-like text, code, images, and more. These platforms usually offer:</p>
 <ul>
-<li>✅ Text Summarization</li>
-<li>✅ Text Classification (like Sentiment Analysis)</li>
-<li>✅ Question Answering (QA)</li>
-<li>✅ Translation</li>
-<li>✅ Grammar Correction</li>
+<li>Pre-trained models (e.g., GPT, Claude, Gemini, Mistral)</li>
+<li>Easy-to-use APIs</li>
+<li>Cloud-based access (no training needed)</li>
 </ul>
-<p>Each section has: - a simple explanation - a good prompt example - and a code example using Hugging Face’s GPT-2 pipeline.</p>
+<hr>
+<section id="popular-llm-providers" class="level2">
+<h2 class="anchored" data-anchor-id="popular-llm-providers">Popular LLM Providers</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 25%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Focus</th>
+<th>Strengths</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>OpenAI</strong></td>
+<td>General-purpose LLMs (GPT-3.5, GPT-4)</td>
+<td>Chat, code, summarization</td>
+</tr>
+<tr class="even">
+<td><strong>Anthropic</strong></td>
+<td>Safer, explainable models (Claude)</td>
+<td>Long context, safety</td>
+</tr>
+<tr class="odd">
+<td><strong>Google AI (Gemini)</strong></td>
+<td>Integrated with Google tools</td>
+<td>Strong in reasoning, multilingual</td>
+</tr>
+<tr class="even">
+<td><strong>Mistral</strong></td>
+<td>Open-source lightweight models</td>
+<td>Efficient, fast</td>
+</tr>
+<tr class="odd">
+<td><strong>Cohere</strong></td>
+<td>NLP + RAG friendly APIs</td>
+<td>Focused on enterprise use</td>
+</tr>
+<tr class="even">
+<td><strong>Hugging Face</strong></td>
+<td>Open-source model hub</td>
+<td>Community, fine-tuning support</td>
+</tr>
+<tr class="odd">
+<td><strong>Azure AI</strong></td>
+<td>Enterprise OpenAI hosting</td>
+<td>Scalable, secure</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </section>
-<section id="text-summarization" class="level2">
-<h2 class="anchored" data-anchor-id="text-summarization">1. Text Summarization</h2>
-<p><strong>Goal</strong>: Reduce a long paragraph into a short and simple summary.</p>
-<section id="prompt-example" class="level3">
-<h3 class="anchored" data-anchor-id="prompt-example">Prompt Example</h3>
-<p>Summarize this paragraph in one line: “Artificial Intelligence is used in many fields such as healthcare, finance, and education to automate processes and improve efficiency.”</p>
+<section id="why-use-these-platforms" class="level2">
+<h2 class="anchored" data-anchor-id="why-use-these-platforms">Why Use These Platforms?</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Benefit</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intelligence-as-a-Service</td>
+<td>No need to train from scratch — just use API</td>
+</tr>
+<tr class="even">
+<td>Plug-and-play APIs</td>
+<td>Easy integration with apps, websites, and bots</td>
+</tr>
+<tr class="odd">
+<td>Multitask Capabilities</td>
+<td>One model can do Q&amp;A, summarization, translation, etc.</td>
+</tr>
+<tr class="even">
+<td>Continuous Updates</td>
+<td>Models improve automatically in the cloud</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>LLM-related skills are in <strong>high demand</strong> globally:</li>
+<li>Prompt Engineering</li>
+<li>LangChain / RAG apps</li>
+<li>OpenAI/Gemini APIs</li>
+<li>LLM app integration (chatbots, agents)</li>
+</ul>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">✅ Summary</h2>
+<ul>
+<li>LLM platforms give access to powerful AI models through easy APIs.</li>
+<li>They are used in almost every modern industry.</li>
+<li>Learning to work with them opens many career and product-building opportunities.</li>
+</ul>
+<hr>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem;">
+<p><a href="Module3.html/" style="text-decoration: none;"> <button style="
+      padding: 10px 20px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;"> ⬅️ Module 3 </button> </a></p>
+<p><a href="Module7.html" style="text-decoration: none;"> <button style="
+      padding: 10px 20px;
+      background-color: #10b981;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;"> Module 5 ➡️ </button> </a></p>
+</div>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Module 3: Applications of Prompt Engineering – Prompt Engineering</title>
+<title>Module 14: LangChain Memory – Making LLMs Remember Context – Prompt Engineering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -80,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module3.html">Module 3: Applications of Prompt Engineering</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module14.html">Module 14: LangChain Memory – Making LLMs Remember Context</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -134,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Module3.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Module3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Module 3: Applications of Prompt Engineering</span></a>
   </div>
 </li>
@@ -152,8 +187,44 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Module6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 6: Hands-on with OpenAI API</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Module7.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Module 11: Prompt Templates in LangChain</span></a>
+ <span class="menu-text">Module 8: Working with Text Completion in OpenAI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 10: Evaluating Prompt Quality and Output Reliability</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 11: Introduction to LangChain</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 12: Core Components of LangChain – LLMs, PromptTemplates, OutputParsers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 13: LangChain Chains – Sequential, SimpleSequentialChain, RouterChain</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Module14.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Module 14: LangChain Memory – Making LLMs Remember Context</span></a>
   </div>
 </li>
       </ul>
@@ -168,17 +239,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#text-summarization" id="toc-text-summarization" class="nav-link" data-scroll-target="#text-summarization">1. Text Summarization</a></li>
+  <li><a href="#what-is-memory" id="toc-what-is-memory" class="nav-link active" data-scroll-target="#what-is-memory">What is Memory?</a></li>
+  <li><a href="#types-of-memory-in-langchain" id="toc-types-of-memory-in-langchain" class="nav-link" data-scroll-target="#types-of-memory-in-langchain">Types of Memory in LangChain</a></li>
+  <li><a href="#adding-memory-to-chains" id="toc-adding-memory-to-chains" class="nav-link" data-scroll-target="#adding-memory-to-chains">Adding Memory to Chains</a></li>
+  <li><a href="#customizing-memory" id="toc-customizing-memory" class="nav-link" data-scroll-target="#customizing-memory">Customizing Memory</a></li>
+  <li><a href="#full-stateful-chat-example" id="toc-full-stateful-chat-example" class="nav-link" data-scroll-target="#full-stateful-chat-example">Full Stateful Chat Example</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module3.html">Module 3: Applications of Prompt Engineering</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Module1.html">Modules</a></li><li class="breadcrumb-item"><a href="./Module14.html">Module 14: LangChain Memory – Making LLMs Remember Context</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Module 3: Applications of Prompt Engineering</h1>
+<h1 class="title">Module 14: LangChain Memory – Making LLMs Remember Context</h1>
 </div>
 
 
@@ -195,29 +269,151 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>In this module, we will explore how prompt engineering can help us perform real-world tasks using language models. You will see how the same model can be used for many different applications just by changing the <strong>prompt</strong>.</p>
-<p>We’ll cover:</p>
+<p>In real-world applications, like chatbots and assistants, we often want the system to remember past conversations. This is where <strong>LangChain Memory</strong> comes into play.</p>
+<hr>
+<section id="what-is-memory" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-memory">What is Memory?</h2>
+<p>By default, LLMs are stateless. This means:</p>
 <ul>
-<li>✅ Text Summarization</li>
-<li>✅ Text Classification (like Sentiment Analysis)</li>
-<li>✅ Question Answering (QA)</li>
-<li>✅ Translation</li>
-<li>✅ Grammar Correction</li>
+<li>They don’t remember anything from earlier user inputs.</li>
+<li>Each call to the LLM is treated like a blank slate.</li>
 </ul>
-<p>Each section has: - a simple explanation - a good prompt example - and a code example using Hugging Face’s GPT-2 pipeline.</p>
+<p>Memory allows us to <strong>maintain context</strong> between multiple inputs.</p>
 <hr>
 </section>
-<section id="text-summarization" class="level2">
-<h2 class="anchored" data-anchor-id="text-summarization">1. Text Summarization</h2>
-<p><strong>Goal</strong>: Reduce a long paragraph into a short and simple summary.</p>
-<section id="prompt-example" class="level3">
-<h3 class="anchored" data-anchor-id="prompt-example">Prompt Example</h3>
-<p>Summarize this paragraph in one line: “Artificial Intelligence is used in many fields such as healthcare, finance, and education to automate processes and improve efficiency.”</p>
-
-
+<section id="types-of-memory-in-langchain" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-memory-in-langchain">Types of Memory in LangChain</h2>
+<p>LangChain provides several built-in memory classes for different use-cases.</p>
+<section id="conversationbuffermemory" class="level3">
+<h3 class="anchored" data-anchor-id="conversationbuffermemory">1. <code>ConversationBufferMemory</code></h3>
+<p>Stores the entire conversation in memory as a buffer (long text history). Best for simple dialogs.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.memory <span class="im">import</span> ConversationBufferMemory</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>memory <span class="op">=</span> ConversationBufferMemory()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="conversationbufferwindowmemory" class="level3">
+<h3 class="anchored" data-anchor-id="conversationbufferwindowmemory">2. <code>ConversationBufferWindowMemory</code></h3>
+<p>Same as buffer memory but only keeps the <strong>last <code>k</code> messages</strong>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.memory <span class="im">import</span> ConversationBufferWindowMemory</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>memory <span class="op">=</span> ConversationBufferWindowMemory(k<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conversationsummarymemory" class="level3">
+<h3 class="anchored" data-anchor-id="conversationsummarymemory">3. <code>ConversationSummaryMemory</code></h3>
+<p>Summarizes the conversation so far to save tokens.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chat_models <span class="im">import</span> ChatOpenAI</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.memory <span class="im">import</span> ConversationSummaryMemory</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOpenAI()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>memory <span class="op">=</span> ConversationSummaryMemory(llm<span class="op">=</span>llm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="entitymemory" class="level3">
+<h3 class="anchored" data-anchor-id="entitymemory">4. <code>EntityMemory</code></h3>
+<p>Tracks information about entities (like names, places) throughout the conversation.</p>
+<hr>
+</section>
+</section>
+<section id="adding-memory-to-chains" class="level2">
+<h2 class="anchored" data-anchor-id="adding-memory-to-chains">Adding Memory to Chains</h2>
+<p>You can add memory to any chain. Most commonly used with <code>ConversationChain</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chains <span class="im">import</span> ConversationChain</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chat_models <span class="im">import</span> ChatOpenAI</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.memory <span class="im">import</span> ConversationBufferMemory</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOpenAI()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>memory <span class="op">=</span> ConversationBufferMemory()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>conversation <span class="op">=</span> ConversationChain(llm<span class="op">=</span>llm, memory<span class="op">=</span>memory)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> conversation.run(<span class="st">"Hello, my name is Nitin."</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> conversation.run(<span class="st">"What is my name?"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response)  <span class="co"># Should recall 'Nitin'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="customizing-memory" class="level2">
+<h2 class="anchored" data-anchor-id="customizing-memory">Customizing Memory</h2>
+<p>You can customize memory parameters:</p>
+<ul>
+<li><code>k</code> in buffer window memory (controls how many turns to remember)</li>
+<li>LLM model for summarization in summary memory</li>
+<li>Prefix/suffix prompts for memory formatting</li>
+</ul>
+<hr>
+</section>
+<section id="full-stateful-chat-example" class="level2">
+<h2 class="anchored" data-anchor-id="full-stateful-chat-example">Full Stateful Chat Example</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chains <span class="im">import</span> ConversationChain</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.chat_models <span class="im">import</span> ChatOpenAI</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.memory <span class="im">import</span> ConversationBufferWindowMemory</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOpenAI()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>memory <span class="op">=</span> ConversationBufferWindowMemory(k<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>conversation <span class="op">=</span> ConversationChain(</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    llm<span class="op">=</span>llm,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    memory<span class="op">=</span>memory,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    verbose<span class="op">=</span><span class="va">True</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>conversation.run(<span class="st">"Hi, I'm Anjali."</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>conversation.run(<span class="st">"I live in Delhi."</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>conversation.run(<span class="st">"Where do I live?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Recommended Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Simple chatbot</td>
+<td>ConversationBufferMemory</td>
+</tr>
+<tr class="even">
+<td>Long conversation</td>
+<td>ConversationSummaryMemory</td>
+</tr>
+<tr class="odd">
+<td>Entity-aware dialog</td>
+<td>EntityMemory</td>
+</tr>
+<tr class="even">
+<td>Limited token budget</td>
+<td>Summary or Window Memory</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Memory is essential when building applications that require <strong>context awareness</strong>, like chatbots, customer support agents, or tutors.</p>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

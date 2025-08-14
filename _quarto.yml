@@ -13,7 +13,16 @@ website:
           - Module1.qmd
           - Module2.qmd
           - Module3.qmd
+          - Module4.qmd
+          - Module5.qmd
+          - Module6.qmd
           - Module7.qmd
+          - Module8.qmd
+          - Module9.qmd
+          - Module10.qmd
+          - Module11.qmd
+          - Module12.qmd
+          - Module13.qmd
   
 format:
   html:
